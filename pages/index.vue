@@ -5,11 +5,13 @@
     <div class="head_bar" :class="sticky_on && 'head_bar_down'">
       <div class="head_bar_frame">
         <div class="head_logo" :class="sticky_on && 'head_logo_down'"/>
-
-        <div class="head_route">
+        <div class="head_route" v-if="full_width >= 490">
           <Button>首页</Button>
           <Button>介绍</Button>
           <Button>作品</Button>
+        </div>
+        <div class="head_route_m" v-else>
+          <i class="iconfont icon-more"/>
         </div>
       </div>
     </div>
@@ -19,9 +21,9 @@
       <!-- 第一页 -->
       <div class="content_frame">
         <div class="content_context">
-          <div style="display: flex;justify-content: center;align-items: center;flex: 1">
-            <i class="iconfont icon-more" />
-          </div>
+<!--          <div style="display: flex;justify-content: center;align-items: center;flex: 1">-->
+<!--            <i class="iconfont icon-more"/>-->
+<!--          </div>-->
           <div>
             <div class="slogan">
               <Slogan>你的气质里</Slogan>
@@ -29,7 +31,7 @@
               <Slogan>读过的书和爱过的人</Slogan>
             </div>
             <div class="arrow">
-              <i class="iconfont icon-down" />
+              <i class="iconfont icon-down"/>
             </div>
           </div>
         </div>
@@ -41,6 +43,9 @@
       <div class="content_frame" style="background-color: #ff4c10">
         12323
       </div>
+      <div class="content_frame" style="background-color: #10f3ff">
+        12323w
+      </div>
     </div>
 
   </div>
@@ -48,12 +53,14 @@
 
 <script>
 import Button from "~/components/Button";
+
 export default {
   components: {Button},
   data() {
     return {
       sticky_on: false,
-      full_height: 0
+      full_height: 0,
+      full_width: 0
     }
   },
   methods: {
@@ -63,6 +70,8 @@ export default {
   },
   mounted() {
     this.full_height = window.innerHeight;
+    this.full_width = window.innerWidth;
+    // console.log('----------', window.innerWidth)
   },
   created() {
 
@@ -104,6 +113,7 @@ export default {
 .head_bar_frame {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 100%;
   width: 1200px;
   /*background-color: #10ff28;*/
@@ -126,6 +136,22 @@ export default {
   display: flex;
   align-items: center;
   height: 100%;
+}
+
+.head_route_m {
+  display: flex;
+  height: 50px;
+  width: 50px;
+  margin-right: 5px;
+  justify-content: center;
+  align-items: center;
+  /*background-color: #3b8070;*/
+  border-radius: 400px;
+}
+
+.head_route_m > i {
+  font-size: 24px;
+  /*padding: 0 20px;*/
 }
 
 .content {
@@ -151,7 +177,7 @@ export default {
 }
 
 .slogan {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   color: white;
 }
 
@@ -159,12 +185,37 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 40px;
+  height: 45px;
   margin-bottom: 0;
   color: white;
 }
-.arrow > i{
-  font-size: 32px;
+
+.arrow > i {
+  font-size: 34px;
+  padding: 0 10px;
+  animation: 3s arrow infinite
+}
+.arrow > i:hover {
+  cursor: pointer;
+  animation: none;
+  /*animation-play-state: paused;*/
 }
 
+
+
+
+@keyframes arrow {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(-14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
