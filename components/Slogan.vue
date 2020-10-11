@@ -9,9 +9,10 @@
   display: flex;
   justify-content: flex-start;
   animation: 2s appear;
-  margin: 6px 10px;
+  margin: 6px 15px;
   font-size: 28px;
   font-weight: bold;
+  /*background-color: #803b58;*/
   /*text-shadow: 1px 1px 2px #a8a8a8;*/
 }
 

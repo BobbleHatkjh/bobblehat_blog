@@ -1,4 +1,10 @@
 {
+  "Button": {
+    "description": "Auto imported from components/Button.vue"
+  },
+  "LazyButton": {
+    "description": "Auto imported from components/Button.vue"
+  },
   "Slogan": {
     "description": "Auto imported from components/Slogan.vue"
   },

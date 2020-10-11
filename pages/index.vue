@@ -7,17 +7,21 @@
         <div class="head_logo" :class="sticky_on && 'head_logo_down'"/>
 
         <div class="head_route">
-          <div class="head_button_frame">首页</div>
-          <div class="head_button_frame">介绍</div>
-          <div class="head_button_frame">作品</div>
+          <Button>首页</Button>
+          <Button>介绍</Button>
+          <Button>作品</Button>
         </div>
       </div>
     </div>
 
     <div class="content">
+
+      <!-- 第一页 -->
       <div class="content_frame">
         <div class="content_context">
-
+          <div style="display: flex;justify-content: center;align-items: center;flex: 1">
+            <i class="iconfont icon-more" />
+          </div>
           <div>
             <div class="slogan">
               <Slogan>你的气质里</Slogan>
@@ -25,11 +29,12 @@
               <Slogan>读过的书和爱过的人</Slogan>
             </div>
             <div class="arrow">
-              123
+              <i class="iconfont icon-down" />
             </div>
           </div>
         </div>
       </div>
+
       <div class="content_frame" style="background-color: white">
         123gdf
       </div>
@@ -42,7 +47,9 @@
 </template>
 
 <script>
+import Button from "~/components/Button";
 export default {
+  components: {Button},
   data() {
     return {
       sticky_on: false,
@@ -121,27 +128,6 @@ export default {
   height: 100%;
 }
 
-.head_button_frame {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  margin: 0 5px;
-  padding: 0 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  background-size: 0 100%;
-  transition: background-color 0.2s;
-}
-
-.head_button_frame:hover {
-  cursor: pointer;
-  color: white;
-  background-color: #ff4c10;
-}
-
-
 .content {
   height: 100vh;
   width: 100%;
@@ -176,7 +162,9 @@ export default {
   height: 40px;
   margin-bottom: 0;
   color: white;
-  /*background-color: red;*/
+}
+.arrow > i{
+  font-size: 32px;
 }
 
 </style>
