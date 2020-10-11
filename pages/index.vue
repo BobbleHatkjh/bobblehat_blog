@@ -10,11 +10,18 @@
           <Button>介绍</Button>
           <Button>作品</Button>
         </div>
-        <div class="head_route_m" v-else>
+        <div class="head_route_m" v-else @click="sidebar = !sidebar">
           <i class="iconfont icon-more"/>
         </div>
       </div>
     </div>
+
+    <SideBar v-if="sidebar" @back="sidebar = !sidebar">
+      123
+    </SideBar>
+
+
+
 
     <div class="content">
 
@@ -53,14 +60,16 @@
 
 <script>
 import Button from "~/components/Button";
+import SideBar from "~/components/SideBar";
 
 export default {
-  components: {Button},
+  components: {SideBar, Button},
   data() {
     return {
       sticky_on: false,
       full_height: 0,
-      full_width: 0
+      full_width: 0,
+      sidebar: false,
     }
   },
   methods: {
@@ -100,7 +109,7 @@ export default {
   justify-content: center;
   transition: background-color 0.5s, color 0.5s;
   background-color: transparent;
-  z-index: 99;
+  z-index: 90;
   color: white;
 }
 
@@ -153,6 +162,12 @@ export default {
   font-size: 24px;
   /*padding: 0 20px;*/
 }
+
+
+
+
+
+
 
 .content {
   height: 100vh;

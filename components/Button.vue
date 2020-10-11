@@ -20,7 +20,4 @@
   background: url('~assets/button_bac.png') no-repeat left/100% 100%;
 }
 
-@keyframes appear {
-
-}
 </style>

@@ -5,6 +5,12 @@
   "LazyButton": {
     "description": "Auto imported from components/Button.vue"
   },
+  "SideBar": {
+    "description": "Auto imported from components/SideBar.vue"
+  },
+  "LazySideBar": {
+    "description": "Auto imported from components/SideBar.vue"
+  },
   "Slogan": {
     "description": "Auto imported from components/Slogan.vue"
   },
