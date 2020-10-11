@@ -1,3 +1,3 @@
-export { default as Logo } from '../../components/Logo.vue'
+export { default as Slogan } from '../../components/Slogan.vue'
 
-export const LazyLogo = import('../../components/Logo.vue' /* webpackChunkName: "components/Logo" */).then(c => c.default || c)
+export const LazySlogan = import('../../components/Slogan.vue' /* webpackChunkName: "components/Slogan" */).then(c => c.default || c)

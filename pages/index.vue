@@ -18,17 +18,22 @@
       <div class="content_frame">
         <div class="content_context">
 
-          <div class="slogan">
-            <h1>如今你的气质里</h1>
-            <h1>藏着你走过的路</h1>
-            <h1>读过的书和爱过的人</h1>
+          <div>
+            <div class="slogan">
+              <Slogan>你的气质里</Slogan>
+              <Slogan>藏着你走过的路</Slogan>
+              <Slogan>读过的书和爱过的人</Slogan>
+            </div>
+            <div class="arrow">
+              123
+            </div>
           </div>
         </div>
       </div>
       <div class="content_frame" style="background-color: white">
         123gdf
       </div>
-      <div class="content_frame" style="background-color: blue">
+      <div class="content_frame" style="background-color: #ff4c10">
         12323
       </div>
     </div>
@@ -65,7 +70,8 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('../assets/forest_animate_g.webp') no-repeat center center/cover fixed;
+  background-color: #c2c2c2;
+  background: url('~assets/forest_animate_g.webp') no-repeat center center/cover fixed;
   /*background: url('../assets/forest_animate.jpg') no-repeat center center/cover fixed;*/
 }
 
@@ -81,13 +87,14 @@ export default {
   z-index: 99;
   color: white;
 }
+
 .head_bar_down {
   background-color: white;
   box-shadow: 0 0 10px #c4c4c4;
   color: #505050;
 }
 
-.head_bar_frame{
+.head_bar_frame {
   display: flex;
   justify-content: space-between;
   height: 100%;
@@ -95,22 +102,26 @@ export default {
   /*background-color: #10ff28;*/
   /*background-color: #ff4c10;*/
 }
-.head_logo{
+
+.head_logo {
   height: 100%;
   width: 230px;
   transition: background 0.5s;
-  background: url('../assets/logo_white.png') no-repeat left/auto 100%;
+  background: url('~assets/logo_white.png') no-repeat left/auto 100%;
   background-size: auto 100%;
 }
-.head_logo_down{
-  background: url('../assets/logo_orange.png') no-repeat left/auto 100%;
+
+.head_logo_down {
+  background: url('~assets/logo_orange.png') no-repeat left/auto 100%;
 }
-.head_route{
+
+.head_route {
   display: flex;
   align-items: center;
   height: 100%;
 }
-.head_button_frame{
+
+.head_button_frame {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,35 +134,47 @@ export default {
   background-size: 0 100%;
   transition: background-color 0.2s;
 }
-.head_button_frame:hover{
+
+.head_button_frame:hover {
   cursor: pointer;
   color: white;
   background-color: #ff4c10;
 }
 
 
-
-
 .content {
   height: 100vh;
+  width: 100%;
   overflow: scroll;
 }
 
 .content_frame {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
-.content_context{
+
+.content_context {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   height: 100%;
   width: 1200px;
   /*background-color: #3b8070;*/
 }
-.slogan{
-  float: left;
-  margin: auto auto 80px 0;
+
+.slogan {
+  margin-bottom: 40px;
+  color: white;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 0;
   color: white;
   /*background-color: red;*/
 }
