@@ -5,6 +5,18 @@
   "LazyButton": {
     "description": "Auto imported from components/Button.vue"
   },
+  "ContentFrame": {
+    "description": "Auto imported from components/ContentFrame.vue"
+  },
+  "LazyContentFrame": {
+    "description": "Auto imported from components/ContentFrame.vue"
+  },
+  "Receive": {
+    "description": "Auto imported from components/Receive.vue"
+  },
+  "LazyReceive": {
+    "description": "Auto imported from components/Receive.vue"
+  },
   "SideBar": {
     "description": "Auto imported from components/SideBar.vue"
   },
