@@ -39,22 +39,43 @@
         </div>
       </ContentFrame>
 
-      <ContentFrame background="white" height="1600px">
+      <ContentFrame background="white" height="2400px">
         <div class="scroll_word">
-          123
+
+          <div class="scroll_content">
+            <div class="scroll_title">VTB Music</div>
+            <div>
+              123213213313
+            </div>
+          </div>
+
+          <div class="scroll_content">
+            <div class="scroll_title">B-Library</div>
+            <div>
+              12321sadasc13
+            </div>
+          </div>
+
+          <div class="scroll_content">
+            <div class="scroll_title">123</div>
+            <div>
+              12321sadasc13
+            </div>
+          </div>
+
         </div>
         <div class="scroll_frame">
           <div class="scroll_box">
-            234
+            <img src="~assets/img/forest_animate_g.webp" alt/>
           </div>
         </div>
       </ContentFrame>
 
-      <ContentFrame background="#e3e3e3" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
+      <ContentFrame background="#eaeaea" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="content_title">
           作品
         </div>
-        <Receive :data="receive"/>
+        <Receive :data="receive" :column="full_width >= 520 ? 3 : 1"/>
       </ContentFrame>
 
       <ContentFrame background="#ff4c10">
@@ -71,7 +92,7 @@
 </template>
 
 <script>
-import img_t from '../assets/forest_animate_g.webp'
+import img_t from '../assets/img/forest_animate_g.webp'
 
 export default {
   components: {
@@ -137,7 +158,7 @@ export default {
   align-items: center;
   text-align: center;
   background-color: #c2c2c2;
-  background: url('~assets/forest_animate_g.webp') no-repeat center center/cover fixed;
+  background: url('~assets/img/forest_animate_g.webp') no-repeat center center/cover fixed;
 }
 
 .head_bar {
@@ -172,12 +193,12 @@ export default {
   height: 100%;
   width: 230px;
   transition: background 0.5s;
-  background: url('~assets/logo_white.png') no-repeat left/auto 100%;
+  background: url('~assets/img/logo_white.png') no-repeat left/auto 100%;
   background-size: auto 100%;
 }
 
 .head_logo_down {
-  background: url('~assets/logo_orange.png') no-repeat left/auto 100%;
+  background: url('~assets/img/logo_orange.png') no-repeat left/auto 100%;
 }
 
 .head_route {
@@ -212,7 +233,7 @@ export default {
   justify-content: center;
   height: 100px;
   width: 100%;
-  background-color: #803b62;
+  background-color: #df1a8a;
 }
 
 .slogan {
@@ -244,7 +265,25 @@ export default {
 .scroll_word {
   height: 100%;
   width: 340px;
-  background-color: #803b62;
+  padding: 100px 20px;
+}
+.scroll_content{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 550px;
+  width: 100%;
+  padding-top: 70px;
+  /*background-color: #ff4c10;*/
+  color: #424242;
+}
+.scroll_title{
+  height: 45px;
+  font-size: 32px;
+  font-weight: bolder;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #ff4c10;
 }
 
 .scroll_frame {
@@ -261,7 +300,13 @@ export default {
   height: 70vh;
   width: 100%;
   border-radius: 10px;
-  background-color: #3b8070;
+  box-shadow: 0 0 20px #c6c6c6;
+  overflow: hidden;
+}
+.scroll_box > img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 

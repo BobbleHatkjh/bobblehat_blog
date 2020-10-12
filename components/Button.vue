@@ -11,13 +11,13 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0 5px;
-  background: url('~assets/button_bac.png') no-repeat left/0 100%;
+  background: url('~assets/img/button_bac.png') no-repeat left/0 100%;
   transition: background 0.2s;
 }
 .animate_button:hover{
   cursor: pointer;
   color: white;
-  background: url('~assets/button_bac.png') no-repeat left/100% 100%;
+  background: url('~assets/img/button_bac.png') no-repeat left/100% 100%;
 }
 
 </style>

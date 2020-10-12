@@ -42,7 +42,6 @@ export default {
   },
   created() {
     this.initData(this.data)
-    // console.log('-------', this.data)
   }
 }
 </script>
