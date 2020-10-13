@@ -7,19 +7,19 @@
 <style>
 .NuxtLogo {
   display: flex;
-  justify-content: flex-start;
-  animation: 2s appear;
+  justify-content: center;
+  animation: 2s appear ease;
   margin: 6px 20px;
   font-size: 28px;
   font-weight: bold;
-  /*background-color: #803b58;*/
-  /*text-shadow: 1px 1px 2px #a8a8a8;*/
 }
 
 @keyframes appear {
   0% {
     opacity: 0;
-    transform: translateX(-80px);
+    /*margin-top: 80px;*/
+
+    transform: translateY(90px);
   }
 }
 </style>

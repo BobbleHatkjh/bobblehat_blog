@@ -6,7 +6,7 @@
           <img :src="single_data.img" alt/>
         </div>
         <div>
-          {{single_data.title}}
+          {{ single_data.title }}
         </div>
       </div>
     </div>
@@ -27,7 +27,6 @@ export default {
       type: Number,
       default: 3
     }
-
   },
   data(){
     return{
@@ -38,7 +37,7 @@ export default {
     initData(resource) {
       this.receive_data.push(resource.splice(0, this.column));
       resource.length !== 0 && this.initData(resource)
-    },
+    }
   },
   created() {
     this.initData(this.data)

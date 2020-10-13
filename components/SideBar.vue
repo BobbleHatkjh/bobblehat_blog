@@ -34,7 +34,7 @@ export default {
 <style>
 
 .sidebar_bac {
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: flex-end;
   right: 0;
