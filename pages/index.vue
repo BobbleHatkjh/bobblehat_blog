@@ -35,7 +35,6 @@
             <Slogan>爱过的人</Slogan>
           </div>
         </div>
-
         <div class="arrow">
           <i class="iconfont icon-down"/>
         </div>
@@ -52,6 +51,7 @@
               intelligent code completion, dead code detection, and documentation hints help all Go developers, from
               newbies to experienced professionals, to create fast, efficient, and reliable code
             </div>
+            <Button :scroll="true" icon="go">想去看看</Button>
           </div>
 
           <div class="scroll_content"
@@ -62,26 +62,25 @@
               undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
               from newbies to experienced professionals, to create fast, efficient, and reliable code
             </div>
+            <Button :scroll="true" icon="go">想去试试</Button>
           </div>
 
           <div class="scroll_content"
                :style="`opacity: ${scroll_now < (2.4*full_height + 30) ? (scroll_now - 2.2 * full_height + 110)/(100 + 0.2 * full_height) : 1}; transform: translateY(${scroll_now < (2.4 * full_height + 30) ? 0.7 * (2.4*full_height + 30 - scroll_now) : 0}px)`">
-            <div class="scroll_title">123</div>
+            <div class="scroll_title">GoBang</div>
             <div class="scroll_context">
               这里是第三个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
               undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
               from newbies to experienced professionals, to create fast, efficient, and reliable code
             </div>
+            <Button :scroll="true" icon="go">想去玩玩</Button>
           </div>
 
         </div>
 
         <!-- sticky 图片-->
         <div class="scroll_frame">
-          <div ref="sticky" class="scroll_box">
-<!--            <img :src="scroll_now < (1.5*full_height) ? banner[1] : banner[2]" alt/>-->
-<!--            <div :style="`background: url('${scroll_now < (full_height + 30) ? banner[1] : banner[2]}') no-repeat center center/cover fixed`"/>-->
-          </div>
+          <div ref="sticky" class="scroll_box" />
         </div>
       </ContentFrame>
 
@@ -107,9 +106,9 @@
 </template>
 
 <script>
-import img_holo from '../assets/img/holo.png'
-import img_t from '../assets/img/ttt.png'
-import img_n from '../assets/img/forest_animate_g.webp'
+import img_gobang from '../assets/img/gobang.webp'
+import img_vtuber from '../assets/img/vtbmusic.webp'
+import img_npm from '../assets/img/b_library.webp'
 
 export default {
   components: {
@@ -125,30 +124,30 @@ export default {
       full_width: 0,
       sidebar: false,
       banner: [
-        img_holo,
-        img_t,
-        img_n
+        img_vtuber,
+        img_gobang,
+        img_npm
       ],
       receive: [
         {
           title: '标题1',
-          img: img_t
+          img: img_vtuber
         },
         {
           title: '标题2',
-          img: img_t
+          img: img_vtuber
         },
         {
           title: '标题3',
-          img: img_t
+          img: img_vtuber
         },
         {
           title: '标题4',
-          img: img_t
+          img: img_vtuber
         },
         {
           title: '标题5',
-          img: img_t
+          img: img_vtuber
         }
 
 
@@ -201,7 +200,7 @@ export default {
   height: 60px;
   display: flex;
   justify-content: center;
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.5s, color 0.2s;
   background-color: transparent;
   z-index: 90;
   color: white;
@@ -333,9 +332,6 @@ export default {
 }
 
 .scroll_frame {
-  /*display: flex;*/
-  /*justify-content: flex-end;*/
-  /*position: relative;*/
   flex: 1;
   padding: 100px 15px 100px 0;
 }
@@ -345,7 +341,7 @@ export default {
   top: 140px;
   height: 70vh;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 15px;
   transition: background 0.5s;
   box-shadow: 0 0 20px #c6c6c6;
   /*overflow: hidden;*/
