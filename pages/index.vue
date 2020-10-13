@@ -43,38 +43,60 @@
       <ContentFrame background="white" height="auto">
         <div class="scroll_word">
 
-          <div class="scroll_content"
-               :style="`opacity: ${scroll_now < (full_height + 30) ? (scroll_now - 0.8 * full_height + 110)/(100 + 0.2 * full_height) : 1}; transform: translateY(${scroll_now < (full_height + 30) ? 0.7 * (full_height + 30 - scroll_now) : 0}px)`">
-            <div class="scroll_title">VTB Music</div>
-            <div class="scroll_context">
-              On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step undo,
-              intelligent code completion, dead code detection, and documentation hints help all Go developers, from
-              newbies to experienced professionals, to create fast, efficient, and reliable code
-            </div>
-            <Button :scroll="true" icon="go">想去看看</Button>
-          </div>
+          <Context
+              title="VTB Music"
+              button="想去看看"
+              icon="go"
+              :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateY(${scrollCalculate('translateY', 0)}px)`"
+          >
+            这里是第1个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
+            from newbies to experienced professionals, to create fast, efficient, and reliable code
+          </Context>
 
-          <div class="scroll_content"
-               :style="`opacity: ${scroll_now < (1.7*full_height + 30) ? (scroll_now - 1.5 * full_height + 110)/(100 + 0.2 * full_height) : 1}; transform: translateY(${scroll_now < (1.7 * full_height + 30) ? 0.7 * (1.7*full_height + 30 - scroll_now) : 0}px)`">
-            <div class="scroll_title">B-Library</div>
-            <div class="scroll_context">
-              这里是第二个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-              undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
-              from newbies to experienced professionals, to create fast, efficient, and reliable code
-            </div>
-            <Button :scroll="true" icon="go">想去试试</Button>
-          </div>
+          <Context
+              title="B-Library"
+              button="想去试试"
+              icon="go"
+              :style="`opacity: ${scrollCalculate('opacity', 1)}; transform: translateY(${scrollCalculate('translateY', 1)}px)`"
+          >
+            这里是第2个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
+            from newbies to experienced professionals, to create fast, efficient, and reliable code
+          </Context>
 
-          <div class="scroll_content"
-               :style="`opacity: ${scroll_now < (2.4*full_height + 30) ? (scroll_now - 2.2 * full_height + 110)/(100 + 0.2 * full_height) : 1}; transform: translateY(${scroll_now < (2.4 * full_height + 30) ? 0.7 * (2.4*full_height + 30 - scroll_now) : 0}px)`">
-            <div class="scroll_title">GoBang</div>
-            <div class="scroll_context">
-              这里是第三个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-              undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
-              from newbies to experienced professionals, to create fast, efficient, and reliable code
-            </div>
-            <Button :scroll="true" icon="go">想去玩玩</Button>
-          </div>
+          <Context
+              title="GoBang"
+              button="想去玩玩"
+              icon="go"
+              :style="`opacity: ${scrollCalculate('opacity', 2)}; transform: translateY(${scrollCalculate('translateY', 2)}px)`"
+          >
+            这里是第三个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
+            from newbies to experienced professionals, to create fast, efficient, and reliable code
+          </Context>
+
+          <Context
+              title="1 站团"
+              button="微信搜索"
+              icon="go"
+              :style="`opacity: ${scrollCalculate('opacity', 3)}; transform: translateY(${scrollCalculate('translateY', 3)}px)`"
+          >
+            这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
+            from newbies to experienced professionals, to create fast, efficient, and reliable code
+          </Context>
+
+          <Context
+              title="校企合作平台"
+              button="内网Only"
+              icon="shut"
+              :style="`opacity: ${scrollCalculate('opacity', 4)}; transform: translateY(${scrollCalculate('translateY', 4)}px)`"
+          >
+            这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
+            from newbies to experienced professionals, to create fast, efficient, and reliable code
+          </Context>
 
         </div>
 
@@ -87,7 +109,7 @@
       <ContentFrame background="#eaeaea"
                     extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="content_title">
-          作品
+          才高运蹇
         </div>
         <Receive :data="receive" :column="full_width >= 520 ? 3 : 1"/>
       </ContentFrame>
@@ -109,9 +131,12 @@
 import img_gobang from '../assets/img/gobang.webp'
 import img_vtuber from '../assets/img/vtbmusic.webp'
 import img_npm from '../assets/img/b_library.webp'
+import img_1zhan from '../assets/img/1zhantuan.webp'
+import img_tiangong from '../assets/img/tiangong.webp'
 
 export default {
   components: {
+    Context: () => import(/* webpackChunkName: "receive" */ '~/components/Context'),
     Receive: () => import(/* webpackChunkName: "receive" */ '~/components/Receive'),
     ContentFrame: () => import(/* webpackChunkName: "content_frame" */ '~/components/ContentFrame'),
     SideBar: () => import(/* webpackChunkName: "sidebar" */ '~/components/SideBar'),
@@ -125,8 +150,10 @@ export default {
       sidebar: false,
       banner: [
         img_vtuber,
+        img_npm,
         img_gobang,
-        img_npm
+        img_1zhan,
+        img_tiangong
       ],
       receive: [
         {
@@ -158,16 +185,27 @@ export default {
   methods: {
     onScroll() {
       const scroll_now_init = this.$refs.content.scrollTop;
-      console.log(30 + (this.full_height), scroll_now_init);
+      // console.log(30 + (this.full_height), scroll_now_init);
       this.scroll_now = scroll_now_init;
       if(scroll_now_init < (1.5 * this.full_height)){
         this.$refs.sticky.style.background = 'url(' + this.banner[0] + ') no-repeat center center/cover'
       } else if(scroll_now_init >= (1.5 * this.full_height) && scroll_now_init < (2.2 * this.full_height)) {
-        this.$refs.sticky.style.background = 'url(' + this.banner[2] + ') no-repeat center center/cover'
-      } else {
         this.$refs.sticky.style.background = 'url(' + this.banner[1] + ') no-repeat center center/cover'
+      } else if(scroll_now_init >= (2.2 * this.full_height) && scroll_now_init < (2.9 * this.full_height)) {
+        this.$refs.sticky.style.background = 'url(' + this.banner[2] + ') no-repeat center center/cover'
+      } else if(scroll_now_init >= (2.9 * this.full_height) && scroll_now_init < (3.6 * this.full_height)){
+        this.$refs.sticky.style.background = 'url(' + this.banner[3] + ') no-repeat center center/cover'
+      } else {
+        this.$refs.sticky.style.background = 'url(' + this.banner[4] + ') no-repeat center center/cover'
       }
-
+    },
+    scrollCalculate(way, num) {
+      switch (way){
+        case 'opacity':
+          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 30) ? (this.scroll_now - (0.8 + 0.7 * num) * this.full_height + 110)/(100 + 0.2 * this.full_height) : 1;
+        case 'translateY':
+          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 30) ? 0.7 * ((1 + 0.7 * num) * this.full_height + 30 - this.scroll_now) : 0
+      }
     }
   },
   mounted() {
