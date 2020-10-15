@@ -1,6 +1,6 @@
 <!-- 主体内容框架 -->
 <template>
-  <div class="content_frame" :style="`background-color: ${background}; height: ${height}`">
+  <div class="content_frame" :style="`background: ${background}; height: ${height}`">
     <div class="content_context" :style="`${extra_css}`">
       <slot />
     </div>

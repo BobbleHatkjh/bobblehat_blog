@@ -4,7 +4,7 @@
     <div class="scroll_context">
       <slot />
     </div>
-    <Button :scroll="true" :icon="icon">
+    <Button :scroll="true" :icon="icon" v-if="icon">
       {{ button }}
     </Button>
   </div>
@@ -48,11 +48,11 @@ export default {
 }
 
 .scroll_title {
-  height: 48px;
+  height: 54px;
   font-size: 36px;
   font-weight: bolder;
-  margin-bottom: 15px;
   border-bottom: 3px solid #ff4c10;
+  margin-bottom: 10px;
 }
 
 .scroll_context {
@@ -61,9 +61,13 @@ export default {
   width: 100%;
   padding-right: 30px;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 26px;
   color: #606060;
   word-wrap: break-word;
+}
+.scroll_context > i{
+  font-size: 20px;
+  line-height: 40px
 }
 
 </style>

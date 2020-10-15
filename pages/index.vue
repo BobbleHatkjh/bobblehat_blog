@@ -2,31 +2,23 @@
   <div class="container">
 
     <!-- HeadBar -->
-    <div class="head_bar" :class="(scroll_now > full_height - 50) && 'head_bar_down'">
+    <div class="head_bar" :class="{'head_bar_down': scroll_now ? (scroll_now > full_height - 50): 0}">
       <div class="head_bar_frame">
-        <div class="head_logo" :class="(scroll_now > full_height - 50) && 'head_logo_down'"/>
-        <div class="head_route" v-if="full_width >= 520">
+        <div class="head_logo" :class="{'head_logo_down': scroll_now ? (scroll_now > full_height - 50): 0}"/>
+        <div class="head_route">
           <Button>首页</Button>
           <Button>介绍</Button>
-          <Button>作品</Button>
-        </div>
-        <div class="head_route_m" v-else @click="sidebar = !sidebar">
-          <i class="iconfont icon-more"/>
+          <Button>经历</Button>
+          <Button>博客</Button>
         </div>
       </div>
     </div>
-
-    <!-- 移动端侧边栏 -->
-    <SideBar v-if="sidebar" @back="sidebar = !sidebar">
-      123
-    </SideBar>
-
 
     <!-- 主体内容 -->
     <div ref="content" class="content" @wheel="onScroll">
 
       <!-- 主页 -->
-      <ContentFrame :first="true" extra_css="flex-direction: column; justify-content: flex-end">
+      <ContentFrame extra_css="flex-direction: column; justify-content: flex-end">
         <div style="display: flex;justify-content: center;flex: 1;align-items: center">
           <div class="slogan">
             <Slogan>你的气质里</Slogan>
@@ -49,9 +41,9 @@
               icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateY(${scrollCalculate('translateY', 0)}px)`"
           >
-            这里是第1个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
-            from newbies to experienced professionals, to create fast, efficient, and reliable code
+            <i>Vue + iView</i><i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
+            推Vtuber的时候认识了一些官组的成员，站长 静谷 发起了该开源项目，意在收录Vtuber演唱的歌曲，
+            团队人数迅速壮大到130+，包含翻译，运营，前后端，运维甚至法务，并逐步扩展到统计V的生涯信息以及会社的近况，biliOB和Vtbs.moe提供了数据支持
           </Context>
 
           <Context
@@ -60,29 +52,28 @@
               icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 1)}; transform: translateY(${scrollCalculate('translateY', 1)}px)`"
           >
-            这里是第2个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
-            from newbies to experienced professionals, to create fast, efficient, and reliable code
+            <i>Vue</i><br/>
+            总结了在实习过程参与开发的项目经验，针对中小型企业的官网类网站快速架设，制作了「b-library」功能组件库，
+            库包含如 导航栏，侧边栏，页脚，全球化，主题定制 等常用数据驱动的功能组件，开箱即用，学习成本低
+          </Context>
+
+          <Context
+              title="1站团"
+              button="微信搜索"
+              icon="go"
+              :style="`opacity: ${scrollCalculate('opacity', 2)}; transform: translateY(${scrollCalculate('translateY', 2)}px)`"
+          >
+            <i>React + taro</i><br/>
+            参与开发了「1站团」新零售微信小程序，秉着”生活何必东奔西跑”的概念，将人们日常的生活必需品，包含15大品类，上千种商品直达社区，极速送达用户手中，打造社区团购“新生活”
           </Context>
 
           <Context
               title="GoBang"
               button="想去玩玩"
               icon="go"
-              :style="`opacity: ${scrollCalculate('opacity', 2)}; transform: translateY(${scrollCalculate('translateY', 2)}px)`"
-          >
-            这里是第三个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
-            from newbies to experienced professionals, to create fast, efficient, and reliable code
-          </Context>
-
-          <Context
-              title="1 站团"
-              button="微信搜索"
-              icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 3)}; transform: translateY(${scrollCalculate('translateY', 3)}px)`"
           >
-            这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            这里是第三个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
             undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
             from newbies to experienced professionals, to create fast, efficient, and reliable code
           </Context>
@@ -93,9 +84,9 @@
               icon="shut"
               :style="`opacity: ${scrollCalculate('opacity', 4)}; transform: translateY(${scrollCalculate('translateY', 4)}px)`"
           >
-            这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
-            from newbies to experienced professionals, to create fast, efficient, and reliable code
+            <i>React + AntDPro</i><br/>
+            这里是第5个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            undo, intelligent code completion, dead code detection, and documentation hints help all
           </Context>
 
         </div>
@@ -111,7 +102,7 @@
         <div class="content_title">
           才高运蹇
         </div>
-        <Receive :data="receive" :column="full_width >= 520 ? 3 : 1"/>
+        <Receive :data="receive" :column="3"/>
       </ContentFrame>
 
       <ContentFrame background="#ff4c10">
@@ -131,7 +122,7 @@
 import img_gobang from '../assets/img/gobang.webp'
 import img_vtuber from '../assets/img/vtbmusic.webp'
 import img_npm from '../assets/img/b_library.webp'
-import img_1zhan from '../assets/img/1zhantuan.webp'
+import img_1zhan from '../assets/img/1zhan.webp'
 import img_tiangong from '../assets/img/tiangong.webp'
 
 export default {
@@ -139,7 +130,6 @@ export default {
     Context: () => import(/* webpackChunkName: "receive" */ '~/components/Context'),
     Receive: () => import(/* webpackChunkName: "receive" */ '~/components/Receive'),
     ContentFrame: () => import(/* webpackChunkName: "content_frame" */ '~/components/ContentFrame'),
-    SideBar: () => import(/* webpackChunkName: "sidebar" */ '~/components/SideBar'),
     Button: () => import(/* webpackChunkName: "button_animate" */ '~/components/Button')
   },
   data() {
@@ -147,12 +137,11 @@ export default {
       scroll_now: 0,
       full_height: 0,
       full_width: 0,
-      sidebar: false,
       banner: [
         img_vtuber,
         img_npm,
-        img_gobang,
         img_1zhan,
+        img_gobang,
         img_tiangong
       ],
       receive: [
@@ -211,7 +200,7 @@ export default {
   mounted() {
     this.full_height = window.innerHeight;
     this.full_width = window.innerWidth;
-    console.log('-----4-----', window.innerHeight)
+    // console.log('-----4-----', window.innerHeight)
   },
   created() {
 
@@ -220,6 +209,9 @@ export default {
 </script>
 
 <style>
+html{
+  background-color: #777777;
+}
 .container {
   min-height: 100vh;
   display: flex;
@@ -227,7 +219,6 @@ export default {
   align-items: center;
   /*text-align: center;*/
   transform: translate3d(0, 0, 0);
-  background-color: #c2c2c2;
   background: url('~assets/img/forest_animate_g.webp') no-repeat center center/cover fixed;
 }
 
@@ -332,41 +323,15 @@ export default {
   /*animation-play-state: paused;*/
 }
 
+.teeee{
+  height: 200px;
+  width: 100%;
+}
+
 .scroll_word {
   height: 100%;
   width: 340px;
   padding: 130px 20px;
-}
-
-.scroll_content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: 70vh;
-  width: 100%;
-  padding-top: 100px;
-  color: #424242;
-}
-
-.scroll_title {
-  height: 48px;
-  font-size: 36px;
-  font-weight: bolder;
-  margin-bottom: 15px;
-  border-bottom: 3px solid #ff4c10;
-}
-
-.scroll_context {
-  display: block;
-  height: auto;
-  width: 100%;
-  padding-right: 30px;
-  font-size: 18px;
-  line-height: 24px;
-  color: #606060;
-  word-wrap: break-word;
 }
 
 .scroll_frame {
