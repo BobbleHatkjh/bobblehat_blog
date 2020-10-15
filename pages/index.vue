@@ -15,7 +15,7 @@
     </div>
 
     <!-- 主体内容 -->
-    <div ref="content" class="content" @wheel="onScroll">
+    <div class="content" @wheel="onScroll">
 
       <!-- 主页 -->
       <ContentFrame extra_css="flex-direction: column; justify-content: flex-end">
@@ -42,8 +42,8 @@
               :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateY(${scrollCalculate('translateY', 0)}px)`"
           >
             <i>Vue + iView</i><i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
-            推Vtuber的时候认识了一些官组的成员，站长 静谷 发起了该开源项目，意在收录Vtuber演唱的歌曲，
-            团队人数迅速壮大到130+，包含翻译，运营，前后端，运维甚至法务，并逐步扩展到统计V的生涯信息以及会社的近况，biliOB和Vtbs.moe提供了数据支持
+            推Vtuber的时候结识了一些官组的成员，站长 静谷 发起了该非盈利开源项目，意在收录Vtuber演唱的歌曲，
+            团队人数迅速壮大到130+，包含翻译，运营，前后端，运维甚至法务，并逐步扩展到统计V的生涯信息以及会社的近况，友站biliOB和Vtbs.moe提供了数据支持
           </Context>
 
           <Context
@@ -172,21 +172,10 @@ export default {
   },
   computed: {},
   methods: {
-    onScroll() {
-      const scroll_now_init = this.$refs.content.scrollTop;
+    onScroll(e) {
       // console.log(30 + (this.full_height), scroll_now_init);
-      this.scroll_now = scroll_now_init;
-      if(scroll_now_init < (1.5 * this.full_height)){
-        this.$refs.sticky.style.background = 'url(' + this.banner[0] + ') no-repeat center center/cover'
-      } else if(scroll_now_init >= (1.5 * this.full_height) && scroll_now_init < (2.2 * this.full_height)) {
-        this.$refs.sticky.style.background = 'url(' + this.banner[1] + ') no-repeat center center/cover'
-      } else if(scroll_now_init >= (2.2 * this.full_height) && scroll_now_init < (2.9 * this.full_height)) {
-        this.$refs.sticky.style.background = 'url(' + this.banner[2] + ') no-repeat center center/cover'
-      } else if(scroll_now_init >= (2.9 * this.full_height) && scroll_now_init < (3.6 * this.full_height)){
-        this.$refs.sticky.style.background = 'url(' + this.banner[3] + ') no-repeat center center/cover'
-      } else {
-        this.$refs.sticky.style.background = 'url(' + this.banner[4] + ') no-repeat center center/cover'
-      }
+      this.scroll_now = e.currentTarget.scrollTop;
+      this.$refs.sticky.style.background = 'url(' + this.banner[this.stickyCalculate(e.currentTarget.scrollTop)] + ') no-repeat center center/cover'
     },
     scrollCalculate(way, num) {
       switch (way){
@@ -195,6 +184,9 @@ export default {
         case 'translateY':
           return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 30) ? 0.7 * ((1 + 0.7 * num) * this.full_height + 30 - this.scroll_now) : 0
       }
+    },
+    stickyCalculate(scroll_now_init){
+      return ((scroll_now_init / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor((scroll_now_init / this.full_height - 1.5)/0.7) + 1
     }
   },
   mounted() {
@@ -203,7 +195,11 @@ export default {
     // console.log('-----4-----', window.innerHeight)
   },
   created() {
-
+    console.log('%c┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
+        '├┴┐│ │├┴┐├┴┐│  ├┤ ├─┤├─┤ │ \n' +
+        '└─┘└─┘└─┘└─┘┴─┘└─┘┴ ┴┴ ┴ ┴ ',
+        'color: #ff4c10'
+    )
   }
 }
 </script>
