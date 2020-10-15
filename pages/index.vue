@@ -48,11 +48,11 @@
         <p>现就读于天津工业大学计算机系</p>
         <p>校CSDN俱乐部部长</p>
         <p>热衷于前端技术</p>
-        <p>曾惨遭社会各种毒打</p>
+        <p>GitHub总提交行数 5w+</p>
         <p>偷来的人生信条:</p>
         <p>"要学的东西太多了"</p>
-        <div class="about_me" style="margin-top: 60px">
-          项目经历
+        <div class="about_me" style="margin-top: 68px">
+          项目实践
         </div>
       </ContentFrame>
 
@@ -65,7 +65,7 @@
               icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateY(${scrollCalculate('translateY', 0)}px)`"
           >
-            <i>Vue + iView</i><i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
+            <i>Vue + iView</i><br/>
             推Vtuber的时候结识了一些官组的成员，站长 静谷 发起了该非盈利开源项目，意在收录Vtuber演唱的歌曲，
             团队人数迅速壮大到130+，包含翻译，运营，前后端，运维甚至法务，并逐步扩展到统计V的生涯信息以及会社的近况，友站biliOB和Vtbs.moe提供了数据支持
           </Context>
@@ -76,7 +76,7 @@
               icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 1)}; transform: translateY(${scrollCalculate('translateY', 1)}px)`"
           >
-            <i>Vue</i><br/>
+            <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
             总结了在实习过程参与开发的项目经验，针对中小型企业的官网类网站快速架设，制作了「b-library」功能组件库，
             库包含如 导航栏，侧边栏，页脚，全球化，主题定制 等常用数据驱动的功能组件，开箱即用，学习成本低
           </Context>
@@ -97,7 +97,7 @@
               icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 3)}; transform: translateY(${scrollCalculate('translateY', 3)}px)`"
           >
-            这里是第三个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
             undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
             from newbies to experienced professionals, to create fast, efficient, and reliable code
           </Context>
