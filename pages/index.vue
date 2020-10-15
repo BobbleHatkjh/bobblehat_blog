@@ -32,6 +32,30 @@
         </div>
       </ContentFrame>
 
+      <!-- 介绍 -->
+      <ContentFrame background="white" height="500px" extra_css="color: #424242;flex-direction: column; justify-content: flex-start; align-items: center;">
+        <div class="about_me">
+          关于我
+        </div>
+        <div class="about_frame">
+          <div class="about_sloan">cp粉</div>
+          <div class="about_sloan">财布</div>
+          <div class="about_sloan">宅</div>
+          <div class="about_sloan">自闭</div>
+        </div>
+        <p>我叫康嘉禾</p>
+        <p>喜欢嗑cp，推管人，联盟玩家</p>
+        <p>现就读于天津工业大学计算机系</p>
+        <p>校CSDN俱乐部部长</p>
+        <p>热衷于前端技术</p>
+        <p>曾惨遭社会各种毒打</p>
+        <p>偷来的人生信条:</p>
+        <p>"要学的东西太多了"</p>
+        <div class="about_me" style="margin-top: 60px">
+          项目经历
+        </div>
+      </ContentFrame>
+
       <ContentFrame background="white" height="auto">
         <div class="scroll_word">
 
@@ -175,18 +199,20 @@ export default {
     onScroll(e) {
       // console.log(30 + (this.full_height), scroll_now_init);
       this.scroll_now = e.currentTarget.scrollTop;
-      this.$refs.sticky.style.background = 'url(' + this.banner[this.stickyCalculate(e.currentTarget.scrollTop)] + ') no-repeat center center/cover'
+      if(((e.currentTarget.scrollTop - 500) / this.full_height - 1.5)/0.7 + 1 < 5){
+        this.$refs.sticky.style.background = 'url(' + this.banner[this.stickyCalculate(e.currentTarget.scrollTop)] + ') no-repeat center center/cover'
+      }
     },
     scrollCalculate(way, num) {
       switch (way){
         case 'opacity':
-          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 30) ? (this.scroll_now - (0.8 + 0.7 * num) * this.full_height + 110)/(100 + 0.2 * this.full_height) : 1;
+          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530) ? (this.scroll_now - (0.8 + 0.7 * num) * this.full_height - 390)/(100 + 0.2 * this.full_height) : 1;
         case 'translateY':
-          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 30) ? 0.7 * ((1 + 0.7 * num) * this.full_height + 30 - this.scroll_now) : 0
+          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530) ? 0.7 * ((1 + 0.7 * num) * this.full_height - this.scroll_now + 530) : 0
       }
     },
     stickyCalculate(scroll_now_init){
-      return ((scroll_now_init / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor((scroll_now_init / this.full_height - 1.5)/0.7) + 1
+      return (((scroll_now_init - 500) / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5)/0.7) + 1
     }
   },
   mounted() {
@@ -195,9 +221,9 @@ export default {
     // console.log('-----4-----', window.innerHeight)
   },
   created() {
-    console.log('%c┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
+    console.log('%c\n┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
         '├┴┐│ │├┴┐├┴┐│  ├┤ ├─┤├─┤ │ \n' +
-        '└─┘└─┘└─┘└─┘┴─┘└─┘┴ ┴┴ ┴ ┴ ',
+        '└─┘└─┘└─┘└─┘┴─┘└─┘┴ ┴┴ ┴ ┴ \n个人主页',
         'color: #ff4c10'
     )
   }
@@ -264,25 +290,12 @@ html{
   height: 100%;
 }
 
-.head_route_m {
-  display: flex;
-  height: 50px;
-  width: 50px;
-  margin-right: 5px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 400px;
-}
-
-.head_route_m > i {
-  font-size: 24px;
-}
-
 
 .content {
   height: 100vh;
   width: 100%;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 .content_title {
@@ -319,9 +332,31 @@ html{
   /*animation-play-state: paused;*/
 }
 
-.teeee{
-  height: 200px;
-  width: 100%;
+.about_me{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  font-weight: bolder;
+  font-size: 28px;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #ff4c10;
+}
+.about_frame{
+  display: flex;
+}
+.about_sloan{
+  padding: 5px 10px;
+  margin: 0 10px 10px 10px;
+  border-radius: 6px;
+  color: white;
+  transition: transform 0.2s;
+  background-color: rgba(255,76,16,0.75);
+}
+.about_sloan:hover{
+  cursor: pointer;
+  transform: translateY(-3px);
+  background-color: rgba(255,76,16,0.8);
 }
 
 .scroll_word {

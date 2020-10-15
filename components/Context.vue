@@ -61,7 +61,7 @@ export default {
   width: 100%;
   padding-right: 30px;
   font-size: 18px;
-  line-height: 26px;
+  line-height: 28px;
   color: #606060;
   word-wrap: break-word;
 }
