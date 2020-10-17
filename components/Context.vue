@@ -59,7 +59,7 @@ export default {
   display: block;
   height: auto;
   width: 100%;
-  padding-right: 30px;
+  padding-right: 20px;
   font-size: 18px;
   line-height: 28px;
   color: #606060;

@@ -56,6 +56,7 @@
         </div>
       </ContentFrame>
 
+      <!-- 项目经历 -->
       <ContentFrame background="white" height="auto">
         <div class="scroll_word">
 
@@ -99,7 +100,7 @@
           >
             <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
             这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints
+            undo, intelligent code completion, dead code detection, and documentation hints help all
           </Context>
 
           <Context
@@ -241,8 +242,7 @@ html{
 }
 .container {
   min-height: 100vh;
-  min-width: 1024px;
-  overflow-x: scroll;
+  /*min-width: 1024px;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -361,7 +361,8 @@ html{
 
 .scroll_word {
   height: 100%;
-  width: 340px;
+  flex: 1;
+  /*background-color: #3b8070;*/
   padding: 130px 20px;
 }
 
@@ -374,7 +375,7 @@ html{
   position: sticky;
   top: 140px;
   height: 70vh;
-  width: 100%;
+  width: 105.7vh;
   border-radius: 15px;
   transition: background 0.5s;
   box-shadow: 0 0 20px #c6c6c6;
