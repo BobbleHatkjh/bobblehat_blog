@@ -15,7 +15,7 @@
     </div>
 
     <!-- 主体内容 -->
-    <div class="content" @wheel="onScroll">
+    <div ref="content" class="content">
 
       <!-- 主页 -->
       <ContentFrame extra_css="flex-direction: column; justify-content: flex-end">
@@ -47,7 +47,7 @@
         <p>喜欢嗑cp，推管人，联盟玩家</p>
         <p>现就读于天津工业大学计算机系</p>
         <p>校CSDN俱乐部部长</p>
-        <p>热衷于前端技术</p>
+        <p>热衷于前端技术，开源社区</p>
         <p>GitHub总提交行数 5w+</p>
         <p>偷来的人生信条:</p>
         <p>"要学的东西太多了"</p>
@@ -65,9 +65,9 @@
               icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateY(${scrollCalculate('translateY', 0)}px)`"
           >
-            <i>Vue + iView</i><br/>
+            <i>Vue + iView</i> <i class="iconfont icon-github"/><br/>
             推Vtuber的时候结识了一些官组的成员，站长 静谷 发起了该非盈利开源项目，意在收录Vtuber演唱的歌曲，
-            团队人数迅速壮大到130+，包含翻译，运营，前后端，运维甚至法务，并逐步扩展到统计V的生涯信息以及会社的近况，友站biliOB和Vtbs.moe提供了数据支持
+            团队人数130+，包含翻译，运营，前后端，运维甚至法务，并逐步扩展到统计V的生涯信息以及会社的近况，友站biliOB和Vtbs.moe提供了数据支持
           </Context>
 
           <Context
@@ -97,9 +97,9 @@
               icon="go"
               :style="`opacity: ${scrollCalculate('opacity', 3)}; transform: translateY(${scrollCalculate('translateY', 3)}px)`"
           >
+            <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
             这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints help all Go developers,
-            from newbies to experienced professionals, to create fast, efficient, and reliable code
+            undo, intelligent code completion, dead code detection, and documentation hints
           </Context>
 
           <Context
@@ -123,8 +123,8 @@
 
       <ContentFrame background="#eaeaea"
                     extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
-        <div class="content_title">
-          才高运蹇
+        <div class="about_me">
+          博客
         </div>
         <Receive :data="receive" :column="3"/>
       </ContentFrame>
@@ -188,19 +188,22 @@ export default {
         {
           title: '标题5',
           img: img_vtuber
+        },
+        {
+          title: '标题5',
+          img: img_vtuber
         }
 
 
       ]
     }
   },
-  computed: {},
   methods: {
-    onScroll(e) {
-      // console.log(30 + (this.full_height), scroll_now_init);
-      this.scroll_now = e.currentTarget.scrollTop;
-      if(((e.currentTarget.scrollTop - 500) / this.full_height - 1.5)/0.7 + 1 < 5){
-        this.$refs.sticky.style.background = 'url(' + this.banner[this.stickyCalculate(e.currentTarget.scrollTop)] + ') no-repeat center center/cover'
+    onScroll() {
+      console.log(this.$refs.content.scrollTop)
+      this.scroll_now = this.$refs.content.scrollTop;
+      if(((this.$refs.content.scrollTop - 500) / this.full_height - 1.5)/0.7 + 1 < 5){
+        this.$refs.sticky.style.background = 'url(' + this.banner[this.stickyCalculate(this.$refs.content.scrollTop)] + ') no-repeat center center/cover'
       }
     },
     scrollCalculate(way, num) {
@@ -213,11 +216,13 @@ export default {
     },
     stickyCalculate(scroll_now_init){
       return (((scroll_now_init - 500) / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5)/0.7) + 1
-    }
+    },
+
   },
   mounted() {
     this.full_height = window.innerHeight;
     this.full_width = window.innerWidth;
+    window.addEventListener("scroll", this.onScroll, true);
     // console.log('-----4-----', window.innerHeight)
   },
   created() {
@@ -236,6 +241,8 @@ html{
 }
 .container {
   min-height: 100vh;
+  min-width: 1024px;
+  overflow-x: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -298,14 +305,6 @@ html{
   overflow-x: hidden;
 }
 
-.content_title {
-  display: flex;
-  justify-content: center;
-  height: 100px;
-  width: 100%;
-  background-color: #df1a8a;
-}
-
 .slogan {
   margin-bottom: 10px;
   color: white;
@@ -350,11 +349,12 @@ html{
   margin: 0 10px 10px 10px;
   border-radius: 6px;
   color: white;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
   background-color: rgba(255,76,16,0.75);
 }
 .about_sloan:hover{
   cursor: pointer;
+  box-shadow: 0 0 10px #cccccc;
   transform: translateY(-3px);
   background-color: rgba(255,76,16,0.8);
 }
