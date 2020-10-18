@@ -1,5 +1,5 @@
 <template>
-  <div class="animate_button" :style="`${extra}`" :class="{'shape_button': scroll}">
+  <div class="animate_button" @click="clickBack" :style="`${extra}`" :class="{'shape_button': scroll}">
     <slot />
     <i :class="`iconfont icon-${icon}`" v-if="icon"/>
   </div>
@@ -20,6 +20,12 @@ export default {
       type: String,
       default: null
     }
+  },
+  methods: {
+    clickBack() {
+      this.$emit('click')
+    }
+
   }
 }
 </script>
@@ -33,6 +39,9 @@ export default {
   margin: 0 5px;
   background: url('~assets/img/button_bac.png') no-repeat left/0 100%;
   transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.animate_button > a{
+  text-decoration: none !important;
 }
 .animate_button:hover{
   cursor: pointer;

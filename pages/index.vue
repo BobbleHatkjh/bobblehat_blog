@@ -9,7 +9,10 @@
           <Button>首页</Button>
           <Button>介绍</Button>
           <Button>经历</Button>
-          <Button>博客</Button>
+
+          <Button @click="jumpRoute">博客</Button>
+
+
         </div>
       </div>
     </div>
@@ -122,20 +125,31 @@
         </div>
       </ContentFrame>
 
-      <ContentFrame background="#eaeaea"
-                    extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
-        <div class="about_me">
-          博客
+      <!-- 博客 -->
+      <ContentFrame
+          background="white"
+          height="460px"
+          extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
+        <div class="about_me" style="margin-top: 0">
+          最新博客
         </div>
         <Receive :data="receive" :column="3"/>
+        <Button @click="jumpRoute" :scroll="true" icon="go">
+          想去看看
+        </Button>
       </ContentFrame>
 
-      <ContentFrame background="#ff4c10">
+      <ContentFrame background="#dddddd">
         123
       </ContentFrame>
 
-      <ContentFrame height="200px">
-        备案XXXX
+      <ContentFrame height="260px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
+        <div class="connect">
+          123
+        </div>
+        <div class="copy_at">
+          ©️这里是备案信息 2020 xxxxxxxx
+        </div>
       </ContentFrame>
 
     </div>
@@ -181,19 +195,8 @@ export default {
         {
           title: '标题3',
           img: img_vtuber
-        },
-        {
-          title: '标题4',
-          img: img_vtuber
-        },
-        {
-          title: '标题5',
-          img: img_vtuber
-        },
-        {
-          title: '标题5',
-          img: img_vtuber
         }
+
 
 
       ]
@@ -201,7 +204,7 @@ export default {
   },
   methods: {
     onScroll() {
-      console.log(this.$refs.content.scrollTop)
+      // console.log(this.$refs.content.scrollTop)
       this.scroll_now = this.$refs.content.scrollTop;
       if(((this.$refs.content.scrollTop - 500) / this.full_height - 1.5)/0.7 + 1 < 5){
         this.$refs.sticky.style.background = 'url(' + this.banner[this.stickyCalculate(this.$refs.content.scrollTop)] + ') no-repeat center center/cover'
@@ -212,13 +215,15 @@ export default {
         case 'opacity':
           return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530) ? (this.scroll_now - (0.8 + 0.7 * num) * this.full_height - 390)/(100 + 0.2 * this.full_height) : 1;
         case 'translateY':
-          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530) ? 0.7 * ((1 + 0.7 * num) * this.full_height - this.scroll_now + 530) : 0
+          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530) ? ((1 + 0.7 * num) * this.full_height - this.scroll_now + 530) : 0
       }
     },
     stickyCalculate(scroll_now_init){
       return (((scroll_now_init - 500) / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5)/0.7) + 1
     },
-
+    jumpRoute() {
+      this.$router.push('blog')
+    }
   },
   mounted() {
     this.full_height = window.innerHeight;
@@ -232,6 +237,9 @@ export default {
         '└─┘└─┘└─┘└─┘┴─┘└─┘┴ ┴┴ ┴ ┴ \n个人主页',
         'color: #ff4c10'
     )
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.onScroll, true)
   }
 }
 </script>
@@ -362,6 +370,7 @@ html{
 .scroll_word {
   height: 100%;
   flex: 1;
+  min-width: 300px;
   /*background-color: #3b8070;*/
   padding: 130px 20px;
 }
@@ -387,6 +396,26 @@ html{
   width: 100%;
   object-fit: cover;
   transition: url;
+}
+
+
+.connect{
+  display: flex;
+  height: 180px;
+  width: 100%;
+  color: white;
+  /*background-color: #3b8070;*/
+}
+
+.copy_at{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  /*background-color: #3b8070;*/
+  color: white;
+  border-top: 2px solid #ff4c10;
 }
 
 
