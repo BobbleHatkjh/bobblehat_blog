@@ -1,6 +1,6 @@
 <template>
   <div class="blog_bac">
-    博客 开发中
+    博客 开发中...
   </div>
 </template>
 

@@ -9,9 +9,7 @@
           <Button>首页</Button>
           <Button>介绍</Button>
           <Button>经历</Button>
-
-          <Button @click="jumpRoute">博客</Button>
-
+          <Button @click="jumpRoute('blog')">博客</Button>
 
         </div>
       </div>
@@ -67,6 +65,7 @@
               title="VTB Music"
               button="想去看看"
               icon="go"
+              link="https://vtbmusic.com"
               :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateX(${-scrollCalculate('translateY', 0)}px) translateY(${-scrollCalculate('translateY', 0)}px`"
           >
             <i>Vue + iView</i> <i class="iconfont icon-github"/><br/>
@@ -197,8 +196,6 @@ export default {
           img: img_vtuber
         }
 
-
-
       ]
     }
   },
@@ -246,7 +243,7 @@ export default {
 
 <style>
 html{
-  background-color: #777777;
+  background-color: #8a8a8a;
 }
 .container {
   min-height: 100vh;
@@ -388,6 +385,7 @@ html{
   border-radius: 15px;
   transition: background 0.5s;
   box-shadow: 0 0 20px #c6c6c6;
+  background-color: white;
   /*overflow: hidden;*/
 }
 
@@ -401,10 +399,11 @@ html{
 
 .connect{
   display: flex;
+  justify-content: center;
   height: 180px;
   width: 100%;
   color: white;
-  /*background-color: #3b8070;*/
+  background-color: #3b8070;
 }
 
 .copy_at{

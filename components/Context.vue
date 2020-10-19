@@ -4,7 +4,7 @@
     <div class="scroll_context">
       <slot />
     </div>
-    <Button :scroll="true" :icon="icon" v-if="icon">
+    <Button @click="jumpTo" :scroll="true" :icon="icon" v-if="icon">
       {{ button }}
     </Button>
   </div>
@@ -27,9 +27,17 @@ export default {
     button: {
       type: String,
       default: ''
+    },
+    link: {
+      type: String,
+      default: null
     }
   },
-
+  methods: {
+    jumpTo(){
+      window.open(this.link)
+    }
+  }
 }
 </script>
 
