@@ -8,9 +8,8 @@
         <div class="head_route">
           <Button>首页</Button>
           <Button>介绍</Button>
-          <Button>经历</Button>
+          <Button @click="jumpRoute('test')">经历</Button>
           <Button @click="jumpRoute('blog')">博客</Button>
-
         </div>
       </div>
     </div>
@@ -60,7 +59,6 @@
       <!-- 项目经历 -->
       <ContentFrame background="white" height="auto">
         <div class="scroll_word">
-
           <Context
               title="VTB Music"
               button="想去看看"
@@ -162,6 +160,7 @@ import img_vtuber from '../assets/img/vtbmusic.webp'
 import img_npm from '../assets/img/b_library.webp'
 import img_1zhan from '../assets/img/1zhan.webp'
 import img_tiangong from '../assets/img/tiangong.webp'
+import Message from "~/components/message/message";
 
 export default {
   components: {
@@ -218,8 +217,16 @@ export default {
     stickyCalculate(scroll_now_init){
       return (((scroll_now_init - 500) / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5)/0.7) + 1
     },
-    jumpRoute() {
-      this.$router.push('blog')
+    jumpRoute(to) {
+      switch (to){
+        case 'blog':
+          this.$router.push('blog');
+          break;
+        case 'test':
+          Message('前面的区域，以后再来探索吧');
+          break
+      }
+
     }
   },
   mounted() {
