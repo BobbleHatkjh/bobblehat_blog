@@ -37,15 +37,14 @@ export default {
   font-size: 16px;
   font-weight: bold;
   margin: 0 5px;
+  transform: translate3d(0, 0, 0);
   background: url('~assets/img/button_bac.png') no-repeat left/0 100%;
   transition: background 0.2s, color 0.2s, transform 0.2s;
-}
-.animate_button > a{
-  text-decoration: none !important;
 }
 .animate_button:hover{
   cursor: pointer;
   color: white;
+  transform: translate3d(0, 0, 0);
   background: url('~assets/img/button_bac.png') no-repeat left/100% 100%;
 }
 .animate_button:active{
