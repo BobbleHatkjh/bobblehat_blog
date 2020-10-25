@@ -5,18 +5,19 @@ function Message (content, state='success') {
         "position: fixed;" +
         "display: flex;" +
         "left: 50%;" +
-        "transform: translateX(-50%);"+
+        "transform: translateX(-50%);" +
+        "color: #333333;" +
         "top: 80px;" +
         "border-radius:10px;" +
         "background-color: white;" +
-        "padding: 15px 30px;" +
-        "box-shadow: 0 0 16px #d8d8d8";
-    console.log(btn.style);
+        "padding: 15px 34px;" +
+        "box-shadow: 0 0 16px #d8d8d8;" +
+        "animation: 2.7s message ease;";
     document.body.appendChild(btn);
 
     setTimeout(() => {
         document.body.removeChild(btn)
-    },2000)
+    },2700)
 }
 
 export default Message

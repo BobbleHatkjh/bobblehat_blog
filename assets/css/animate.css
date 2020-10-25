@@ -6,3 +6,23 @@
 .page-leave-active {
     opacity: 0;
 }
+
+
+@keyframes message {
+    0% {
+        opacity: 0;
+        transform: translateY(-70px) translateX(-50%);
+    }
+    18%{
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    82%{
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-70px) translateX(-50%);
+    }
+}

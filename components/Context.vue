@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     jumpTo(){
-      window.open(this.link)
+      this.$emit('open')
     }
   }
 }

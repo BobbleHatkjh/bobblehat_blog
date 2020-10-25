@@ -8,7 +8,7 @@
         <div class="head_route">
           <Button>首页</Button>
           <Button>介绍</Button>
-          <Button @click="jumpRoute('test')">经历</Button>
+          <Button @click="jumpRoute">经历</Button>
           <Button @click="jumpRoute('blog')">博客</Button>
         </div>
       </div>
@@ -63,7 +63,7 @@
               title="VTB Music"
               button="想去看看"
               icon="go"
-              link="https://vtbmusic.com"
+              @open="jumpRoute('vtb')"
               :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateX(${-scrollCalculate('translateY', 0)}px) translateY(${-scrollCalculate('translateY', 0)}px`"
           >
             <i>Vue + iView</i> <i class="iconfont icon-github"/><br/>
@@ -75,6 +75,7 @@
               title="B-Library"
               button="想去试试"
               icon="go"
+              @open="jumpRoute"
               :style="`opacity: ${scrollCalculate('opacity', 1)}; transform: translateX(${scrollCalculate('translateY', 1)}px) translateY(${-scrollCalculate('translateY', 1)}px`"
           >
             <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
@@ -107,6 +108,7 @@
               title="校企合作平台"
               button="内网Only"
               icon="shut"
+              @open="jumpRoute('tg')"
               :style="`opacity: ${scrollCalculate('opacity', 4)}; transform: translateX(${-scrollCalculate('translateY', 4)}px) translateY(${-scrollCalculate('translateY', 4)}px`"
           >
             <i>React + AntDPro</i><br/>
@@ -222,9 +224,15 @@ export default {
         case 'blog':
           this.$router.push('blog');
           break;
-        case 'test':
+        case 'vtb':
+          window.open('https://vtbmusic.com');
+          break;
+        case 'tg':
+          Message('肥肠爆芡，仅学校内网可以访问哦');
+          break;
+        default:
           Message('前面的区域，以后再来探索吧');
-          break
+          break;
       }
 
     }
