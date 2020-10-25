@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   transform: translate3d(0, 0, 0);
-  background-color: #3b8070;
+  background-color: white;
 }
 
 @keyframes appear {

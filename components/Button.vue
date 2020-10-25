@@ -60,7 +60,7 @@ export default {
   width: 180px;
   padding: 0 20px 0 30px;
   margin-top: 50px;
-  box-shadow: 0 0 16px #d3d3d3;
+  box-shadow: 0 0 16px #d8d8d8;
   font-size: 17px;
   /*transition: background-color 0.2s, color 0.2s;*/
   color: #ff4c10;
