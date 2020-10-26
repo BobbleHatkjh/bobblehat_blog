@@ -5,7 +5,7 @@ function Message (content, state='success') {
         "position: fixed;" +
         "display: flex;" +
         "left: 50%;" +
-        "transform: translateX(-50%);" +
+        "transform: translateX(-50%) translate3d(0, 0, 0);" +
         "color: #333333;" +
         "top: 80px;" +
         "border-radius:10px;" +

@@ -49,6 +49,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  transform: translate3d(0, 0, 0);
   height: 70vh;
   width: 100%;
   padding-top: 100px;

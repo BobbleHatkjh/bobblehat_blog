@@ -6,8 +6,8 @@
       <div class="head_bar_frame">
         <div class="head_logo" :class="{'head_logo_down': scroll_now ? (scroll_now > full_height - 50): 0}"/>
         <div class="head_route">
-          <Button>首页</Button>
-          <Button>介绍</Button>
+          <Button @click="jumpRoute">首页</Button>
+          <Button @click="jumpRoute">介绍</Button>
           <Button @click="jumpRoute">经历</Button>
           <Button @click="jumpRoute('blog')">博客</Button>
         </div>
@@ -64,7 +64,7 @@
               button="想去看看"
               icon="go"
               @open="jumpRoute('vtb')"
-              :style="`transform: translate3d(0, 0, 0);opacity: ${scrollCalculate('opacity', 0)}; transform: translateX(${-scrollCalculate('translateY', 0)}px) translateY(${-scrollCalculate('translateY', 0)}px`"
+              :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateX(${-scrollCalculate('translateY', 0)}px) translateY(${-scrollCalculate('translateY', 0)}px`"
           >
             <i>Vue + iView</i> <i class="iconfont icon-github"/><br/>
             推Vtuber的时候结识了一些官组的成员，站长 静谷 发起了该非盈利开源项目，意在收录Vtuber演唱的歌曲，
@@ -76,7 +76,7 @@
               button="想去试试"
               icon="go"
               @open="jumpRoute"
-              :style="`transform: translate3d(0, 0, 0);opacity: ${scrollCalculate('opacity', 1)}; transform: translateX(${scrollCalculate('translateY', 1)}px) translateY(${-scrollCalculate('translateY', 1)}px`"
+              :style="`opacity: ${scrollCalculate('opacity', 1)}; transform: translateX(${scrollCalculate('translateY', 1)}px) translateY(${-scrollCalculate('translateY', 1)}px`"
           >
             <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
             总结了在实习过程参与开发的项目经验，针对中小型企业的官网类网站快速架设，制作了「b-library」功能组件库，
@@ -87,7 +87,7 @@
               title="1站团"
               button="微信搜索"
               icon="go"
-              :style="`transform: translate3d(0, 0, 0);opacity: ${scrollCalculate('opacity', 2)}; transform: translateX(${-scrollCalculate('translateY', 2)}px) translateY(${-scrollCalculate('translateY', 2)}px`"
+              :style="`opacity: ${scrollCalculate('opacity', 2)}; transform: translateX(${-scrollCalculate('translateY', 2)}px) translateY(${-scrollCalculate('translateY', 2)}px`"
           >
             <i>React + taro</i><br/>
             参与开发了「1站团」新零售微信小程序，秉着”生活何必东奔西跑”的概念，将人们日常的生活必需品，包含15大品类，上千种商品直达社区，极速送达用户手中，打造社区团购“新生活”
@@ -97,7 +97,7 @@
               title="GoBang"
               button="想去玩玩"
               icon="go"
-              :style="`transform: translate3d(0, 0, 0);opacity: ${scrollCalculate('opacity', 3)}; transform: translateX(${scrollCalculate('translateY', 3)}px) translateY(${-scrollCalculate('translateY', 3)}px`"
+              :style="`opacity: ${scrollCalculate('opacity', 3)}; transform: translateX(${scrollCalculate('translateY', 3)}px) translateY(${-scrollCalculate('translateY', 3)}px`"
           >
             <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
             这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
@@ -109,7 +109,7 @@
               button="内网Only"
               icon="shut"
               @open="jumpRoute('tg')"
-              :style="`transform: translate3d(0, 0, 0);opacity: ${scrollCalculate('opacity', 4)}; transform: translateX(${-scrollCalculate('translateY', 4)}px) translateY(${-scrollCalculate('translateY', 4)}px`"
+              :style="`opacity: ${scrollCalculate('opacity', 4)}; transform: translateX(${-scrollCalculate('translateY', 4)}px) translateY(${-scrollCalculate('translateY', 4)}px`"
           >
             <i>React + AntDPro</i><br/>
             这里是第5个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
