@@ -11,7 +11,7 @@ function Message (content, state='success') {
         "border-radius:10px;" +
         "background-color: white;" +
         "padding: 15px 34px;" +
-        "box-shadow: 0 0 16px #d8d8d8;" +
+        "box-shadow: 0 0 12px #cfcfcf;" +
         "animation: 2.7s message ease;";
     document.body.appendChild(btn);
 

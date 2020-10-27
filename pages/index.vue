@@ -133,7 +133,7 @@
           最新博客
         </div>
         <Receive :data="receive" :column="3"/>
-        <Button @click="jumpRoute" :scroll="true" icon="go">
+        <Button @click="jumpRoute('blog')" :scroll="true" icon="go">
           想去看看
         </Button>
       </ContentFrame>
@@ -144,7 +144,7 @@
 
       <ContentFrame height="260px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
-          123
+          <Button @click="jumpRoute('email')">邮箱</Button>
         </div>
         <div class="copy_at">
           ©️这里是备案信息 2020 xxxxxxxx
@@ -190,7 +190,7 @@ export default {
         },
         {
           title: '标题2',
-          img: img_vtuber
+          img: img_tiangong
         },
         {
           title: '标题3',
@@ -229,6 +229,9 @@ export default {
           break;
         case 'tg':
           Message('肥肠爆芡，仅学校内网可以访问哦');
+          break;
+        case 'email':
+          window.open('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=WDo3Ojo0PTA5LBgpKXY7NzU')
           break;
         default:
           Message('前面的区域，以后再来探索吧');

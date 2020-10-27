@@ -66,7 +66,7 @@ export default {
 .receive_frame:hover {
   cursor: pointer;
   transform: translateY(-8px);
-  box-shadow: 0 0 16px #c6c6c6;
+  box-shadow: 0 6px 16px #c6c6c6;
 }
 
 .receive_photo {
