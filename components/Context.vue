@@ -54,6 +54,7 @@ export default {
   width: 100%;
   padding-top: 100px;
   color: #424242;
+  scroll-snap-align: start;
 }
 
 .scroll_title {

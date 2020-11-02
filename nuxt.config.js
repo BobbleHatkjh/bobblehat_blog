@@ -3,7 +3,7 @@ export default {
     head: {
         title: '绒球帽',
         htmlAttrs: {
-            lang: 'zh'
+            lang: 'zh-CN'
         },
         meta: [
             {charset: 'utf-8'},

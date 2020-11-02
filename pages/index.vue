@@ -147,7 +147,7 @@
           <Button @click="jumpRoute('email')">邮箱</Button>
         </div>
         <div class="copy_at">
-          ©️这里是备案信息 2020 xxxxxxxx
+          @ 2020 绒球帽 &nbsp;&nbsp;&nbsp;&nbsp; 津ICP备2020008428号
         </div>
       </ContentFrame>
 
@@ -228,7 +228,8 @@ export default {
           window.open('https://vtbmusic.com');
           break;
         case 'tg':
-          Message('肥肠爆芡，仅学校内网可以访问哦');
+          // Message('肥肠爆芡，仅学校内网可以访问哦');
+          Message.error('肥肠爆芡，仅学校内网可以访问哦');
           break;
         case 'email':
           window.open('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=WDo3Ojo0PTA5LBgpKXY7NzU')

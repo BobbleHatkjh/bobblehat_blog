@@ -8,6 +8,12 @@
 }
 
 
+.icon{
+    /*background-color: #3b8070;*/
+    font-size: 22px;
+    margin-right: 14px;
+}
+
 @keyframes message {
     0% {
         opacity: 0;
