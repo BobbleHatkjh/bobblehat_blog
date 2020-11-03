@@ -32,16 +32,24 @@
         </div>
       </ContentFrame>
 
-      <!-- 介绍 -->
+      <!-- 自我介绍 -->
       <ContentFrame background="white" height="500px" extra_css="color: #424242;flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="about_me">
           关于我
         </div>
         <div class="about_frame">
-          <div class="about_sloan">cp粉</div>
-          <div class="about_sloan">财布</div>
-          <div class="about_sloan">宅</div>
-          <div class="about_sloan">自闭</div>
+          <div class="about_sloan"
+               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${-scrollCalculate('translateY', -1.5) * 3}px) translateY(${-scrollCalculate('translateY', -1.5) * 0.5}px) scale(${scrollCalculate('scale')})`"
+          >cp粉</div>
+          <div class="about_sloan"
+               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${-scrollCalculate('translateY', -1.5)}px) translateY(${scrollCalculate('translateY', -1.5)}px) scale(${scrollCalculate('scale' )})`"
+          >财布</div>
+          <div class="about_sloan"
+               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${scrollCalculate('translateY', -1.5) * 2}px) translateY(${-scrollCalculate('translateY', -1.5)}px) scale(${scrollCalculate('scale')})`"
+          >宅</div>
+          <div class="about_sloan"
+               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${scrollCalculate('translateY', -1.5)}px) translateY(${scrollCalculate('translateY', -1.5) * 2}px) scale(${scrollCalculate('scale')})`"
+          >自闭</div>
         </div>
         <p>我叫康嘉禾</p>
         <p>喜欢嗑cp，推管人，联盟玩家</p>
@@ -147,7 +155,7 @@
           <Button @click="jumpRoute('email')">邮箱</Button>
         </div>
         <div class="copy_at">
-          @ 2020 绒球帽 &nbsp;&nbsp;&nbsp;&nbsp; 津ICP备2020008428号
+          @ 2020 绒球帽 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 津ICP备2020008428号
         </div>
       </ContentFrame>
 
@@ -162,6 +170,7 @@ import img_vtuber from '../assets/img/vtbmusic.webp'
 import img_npm from '../assets/img/b_library.webp'
 import img_1zhan from '../assets/img/1zhan.webp'
 import img_tiangong from '../assets/img/tiangong.webp'
+
 import Message from "~/components/message/message";
 
 export default {
@@ -173,9 +182,12 @@ export default {
   },
   data() {
     return {
-      scroll_now: 0,
-      full_height: 0,
-      full_width: 0,
+      scroll_now: 0,       // 现在滚动到的位置 精确到px
+      full_height: 0,      // 页面全高
+      opacity_: [0,0,0,0,0],         // 滚动时透明度变化
+      translate_: 0,       // 滚动时XY轴变化
+      scale_: 1,           // 滚动时缩放变化
+
       banner: [
         img_vtuber,
         img_npm,
@@ -186,7 +198,7 @@ export default {
       receive: [
         {
           title: '标题1',
-          img: img_vtuber
+          img: img_tiangong
         },
         {
           title: '标题2',
@@ -194,31 +206,64 @@ export default {
         },
         {
           title: '标题3',
-          img: img_vtuber
+          img: img_tiangong
         }
 
       ]
     }
   },
   methods: {
+
+    /** 在滚动时触发 */
     onScroll() {
-      // console.log(this.$refs.content.scrollTop)
       this.scroll_now = this.$refs.content.scrollTop;
-      if(((this.$refs.content.scrollTop - 500) / this.full_height - 1.5)/0.7 + 1 < 5){
-        this.$refs.sticky.style.background = 'url(' + this.banner[this.stickyCalculate(this.$refs.content.scrollTop)] + ') no-repeat center center/cover'
+      // if(this.$refs.content.scrollTop > 1.7 * this.full_height + 530){
+      //   for(let i = 0; i < this.opacity_.length; i ++){
+      //
+      //   }
+      // }
+      if(((this.$refs.content.scrollTop - 500) / this.full_height - 1.5) / 0.7 + 1 < 5){
+        this.$refs.sticky.style.background = `url('${this.banner[this.stickyCalculate(this.$refs.content.scrollTop)]}') no-repeat center center/cover`
       }
     },
+
+    /** 滚动时的各项计算值 */
     scrollCalculate(way, num) {
       switch (way){
         case 'opacity':
-          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530) ? (this.scroll_now - (0.8 + 0.7 * num) * this.full_height - 390)/(100 + 0.2 * this.full_height) : 1;
+          const call_back = (this.scroll_now - (0.8 + 0.7 * num) * this.full_height - 390)/(100 + 0.2 * this.full_height);
+          if(call_back <= 0){
+            return 0
+          } else if(call_back >= 1){
+            return 1
+          } else {
+            return call_back
+          }
         case 'translateY':
-          return this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530) ? ((1 + 0.7 * num) * this.full_height - this.scroll_now + 530) : 0
+          // this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530)
+          const translate_back = ((1 + 0.7 * num) * this.full_height - this.scroll_now + 530);
+          if(translate_back <= 0){
+            return 0
+          } else {
+            return translate_back
+          }
+        case 'scale':
+          const scale_back = (this.full_height - this.scroll_now - 260) * 0.03;
+          if(scale_back < 1){
+            return 1
+          } else {
+            return scale_back
+          }
+
       }
     },
+
+    /** 中间图片的切换 */
     stickyCalculate(scroll_now_init){
       return (((scroll_now_init - 500) / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5)/0.7) + 1
     },
+
+    /** 跳转 */
     jumpRoute(to) {
       switch (to){
         case 'blog':
@@ -235,7 +280,7 @@ export default {
           window.open('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=WDo3Ojo0PTA5LBgpKXY7NzU')
           break;
         default:
-          Message('前面的区域，以后再来探索吧');
+          Message.open('前面的区域，以后再来探索吧');
           break;
       }
 
@@ -243,7 +288,6 @@ export default {
   },
   mounted() {
     this.full_height = window.innerHeight;
-    this.full_width = window.innerWidth;
     window.addEventListener("scroll", this.onScroll, true);
     // console.log('-----4-----', window.innerHeight)
   },

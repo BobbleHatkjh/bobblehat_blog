@@ -11,7 +11,20 @@
 .icon{
     /*background-color: #3b8070;*/
     font-size: 22px;
-    margin-right: 14px;
+    margin-right: 10px;
+    margin-left: -6px;
+}
+.icon-fail{
+    color: #ff2200;
+}
+.icon-warn{
+    color: #ffd500;
+}
+.icon-success{
+    color: #40ff32;
+}
+.icon-help{
+    color: #b300ff;
 }
 
 @keyframes message {

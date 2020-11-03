@@ -9,7 +9,7 @@ function Message_ (content, state) {
     let message = document.createElement("div");
 
     /** icon */
-    if(state){
+    if(state !== 'open'){
         let icon_ = document.createElement("i");
         icon_.className = `icon iconfont icon-${state}`;
         message.appendChild(icon_);
@@ -27,7 +27,7 @@ function Message_ (content, state) {
         "top: 80px;" +
         "border-radius:10px;" +
         "background-color: white;" +
-        "padding: 15px 30px 15px 18px;" +
+        "padding: 15px 24px;" +
         "box-shadow: 0 0 12px #cfcfcf;" +
         "animation: 2.7s message ease;";
     document.body.appendChild(message);
@@ -38,13 +38,31 @@ function Message_ (content, state) {
 }
 
 class Message{
-    success(content){
-        Message_(content, 'success')
-    }
-    error(content){
-        Message_(content, 'fail')
-    }
-
+    /**
+     * 配置
+     * @param content 是要显示的内容 - success
+     */
+    success = (content) => Message_(content, 'success')
+    /**
+     * 配置
+     * @param content 是要显示的内容 - error
+     */
+    error = (content) => Message_(content, 'fail')
+    /**
+     * 配置
+     * @param content 是要显示的内容 - warn
+     */
+    warn = (content) => Message_(content, 'warn')
+    /**
+     * 配置
+     * @param content 是要显示的内容 - help
+     */
+    help = (content) =>Message_(content, 'help')
+    /**
+     * 配置
+     * @param content 是要显示的内容 - open
+     */
+    open = (content) => Message_(content,'open')
 }
 
 export default new Message
