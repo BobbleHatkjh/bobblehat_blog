@@ -39,17 +39,17 @@
         </div>
         <div class="about_frame">
           <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${-scrollCalculate('translateY', -1.5) * 3}px) translateY(${-scrollCalculate('translateY', -1.5) * 0.5}px) scale(${scrollCalculate('scale')})`"
+               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${-scrollCalculate('translateY', -1.2) * 3}px) translateY(${-scrollCalculate('translateY', -1.2) * 0.5}px) scale(${scrollCalculate('scale')})`"
           >cp粉</div>
           <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${-scrollCalculate('translateY', -1.5)}px) translateY(${scrollCalculate('translateY', -1.5)}px) scale(${scrollCalculate('scale' )})`"
+               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${-scrollCalculate('translateY', -1.2)}px) translateY(${scrollCalculate('translateY', -1.2)}px) scale(${scrollCalculate('scale' )})`"
           >财布</div>
           <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${scrollCalculate('translateY', -1.5) * 2}px) translateY(${-scrollCalculate('translateY', -1.5)}px) scale(${scrollCalculate('scale')})`"
+               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${scrollCalculate('translateY', -1.2) * 2}px) translateY(${-scrollCalculate('translateY', -1.2)}px) scale(${scrollCalculate('scale')})`"
           >宅</div>
           <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.5)}; transform: translateX(${scrollCalculate('translateY', -1.5)}px) translateY(${scrollCalculate('translateY', -1.5) * 2}px) scale(${scrollCalculate('scale')})`"
-          >自闭</div>
+               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${scrollCalculate('translateY', -1.2)}px) translateY(${scrollCalculate('translateY', -1.2) * 2}px) scale(${scrollCalculate('scale')})`"
+          >处女座</div>
         </div>
         <p>我叫康嘉禾</p>
         <p>喜欢嗑cp，推管人，联盟玩家</p>
@@ -136,7 +136,7 @@
 
       <!-- 博客 -->
       <ContentFrame
-          background="white"
+          background="#dddddd"
           height="460px"
           extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="about_me" style="margin-top: 0">
@@ -148,7 +148,7 @@
         </Button>
       </ContentFrame>
 
-      <ContentFrame background="#dddddd">
+      <ContentFrame background="white">
         123
       </ContentFrame>
 
@@ -186,10 +186,6 @@ export default {
     return {
       scroll_now: 0,       // 现在滚动到的位置 精确到px
       full_height: 0,      // 页面全高
-      opacity_: [0,0,0,0,0],         // 滚动时透明度变化
-      translate_: 0,       // 滚动时XY轴变化
-      scale_: 1,           // 滚动时缩放变化
-
       banner: [
         img_vtuber,
         img_npm,
@@ -219,11 +215,6 @@ export default {
     /** 在滚动时触发 */
     onScroll() {
       this.scroll_now = this.$refs.content.scrollTop;
-      // if(this.$refs.content.scrollTop > 1.7 * this.full_height + 530){
-      //   for(let i = 0; i < this.opacity_.length; i ++){
-      //
-      //   }
-      // }
       if(((this.$refs.content.scrollTop - 500) / this.full_height - 1.5) / 0.7 + 1 < 5){
         this.$refs.sticky.style.background = `url('${this.banner[this.stickyCalculate(this.$refs.content.scrollTop)]}') no-repeat center center/cover`
       }
@@ -252,7 +243,7 @@ export default {
             return translate_back
           }
         case 'scale':
-          const scale_back = (-0.075 * this.full_height - this.scroll_now + 583) * 0.03;
+          const scale_back = (-0.075 * this.full_height - this.scroll_now + 583 + 0.21 * this.full_height) * 0.03;
           if(scale_back < 1){
             return 1
           } else {
@@ -425,15 +416,14 @@ html{
 .about_sloan{
   padding: 5px 10px;
   margin: 0 10px 10px 10px;
-  border-radius: 6px;
+  border-radius: 7px;
   color: white;
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.2s;
   background-color: rgba(255,76,16,0.75);
 }
 .about_sloan:hover{
   cursor: pointer;
   box-shadow: 0 0 10px #cccccc;
-  transform: translateY(-3px);
   background-color: rgba(255,76,16,0.8);
 }
 

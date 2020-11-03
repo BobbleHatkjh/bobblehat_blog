@@ -61,6 +61,7 @@ export default {
   margin-top: 50px;
   box-shadow: 0 0 16px #d8d8d8;
   font-size: 17px;
+  background-color: white;
   /*transition: background-color 0.2s, color 0.2s;*/
   color: #ff4c10;
   border-radius: 400px;
