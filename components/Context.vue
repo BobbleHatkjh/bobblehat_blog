@@ -1,14 +1,12 @@
 <template>
   <div class="scroll_content">
-
-      <div class="scroll_title">{{ title }}</div>
-      <div class="scroll_context">
-        <slot/>
-      </div>
-      <Button @click="jumpTo" :scroll="true" :icon="icon" v-if="icon">
-        {{ button }}
-      </Button>
-
+    <div class="scroll_title">{{ title }}</div>
+    <div class="scroll_context">
+      <slot/>
+    </div>
+    <Button @click="jumpTo" :scroll="true" :icon="icon" v-if="icon">
+      {{ button }}
+    </Button>
   </div>
 </template>
 
