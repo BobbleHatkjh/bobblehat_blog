@@ -33,23 +33,37 @@
       </ContentFrame>
 
       <!-- 自我介绍 -->
-      <ContentFrame background="white" height="500px" extra_css="color: #424242;flex-direction: column; justify-content: flex-start; align-items: center;">
+      <ContentFrame background="white" height="500px"
+                    extra_css="color: #424242;flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="about_me">
           关于我
         </div>
         <div class="about_frame">
-          <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${-scrollCalculate('translateY', -1.2) * 3}px) translateY(${-scrollCalculate('translateY', -1.2) * 0.5}px) scale(${scrollCalculate('scale')})`"
-          >cp粉</div>
-          <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${-scrollCalculate('translateY', -1.2)}px) translateY(${scrollCalculate('translateY', -1.2)}px) scale(${scrollCalculate('scale' )})`"
-          >财布</div>
-          <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${scrollCalculate('translateY', -1.2) * 2}px) translateY(${-scrollCalculate('translateY', -1.2)}px) scale(${scrollCalculate('scale')})`"
-          >宅</div>
-          <div class="about_sloan"
-               :style="`opacity: ${scrollCalculate('opacity', -1.2)}; transform: translateX(${scrollCalculate('translateY', -1.2)}px) translateY(${scrollCalculate('translateY', -1.2) * 2}px) scale(${scrollCalculate('scale')})`"
-          >处女座</div>
+          <div
+              class="about_sloan"
+              :style="{opacity: tag_opacity, transform: `translateX(${-tag_translate * 3}px) translateY(${-tag_translate * 0.5}px) scale(${tag_scale})`}"
+          >
+            cp粉
+          </div>
+
+          <div
+              class="about_sloan"
+              :style="{opacity: tag_opacity, transform: `translateX(${-tag_translate * 1.4}px) translateY(${tag_translate * 3}px) scale(${tag_scale})`}"
+          >
+            财布
+          </div>
+          <div
+              class="about_sloan"
+              :style="{opacity: tag_opacity, transform: `translateX(${tag_translate * 3}px) translateY(${-tag_translate}px) scale(${tag_scale})`}"
+          >
+            宅
+          </div>
+          <div
+              class="about_sloan"
+              :style="{opacity: tag_opacity, transform: `translateX(${tag_translate}px) translateY(${tag_translate * 1.4}px) scale(${tag_scale})`}"
+          >
+            处女座
+          </div>
         </div>
         <p>我叫康嘉禾</p>
         <p>喜欢嗑cp，推管人，联盟玩家</p>
@@ -72,7 +86,7 @@
               button="想去看看"
               icon="go"
               @open="jumpRoute('vtb')"
-              :style="`opacity: ${scrollCalculate('opacity', 0)}; transform: translateX(${-scrollCalculate('translateY', 0)}px) translateY(${-scrollCalculate('translateY', 0)}px`"
+              :style="{opacity: project_animate[0].opacity, transform: `translateX(${-project_animate[0].translate}px) translateY(${-project_animate[0].translate}px`}"
           >
             <i>Vue + iView</i> <i class="iconfont icon-github"/><br/>
             推Vtuber的时候结识了一些官组的成员，站长 静谷 发起了该非盈利开源项目，意在收录Vtuber演唱的歌曲，
@@ -84,7 +98,7 @@
               button="想去试试"
               icon="go"
               @open="jumpRoute('npm')"
-              :style="`opacity: ${scrollCalculate('opacity', 1)}; transform: translateX(${scrollCalculate('translateY', 1)}px) translateY(${-scrollCalculate('translateY', 1)}px`"
+              :style="{opacity: project_animate[1].opacity, transform: `translateX(${project_animate[1].translate}px) translateY(${-project_animate[1].translate}px`}"
           >
             <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
             总结了在实习过程参与开发的项目经验，针对中小型企业的官网类网站快速架设，制作了「b-library」功能组件库，
@@ -96,7 +110,7 @@
               button="微信搜索"
               icon="go"
               @open="jumpRoute('1_station')"
-              :style="`opacity: ${scrollCalculate('opacity', 2)}; transform: translateX(${-scrollCalculate('translateY', 2)}px) translateY(${-scrollCalculate('translateY', 2)}px`"
+              :style="{opacity: project_animate[2].opacity, transform: `translateX(${-project_animate[2].translate}px) translateY(${-project_animate[2].translate}px`}"
           >
             <i>React + taro</i><br/>
             参与开发了「1站团」新零售微信小程序。「1站团」秉着”生活何必东奔西跑”的概念，将人们日常的生活必需品，包含15大品类，上千种商品直达社区，极速送达用户手中，打造社区团购“新生活”
@@ -107,7 +121,7 @@
               button="想去玩玩"
               icon="go"
               @open="jumpRoute"
-              :style="`opacity: ${scrollCalculate('opacity', 3)}; transform: translateX(${scrollCalculate('translateY', 3)}px) translateY(${-scrollCalculate('translateY', 3)}px`"
+              :style="{opacity: project_animate[3].opacity, transform: `translateX(${project_animate[3].translate}px) translateY(${-project_animate[3].translate}px`}"
           >
             <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
             这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
@@ -119,7 +133,7 @@
               button="内网Only"
               icon="shut"
               @open="jumpRoute('tg')"
-              :style="`opacity: ${scrollCalculate('opacity', 4)}; transform: translateX(${-scrollCalculate('translateY', 4)}px) translateY(${-scrollCalculate('translateY', 4)}px`"
+              :style="{opacity: project_animate[4].opacity, transform: `translateX(${-project_animate[4].translate}px) translateY(${-project_animate[4].translate}px`}"
           >
             <i>React + AntDPro</i><br/>
             这里是第5个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
@@ -130,7 +144,7 @@
 
         <!-- sticky 图片-->
         <div class="scroll_frame">
-          <div ref="sticky" class="scroll_box" />
+          <div ref="sticky" class="scroll_box"/>
         </div>
       </ContentFrame>
 
@@ -152,7 +166,8 @@
         123
       </ContentFrame>
 
-      <ContentFrame height="260px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
+      <ContentFrame height="260px"
+                    extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
           <Button @click="jumpRoute('email')">邮箱</Button>
         </div>
@@ -186,6 +201,34 @@ export default {
     return {
       scroll_now: 0,       // 现在滚动到的位置 精确到px
       full_height: 0,      // 页面全高
+
+      tag_opacity: 0,      // *优化* tag的透明度变化
+      tag_translate: 0,    // *优化* tag的位置改变
+      tag_scale: 1,        // *优化* tag的大小改变
+
+      project_animate: [   // *优化* 项目介绍的改变
+        {
+          opacity: 0,
+          translate: 0,
+        },
+        {
+          opacity: 0,
+          translate: 0,
+        },
+        {
+          opacity: 0,
+          translate: 0,
+        },
+        {
+          opacity: 0,
+          translate: 0,
+        },
+        {
+          opacity: 0,
+          translate: 0,
+        },
+      ],
+
       banner: [
         img_vtuber,
         img_npm,
@@ -215,52 +258,98 @@ export default {
     /** 在滚动时触发 */
     onScroll() {
       this.scroll_now = this.$refs.content.scrollTop;
-      if(((this.$refs.content.scrollTop - 500) / this.full_height - 1.5) / 0.7 + 1 < 5){
+
+      // console.log(this.$refs.content.scrollTop,this.full_height,4.5*this.full_height);
+
+      // *优化* tag的动画,仅在滑动到介绍时触发
+      (this.$refs.content.scrollTop < this.full_height) && this.scrollTag(this.$refs.content.scrollTop);
+
+      // *优化* 项目经历的动画,仅在滑动到介绍时触发
+      if(this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= 4.5 * this.full_height) {
+        // 左边的动画
+        this.scrollProject(this.$refs.content.scrollTop);
+        // 切换右边的图片
         this.$refs.sticky.style.background = `url('${this.banner[this.stickyCalculate(this.$refs.content.scrollTop)]}') no-repeat center center/cover`
       }
     },
 
-    /** 滚动时的各项计算值 */
-    scrollCalculate(way, num) {
-      switch (way){
-        case 'opacity':
-          const call_back = (this.scroll_now - (0.8 + 0.7 * num) * this.full_height - 390)/(100 + 0.2 * this.full_height);
-          if(call_back <= 0){
-            return 0
-          } else if(call_back >= 1){
-            return 1
-          } else {
-            return call_back
-          }
-        case 'translateY':
-          // this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530)    0.6
-          const translate_back = ((1 + 0.7 * num) * this.full_height - this.scroll_now + 530);
-          if(translate_back <= 0){
-            return 0
-          } else if (translate_back > 0.6 * this.full_height){
-            return 0.6 * this.full_height
-          } else {
-            return translate_back
-          }
-        case 'scale':
-          const scale_back = (-0.075 * this.full_height - this.scroll_now + 583 + 0.21 * this.full_height) * 0.03;
-          if(scale_back < 1){
-            return 1
-          } else {
-            return scale_back
-          }
+    /** 滚动时 tag 的各项计算值 */
+    scrollTag(now) {
+      // 透明度
+      const tag_back = (now + 0.04 * this.full_height - 390) / (100 + 0.2 * this.full_height);
+      if (tag_back <= 0) {
+        this.tag_opacity = 0
+      } else if (tag_back >= 1) {
+        this.tag_opacity = 1
+      } else {
+        this.tag_opacity = tag_back
+      }
 
+      // 位置
+      const translate_back = (0.16 * this.full_height - now + 530);
+      if (translate_back <= 0) {
+        this.tag_translate = 0
+      } else if (translate_back > 0.6 * this.full_height) {
+        this.tag_translate = 0.6 * this.full_height
+      } else {
+        this.tag_translate = translate_back
+      }
+
+      // 大小
+      const scale_back = (-0.075 * this.full_height - now + 583 + 0.21 * this.full_height) * 0.03;
+      if (scale_back < 1) {
+        this.tag_scale = 1
+      } else {
+        this.tag_scale = scale_back
+      }
+    },
+
+    /** 滚动时 项目经历 的各项计算值 */
+    scrollProject(now){
+      // 5是5个项目的模板，可以往上加
+      const new_data = []
+      for(let i = 0; i < 5; i++){
+        const single_data = {
+          opacity: this.scrollOpacity(now,i),
+          translate: this.scrollTranslate(now, i)
+        }
+        new_data.push(single_data)
+      }
+      this.project_animate = new_data
+    },
+
+    /** 透明度 计算*/
+    scrollOpacity(now, i){
+      const call_back = (now - (0.8 + 0.7 * i) * this.full_height - 390) / (100 + 0.2 * this.full_height);
+      if (call_back <= 0) {
+        return 0
+      } else if (call_back >= 1) {
+        return 1
+      } else {
+        return call_back
+      }
+    },
+
+    /** 轨道 计算*/
+    scrollTranslate(now, i){
+      const translate_back = ((1 + 0.7 * i) * this.full_height - now + 530);
+      if (translate_back <= 0) {
+        return 0
+      } else if (translate_back > 0.6 * this.full_height) {
+        return 0.6 * this.full_height
+      } else {
+        return translate_back
       }
     },
 
     /** 中间图片的切换 */
-    stickyCalculate(scroll_now_init){
-      return (((scroll_now_init - 500) / this.full_height - 1.5)/0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5)/0.7) + 1
+    stickyCalculate(scroll_now_init) {
+      return (((scroll_now_init - 500) / this.full_height - 1.5) / 0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5) / 0.7) + 1
     },
 
     /** 跳转 */
     jumpRoute(to) {
-      switch (to){
+      switch (to) {
         case 'blog':
           this.$router.push('blog');
           break;
@@ -306,9 +395,10 @@ export default {
 </script>
 
 <style>
-html{
+html {
   background-color: #8a8a8a;
 }
+
 .container {
   min-height: 100vh;
   /*min-width: 1024px;*/
@@ -400,7 +490,7 @@ html{
   /*animation-play-state: paused;*/
 }
 
-.about_me{
+.about_me {
   display: flex;
   align-items: center;
   height: 50px;
@@ -410,21 +500,24 @@ html{
   margin-bottom: 20px;
   border-bottom: 3px solid #ff4c10;
 }
-.about_frame{
+
+.about_frame {
   display: flex;
 }
-.about_sloan{
+
+.about_sloan {
   padding: 5px 10px;
   margin: 0 10px 10px 10px;
   border-radius: 7px;
   color: white;
   transition: background-color 0.2s, box-shadow 0.2s;
-  background-color: rgba(255,76,16,0.75);
+  background-color: rgba(255, 76, 16, 0.8);
 }
-.about_sloan:hover{
+
+.about_sloan:hover {
   cursor: pointer;
   box-shadow: 0 0 10px #cccccc;
-  background-color: rgba(255,76,16,0.8);
+  background-color: rgba(255, 76, 16, 0.8);
 }
 
 .scroll_word {
@@ -460,7 +553,7 @@ html{
 }
 
 
-.connect{
+.connect {
   display: flex;
   justify-content: center;
   height: 180px;
@@ -469,7 +562,7 @@ html{
   background-color: #3b8070;
 }
 
-.copy_at{
+.copy_at {
   display: flex;
   justify-content: center;
   align-items: center;
