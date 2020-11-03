@@ -55,6 +55,7 @@ export default {
   height: 70vh;
   width: 100%;
   color: #424242;
+
   scroll-snap-align: start;
 }
 
