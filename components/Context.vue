@@ -1,12 +1,14 @@
 <template>
   <div class="scroll_content">
-    <div class="scroll_title">{{ title }}</div>
-    <div class="scroll_context">
-      <slot />
-    </div>
-    <Button @click="jumpTo" :scroll="true" :icon="icon" v-if="icon">
-      {{ button }}
-    </Button>
+
+      <div class="scroll_title">{{ title }}</div>
+      <div class="scroll_context">
+        <slot/>
+      </div>
+      <Button @click="jumpTo" :scroll="true" :icon="icon" v-if="icon">
+        {{ button }}
+      </Button>
+
   </div>
 </template>
 
@@ -34,7 +36,7 @@ export default {
     }
   },
   methods: {
-    jumpTo(){
+    jumpTo() {
       this.$emit('open')
     }
   }
@@ -47,18 +49,18 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  justify-content: flex-start;
   transform: translate3d(0, 0, 0);
   height: 70vh;
   width: 100%;
-  padding-top: 100px;
   color: #424242;
   scroll-snap-align: start;
 }
 
 .scroll_title {
   height: 54px;
+  width: fit-content;
   font-size: 36px;
   font-weight: bolder;
   border-bottom: 3px solid #ff4c10;
@@ -75,7 +77,8 @@ export default {
   color: #606060;
   word-wrap: break-word;
 }
-.scroll_context > i{
+
+.scroll_context > i {
   font-size: 20px;
   line-height: 40px
 }

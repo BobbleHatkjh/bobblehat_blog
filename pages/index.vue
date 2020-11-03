@@ -83,7 +83,7 @@
               title="B-Library"
               button="想去试试"
               icon="go"
-              @open="jumpRoute"
+              @open="jumpRoute('npm')"
               :style="`opacity: ${scrollCalculate('opacity', 1)}; transform: translateX(${scrollCalculate('translateY', 1)}px) translateY(${-scrollCalculate('translateY', 1)}px`"
           >
             <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
@@ -95,6 +95,7 @@
               title="1站团"
               button="微信搜索"
               icon="go"
+              @open="jumpRoute('1_station')"
               :style="`opacity: ${scrollCalculate('opacity', 2)}; transform: translateX(${-scrollCalculate('translateY', 2)}px) translateY(${-scrollCalculate('translateY', 2)}px`"
           >
             <i>React + taro</i><br/>
@@ -105,6 +106,7 @@
               title="GoBang"
               button="想去玩玩"
               icon="go"
+              @open="jumpRoute"
               :style="`opacity: ${scrollCalculate('opacity', 3)}; transform: translateX(${scrollCalculate('translateY', 3)}px) translateY(${-scrollCalculate('translateY', 3)}px`"
           >
             <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
@@ -240,15 +242,17 @@ export default {
             return call_back
           }
         case 'translateY':
-          // this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530)
+          // this.scroll_now < ((1 + 0.7 * num) * this.full_height + 530)    0.6
           const translate_back = ((1 + 0.7 * num) * this.full_height - this.scroll_now + 530);
           if(translate_back <= 0){
             return 0
+          } else if (translate_back > 0.6 * this.full_height){
+            return 0.6 * this.full_height
           } else {
             return translate_back
           }
         case 'scale':
-          const scale_back = (this.full_height - this.scroll_now - 260) * 0.03;
+          const scale_back = (-0.075 * this.full_height - this.scroll_now + 583) * 0.03;
           if(scale_back < 1){
             return 1
           } else {
@@ -278,6 +282,12 @@ export default {
           break;
         case 'email':
           window.open('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=WDo3Ojo0PTA5LBgpKXY7NzU')
+          break;
+        case '1_station':
+          window.open('https://www.1ztuan.com/')
+          break;
+        case 'npm':
+          window.open('https://www.npmjs.com/package/b-library')
           break;
         default:
           Message.open('前面的区域，以后再来探索吧');
