@@ -99,7 +99,7 @@
               :style="`opacity: ${scrollCalculate('opacity', 2)}; transform: translateX(${-scrollCalculate('translateY', 2)}px) translateY(${-scrollCalculate('translateY', 2)}px`"
           >
             <i>React + taro</i><br/>
-            参与开发了「1站团」新零售微信小程序，秉着”生活何必东奔西跑”的概念，将人们日常的生活必需品，包含15大品类，上千种商品直达社区，极速送达用户手中，打造社区团购“新生活”
+            参与开发了「1站团」新零售微信小程序。「1站团」秉着”生活何必东奔西跑”的概念，将人们日常的生活必需品，包含15大品类，上千种商品直达社区，极速送达用户手中，打造社区团购“新生活”
           </Context>
 
           <Context
@@ -199,15 +199,15 @@ export default {
       ],
       receive: [
         {
-          title: '标题1',
+          title: '这里是标题1',
           img: img_tiangong
         },
         {
-          title: '标题2',
+          title: '这里是标题2',
           img: img_tiangong
         },
         {
-          title: '标题3',
+          title: '这里是标题3',
           img: img_tiangong
         }
 

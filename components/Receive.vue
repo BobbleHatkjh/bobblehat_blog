@@ -5,7 +5,7 @@
         <div class="receive_photo">
           <img :src="single_data.img" alt/>
         </div>
-        <div>
+        <div class="receive_title">
           {{ single_data.title }}
         </div>
       </div>
@@ -79,5 +79,8 @@ export default {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+.receive_title{
+  padding: 10px;
 }
 </style>
