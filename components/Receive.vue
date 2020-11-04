@@ -68,6 +68,9 @@ export default {
   transform: translateY(-8px);
   box-shadow: 0 6px 16px #c6c6c6;
 }
+.receive_frame:active {
+  transform: scale(0.85);
+}
 
 .receive_photo {
   height: 150px;
