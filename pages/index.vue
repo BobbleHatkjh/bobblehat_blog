@@ -166,13 +166,31 @@
         123
       </ContentFrame>
 
-      <ContentFrame height="260px"
-                    extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
+      <ContentFrame height="270px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
-          <Button @click="jumpRoute('email')">邮箱</Button>
+          <div class="connect_logo">
+            <img src="../assets/img/logo_white.png" alt=""/>
+          </div>
+
+          <div class="connect_frame" style="margin-left: 0; margin-right: auto">
+            <h3>找到我</h3>
+            <p @click="jumpRoute('email')">我的邮箱</p>
+            <p>BiliBili</p>
+            <p>GitHub</p>
+            <p>NPM</p>
+          </div>
+
+          <div class="connect_frame">
+            <h3>找到我</h3>
+            <p @click="jumpRoute('email')">我的邮箱</p>
+            <p>BiliBili</p>
+            <p>GitHub</p>
+            <p>NPM</p>
+          </div>
         </div>
         <div class="copy_at">
-          @ 2020 绒球帽 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 津ICP备2020008428号
+          <a>津ICP备2020008428号</a>
+          <a>Powered by @ 2020 绒球帽</a>
         </div>
       </ContentFrame>
 
@@ -201,6 +219,8 @@ export default {
     return {
       scroll_now: 0,       // 现在滚动到的位置 精确到px
       full_height: 0,      // 页面全高
+
+      project_pic: -1,      // 图片的下标
 
       tag_opacity: 0,      // *优化* tag的透明度变化
       tag_translate: 0,    // *优化* tag的位置改变
@@ -259,17 +279,19 @@ export default {
     onScroll() {
       this.scroll_now = this.$refs.content.scrollTop;
 
-      // console.log(this.$refs.content.scrollTop,this.full_height,4.5*this.full_height);
-
       // *优化* tag的动画,仅在滑动到介绍时触发
       (this.$refs.content.scrollTop < this.full_height) && this.scrollTag(this.$refs.content.scrollTop);
 
-      // *优化* 项目经历的动画,仅在滑动到介绍时触发
+      // *优化* 项目经历的动画,仅在滑动到项目经历时触发
       if(this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= 4.5 * this.full_height) {
         // 左边的动画
         this.scrollProject(this.$refs.content.scrollTop);
         // 切换右边的图片
-        this.$refs.sticky.style.background = `url('${this.banner[this.stickyCalculate(this.$refs.content.scrollTop)]}') no-repeat center center/cover`
+        const banner_ = this.stickyCalculate(this.$refs.content.scrollTop)
+        if(this.project_pic !== banner_){
+          this.project_pic = banner_;
+          this.$refs.sticky.style.background = `url('${this.banner[banner_]}') no-repeat center center/cover`
+        }
       }
     },
 
@@ -555,21 +577,43 @@ html {
 
 .connect {
   display: flex;
-  justify-content: center;
-  height: 180px;
+  justify-content: space-between;
+  height: 190px;
   width: 100%;
   color: white;
-  background-color: #3b8070;
+  /*background-color: #3b8070;*/
+}
+.connect_logo{
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+.connect_logo img{
+  /*transform: translateX(-25px);*/
+  height: 42%;
+}
+.connect_frame{
+  justify-content: center;
+  height: 100%;
+  width: 140px;
+  /*background-color: #ff4c10;*/
+  padding: 30px 0 0;
+}
+.connect_frame h3{
+  margin-bottom: 14px;
+}
+.connect_frame p {
+  line-height: 22px;
 }
 
 .copy_at {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 60px;
   width: 100%;
-  /*background-color: #3b8070;*/
   color: white;
+  /*background-color: #3b8070;*/
   border-top: 2px solid #ff4c10;
 }
 
