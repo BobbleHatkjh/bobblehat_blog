@@ -644,6 +644,7 @@ html {
   background-color: #ff4c10;
   transform: translateY(-2px);
 }
+
 .content_icon:hover i{
   color: white;
 }
