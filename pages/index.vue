@@ -169,10 +169,10 @@
       <ContentFrame height="270px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
           <div class="connect_logo">
-            <img src="../assets/img/logo_white.png" alt=""/>
+            <img src="../assets/img/logo_white.png" alt="BobbleHat"/>
           </div>
 
-          <div class="connect_frame" style="margin-left: 0; margin-right: auto">
+          <div class="connect_frame">
             <h3>找到我</h3>
             <p @click="jumpRoute('email')">我的邮箱</p>
             <p>BiliBili</p>
@@ -184,13 +184,12 @@
             <h3>找到我</h3>
             <p @click="jumpRoute('email')">我的邮箱</p>
             <p>BiliBili</p>
-            <p>GitHub</p>
-            <p>NPM</p>
+            <p>Segmentfault</p>
           </div>
         </div>
         <div class="copy_at">
-          <a>津ICP备2020008428号</a>
           <a>Powered by @ 2020 绒球帽</a>
+          <a>津ICP备2020008428号</a>
         </div>
       </ContentFrame>
 
@@ -577,7 +576,7 @@ html {
 
 .connect {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 190px;
   width: 100%;
   color: white;
@@ -603,18 +602,27 @@ html {
   margin-bottom: 14px;
 }
 .connect_frame p {
-  line-height: 22px;
+  line-height: 24px;
+  transition: color 0.2s;
+}
+.connect_frame p:hover {
+  cursor: pointer;
+  color: #ff4c10;
 }
 
 .copy_at {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 60px;
   width: 100%;
   color: white;
-  /*background-color: #3b8070;*/
   border-top: 2px solid #ff4c10;
+}
+.copy_at a:first-child:after{
+  content: '';
+  margin: 0 10px;
+  border-right: 1px solid white;
 }
 
 
