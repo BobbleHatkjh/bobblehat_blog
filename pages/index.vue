@@ -186,10 +186,6 @@
             </div>
           </div>
 
-<!--          <div class="connect_icon_frame">-->
-
-<!--          </div>-->
-
           <div class="connect_frame">
             <h3>找到我</h3>
             <p @click="jumpRoute('email')">我的邮箱</p>
@@ -623,14 +619,7 @@ html {
   cursor: pointer;
   color: #ff4c10;
 }
-.connect_icon_frame{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 150px;
-  padding: 40px 0;
-  /*background-color: #35495e;*/
-}
+
 .content_icon{
   display: flex;
   justify-content: center;
