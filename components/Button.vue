@@ -25,7 +25,6 @@ export default {
     clickBack() {
       this.$emit('click')
     }
-
   }
 }
 </script>

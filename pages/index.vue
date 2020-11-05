@@ -187,8 +187,8 @@
           </div>
 
           <div class="connect_frame">
-            <h3>找到我</h3>
-            <p @click="jumpRoute('email')">我的邮箱</p>
+            <h3>联系到我</h3>
+            <p @click="jumpRoute('email')">发邮件给我</p>
             <p>Segmentfault</p>
             <p>BiliBili 频道</p>
           </div>
@@ -585,7 +585,7 @@ html {
   justify-content: space-between;
   height: 190px;
   width: 100%;
-  max-width: 430px;
+  max-width: 400px;
   color: white;
   /*background-color: #3b8070;*/
 }
