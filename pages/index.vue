@@ -162,22 +162,31 @@
         </Button>
       </ContentFrame>
 
+      <!-- ? -->
       <ContentFrame background="white">
         123
       </ContentFrame>
 
+      <!-- 页脚 -->
       <ContentFrame height="270px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
           <div class="connect_logo">
             <img src="../assets/img/logo_white.png" alt="BobbleHat"/>
           </div>
 
-          <div class="connect_frame">
-            <h3>找到我</h3>
-            <p @click="jumpRoute('email')">我的邮箱</p>
-            <p>BiliBili</p>
-            <p>GitHub</p>
-            <p>NPM</p>
+          <div class="connect_icon_frame">
+            <div class="content_icon">
+              <i class="iconfont icon-qq"/>
+            </div>
+            <div class="content_icon">
+              <i class="iconfont icon-github"/>
+            </div>
+            <div class="content_icon">
+              <i class="iconfont icon-twiter"/>
+            </div>
+            <div class="content_icon">
+              <i class="iconfont icon-npm"/>
+            </div>
           </div>
 
           <div class="connect_frame">
@@ -582,6 +591,7 @@ html {
   color: white;
   /*background-color: #3b8070;*/
 }
+
 .connect_logo{
   display: flex;
   align-items: center;
@@ -592,11 +602,12 @@ html {
   height: 42%;
 }
 .connect_frame{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 100%;
-  width: 140px;
-  /*background-color: #ff4c10;*/
-  padding: 30px 0 0;
+  /*width: 140px;*/
+  padding: 30px 20px;
 }
 .connect_frame h3{
   margin-bottom: 14px;
@@ -608,6 +619,41 @@ html {
 .connect_frame p:hover {
   cursor: pointer;
   color: #ff4c10;
+}
+.connect_icon_frame{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 150px;
+  padding: 40px 0;
+  /*background-color: #35495e;*/
+}
+.content_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  margin: 10px;
+  background-color: white;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.content_icon:hover{
+  cursor: pointer;
+  background-color: #ff4c10;
+  transform: translateY(-2px);
+}
+.content_icon:hover i{
+  color: white;
+}
+.content_icon:active{
+  transform: scale(0.85);
+}
+.content_icon i{
+  font-size: 24px;
+  color: #424242;
+  transition: color 0.2s;
 }
 
 .copy_at {
@@ -621,7 +667,7 @@ html {
 }
 .copy_at a:first-child:after{
   content: '';
-  margin: 0 10px;
+  margin: 0 12px;
   border-right: 1px solid white;
 }
 
