@@ -595,6 +595,7 @@ html {
   width: 300px;
   padding: 0 0 30px 0;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 .connect_logo img{
   transform: translateX(-25px) translateY(12px);
@@ -645,7 +646,7 @@ html {
 }
 .content_icon i{
   font-size: 24px;
-  color: #424242;
+  color: #ff4c10;
   transition: color 0.2s;
 }
 
@@ -656,7 +657,7 @@ html {
   height: 60px;
   width: 100%;
   color: white;
-  border-top: 2px solid #ff4c10;
+  border-top: 2px solid white;
 }
 .copy_at a:first-child:after{
   content: '';
