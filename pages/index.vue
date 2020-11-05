@@ -189,8 +189,8 @@
           <div class="connect_frame">
             <h3>找到我</h3>
             <p @click="jumpRoute('email')">我的邮箱</p>
-            <p>BiliBili</p>
             <p>Segmentfault</p>
+            <p>BiliBili 频道</p>
           </div>
         </div>
         <div class="copy_at">
@@ -582,9 +582,10 @@ html {
 
 .connect {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   height: 190px;
   width: 100%;
+  max-width: 430px;
   color: white;
   /*background-color: #3b8070;*/
 }
@@ -592,7 +593,7 @@ html {
 .connect_logo{
   display: flex;
   align-items: center;
-  width: 300px;
+  width: 250px;
   padding: 0 0 30px 0;
   flex-wrap: wrap;
   overflow: hidden;
@@ -606,8 +607,6 @@ html {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  /*width: 140px;*/
-  padding: 30px 20px;
 }
 .connect_frame h3{
   margin-bottom: 14px;
