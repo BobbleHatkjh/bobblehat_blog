@@ -172,9 +172,6 @@
         <div class="connect">
           <div class="connect_logo">
             <img src="../assets/img/logo_white.png" alt="BobbleHat"/>
-          </div>
-
-          <div class="connect_icon_frame">
             <div class="content_icon">
               <i class="iconfont icon-qq"/>
             </div>
@@ -188,6 +185,10 @@
               <i class="iconfont icon-npm"/>
             </div>
           </div>
+
+<!--          <div class="connect_icon_frame">-->
+
+<!--          </div>-->
 
           <div class="connect_frame">
             <h3>找到我</h3>
@@ -596,10 +597,12 @@ html {
   display: flex;
   align-items: center;
   width: 300px;
+  padding: 0 0 30px 0;
+  flex-wrap: wrap;
 }
 .connect_logo img{
-  /*transform: translateX(-25px);*/
-  height: 42%;
+  transform: translateX(-25px) translateY(12px);
+  height: 46%;
 }
 .connect_frame{
   display: flex;
@@ -632,10 +635,10 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   border-radius: 50px;
-  margin: 10px;
+  margin-right: 25px;
   background-color: white;
   transition: transform 0.2s, background-color 0.2s;
 }
