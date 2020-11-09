@@ -1,6 +1,8 @@
 <template>
-  <div ref="img_" class="bobble_img" :style="{ height: height, width:width }">
-    <i class="iconfont icon-loading" v-if="loading_"/>
+  <div ref="img_" class="bobble_img" :style="{ height: height, width: width, 'background: white': loading_ }">
+    <div class="img_drop" v-if="loading_">
+      <i class="iconfont icon-loading"/>
+    </div>
   </div>
 </template>
 
@@ -27,16 +29,17 @@ export default {
   },
   watch:{
     src(val){
+      console.log(1233122);
       this.loading_ = true;
       this.initImg(val)
     }
   },
   methods:{
     initImg(val){
-      this.$refs.img_.style.background = 'white';
       let background = new Image();
       background.src = val;
       background.onload = () =>{
+        if(!this.loading_) return;
         this.loading_ = false;
         this.$refs.img_.style.background = 'url(' + background.src + ') no-repeat center center/cover'
       }
@@ -51,16 +54,29 @@ export default {
 
 <style>
 .bobble_img {
+  transition: background 0.5s;
+}
+.img_drop{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  transition: background 1s;
+  height: 100%;
+  width: 100%;
+  animation: 0.5s move_out ease;
+  background-color: rgba(255,255,255,0.5);
 }
-.bobble_img i{
+.img_drop i{
   font-size: 24px;
-  color: #424242;
-  /*line-height: 16px;*/
+  color: #323232;
   animation: 2s roll ease infinite;
+}
+
+@keyframes move_out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>
