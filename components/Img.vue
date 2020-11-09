@@ -9,15 +9,15 @@
 <script>
 export default {
   props: {
-    src:{
+    src:{  // 图片地址
       type: null,
       default: null
     },
-    height: {
+    height: { // 图片高度
       type: String,
       default: "100%"
     },
-    width: {
+    width: {  // 图片宽度
       type: String,
       default: "100%"
     }
@@ -29,7 +29,6 @@ export default {
   },
   watch:{
     src(val){
-      console.log(1233122);
       this.loading_ = true;
       this.initImg(val)
     }
@@ -66,8 +65,8 @@ export default {
   background-color: rgba(255,255,255,0.5);
 }
 .img_drop i{
-  font-size: 24px;
-  color: #323232;
+  font-size: 48px;
+  color: #ff4c10;
   animation: 2s roll ease infinite;
 }
 
