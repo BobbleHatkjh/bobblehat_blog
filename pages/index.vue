@@ -33,8 +33,11 @@
       </ContentFrame>
 
       <!-- 自我介绍 -->
-      <ContentFrame background="white" height="500px"
-                    extra_css="color: #424242;flex-direction: column; justify-content: flex-start; align-items: center;">
+      <ContentFrame
+          background="white"
+          height="500px"
+          extra_css="color: #424242;flex-direction: column; justify-content: flex-start; align-items: center;"
+      >
         <div class="about_me">
           关于我
         </div>
@@ -144,7 +147,9 @@
 
         <!-- sticky 图片-->
         <div class="scroll_frame">
-          <div ref="sticky" class="scroll_box"/>
+          <div ref="sticky" class="scroll_box">
+            <Img :src="banner[project_pic]" />
+          </div>
         </div>
       </ContentFrame>
 
@@ -164,7 +169,7 @@
 
       <!-- ? -->
       <ContentFrame background="white">
-        123
+        1111
       </ContentFrame>
 
       <!-- 页脚 -->
@@ -218,7 +223,8 @@ export default {
     Context: () => import(/* webpackChunkName: "receive" */ '~/components/Context'),
     Receive: () => import(/* webpackChunkName: "receive" */ '~/components/Receive'),
     ContentFrame: () => import(/* webpackChunkName: "content_frame" */ '~/components/ContentFrame'),
-    Button: () => import(/* webpackChunkName: "button_animate" */ '~/components/Button')
+    Button: () => import(/* webpackChunkName: "button_animate" */ '~/components/Button'),
+    Img: () => import(/* webpackChunkName: "img_animate" */ '~/components/Img')
   },
   data() {
     return {
@@ -295,7 +301,7 @@ export default {
         const banner_ = this.stickyCalculate(this.$refs.content.scrollTop)
         if(this.project_pic !== banner_){
           this.project_pic = banner_;
-          this.$refs.sticky.style.background = `url('${this.banner[banner_]}') no-repeat center center/cover`
+          // this.$refs.sticky.style.background = `url('${this.banner[banner_]}') no-repeat center center/cover`
         }
       }
     },
@@ -569,7 +575,7 @@ html {
   transition: background 0.5s;
   box-shadow: 0 0 20px #c6c6c6;
   background-color: white;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .scroll_box > img {

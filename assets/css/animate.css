@@ -27,6 +27,17 @@
     color: #b300ff;
 }
 
+/* 转圈圈animate */
+@keyframes roll {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* message弹窗animate */
 @keyframes message {
     0% {
         opacity: 0;
