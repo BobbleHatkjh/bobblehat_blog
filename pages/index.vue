@@ -46,7 +46,7 @@
               class="about_sloan"
               :style="{opacity: tag_opacity, transform: `translateX(${-tag_translate * 3}px) translateY(${-tag_translate * 0.5}px) scale(${tag_scale})`}"
           >
-            cp粉
+            <a>cp粉</a>
           </div>
 
           <div
@@ -526,7 +526,8 @@ html {
 .about_me {
   display: flex;
   align-items: center;
-  height: 50px;
+  /*height: 50px;*/
+  min-height: 50px;
   font-weight: bolder;
   font-size: 28px;
   margin-top: 80px;
@@ -536,21 +537,23 @@ html {
 
 .about_frame {
   display: flex;
+  min-height: 42px;
 }
 
 .about_sloan {
+  display: flex;
+  align-items: center;
   padding: 5px 10px;
   margin: 0 10px 10px 10px;
   border-radius: 7px;
   color: white;
   transition: background-color 0.2s, box-shadow 0.2s;
-  background-color: rgba(255, 76, 16, 0.8);
+  background-color: rgba(255, 76, 16, 0.9);
 }
 
 .about_sloan:hover {
   cursor: pointer;
   box-shadow: 0 0 10px #cccccc;
-  background-color: rgba(255, 76, 16, 0.8);
 }
 
 .scroll_word {
