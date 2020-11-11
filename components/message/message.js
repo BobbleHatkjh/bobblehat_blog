@@ -41,10 +41,6 @@ class Message {
 
 function Message_(content, state, duration) {
 
-    /** 文字内容 */
-    let content_ = document.createElement("div");
-    content_.innerText = content;
-
     /** 外面的包裹元素 */
     let message = document.createElement("div");
 
@@ -54,6 +50,10 @@ function Message_(content, state, duration) {
         icon_.className = `icon iconfont icon-${state}`;
         message.appendChild(icon_);
     }
+
+    /** 文字内容 */
+    let content_ = document.createElement("div");
+    content_.innerText = content;
 
     message.appendChild(content_)
 
