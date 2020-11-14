@@ -155,7 +155,7 @@
 
       <!-- 博客 -->
       <ContentFrame
-          background="#dddddd"
+          background="white"
           height="460px"
           extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="about_me" style="margin-top: 0">
