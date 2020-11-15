@@ -9,7 +9,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "@nuxtjs/markdownit": "^1.2.10",
+    "core-js": "^3.4.8",
+    "markdown-it-attrs": "^3.0.3",
+    "markdown-it-div": "^1.1.0",
     "nuxt": "^2.14.6"
   },
   "devDependencies": {}

@@ -148,7 +148,7 @@
         <!-- sticky 图片-->
         <div class="scroll_frame">
           <div ref="sticky" class="scroll_box">
-            <Img :src="banner[project_pic]" />
+            <Img :src="banner[project_pic]"/>
           </div>
         </div>
       </ContentFrame>
@@ -173,7 +173,8 @@
       </ContentFrame>
 
       <!-- 页脚 -->
-      <ContentFrame height="270px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
+      <ContentFrame height="270px"
+                    extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
           <div class="connect_logo">
             <img src="../assets/img/logo_white.png" alt="BobbleHat"/>
@@ -294,16 +295,21 @@ export default {
       (this.$refs.content.scrollTop < this.full_height) && this.scrollTag(this.$refs.content.scrollTop);
 
       // *优化* 项目经历的动画,仅在滑动到项目经历时触发
-      if(this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= 4.5 * this.full_height) {
+      if (this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= 4.5 * this.full_height) {
         // 左边的动画
         this.scrollProject(this.$refs.content.scrollTop);
         // 切换右边的图片
         const banner_ = this.stickyCalculate(this.$refs.content.scrollTop)
-        if(this.project_pic !== banner_){
+        if (this.project_pic !== banner_) {
           this.project_pic = banner_;
           // this.$refs.sticky.style.background = `url('${this.banner[banner_]}') no-repeat center center/cover`
         }
       }
+    },
+
+    /** 页面高度发生变化时 */
+    onResize(){
+      window.innerHeight >= 650 && (this.full_height = window.innerHeight);
     },
 
     /** 滚动时 tag 的各项计算值 */
@@ -338,12 +344,12 @@ export default {
     },
 
     /** 滚动时 项目经历 的各项计算值 */
-    scrollProject(now){
+    scrollProject(now) {
       // 5是5个项目的模板，可以往上加
       const new_data = []
-      for(let i = 0; i < 5; i++){
+      for (let i = 0; i < 5; i++) {
         const single_data = {
-          opacity: this.scrollOpacity(now,i),
+          opacity: this.scrollOpacity(now, i),
           translate: this.scrollTranslate(now, i)
         }
         new_data.push(single_data)
@@ -352,7 +358,7 @@ export default {
     },
 
     /** 透明度 计算*/
-    scrollOpacity(now, i){
+    scrollOpacity(now, i) {
       const call_back = (now - (0.8 + 0.7 * i) * this.full_height - 390) / (100 + 0.2 * this.full_height);
       if (call_back <= 0) {
         return 0
@@ -364,7 +370,7 @@ export default {
     },
 
     /** 轨道 计算*/
-    scrollTranslate(now, i){
+    scrollTranslate(now, i) {
       const translate_back = ((1 + 0.7 * i) * this.full_height - now + 530);
       if (translate_back <= 0) {
         return 0
@@ -412,9 +418,7 @@ export default {
   mounted() {
     this.full_height = window.innerHeight;
     window.addEventListener("scroll", this.onScroll, true);
-    window.onresize = () =>{
-      window.innerHeight >= 650 && (this.full_height = window.innerHeight);
-    }
+    window.addEventListener("resize", this.onResize);
   },
   created() {
     console.log('%c\n┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
@@ -424,7 +428,8 @@ export default {
     )
   },
   destroyed() {
-    window.removeEventListener("scroll", this.onScroll, true)
+    window.removeEventListener("scroll", this.onScroll, true);
+    window.removeEventListener("resize", this.onResize)
   }
 }
 </script>
@@ -601,7 +606,7 @@ html {
   /*background-color: #3b8070;*/
 }
 
-.connect_logo{
+.connect_logo {
   display: flex;
   align-items: center;
   width: 250px;
@@ -609,29 +614,34 @@ html {
   flex-wrap: wrap;
   overflow: hidden;
 }
-.connect_logo img{
+
+.connect_logo img {
   transform: translateX(-25px) translateY(12px);
   height: 46%;
 }
-.connect_frame{
+
+.connect_frame {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
 }
-.connect_frame h3{
+
+.connect_frame h3 {
   margin-bottom: 14px;
 }
+
 .connect_frame p {
   line-height: 24px;
   transition: color 0.2s;
 }
+
 .connect_frame p:hover {
   cursor: pointer;
   color: #ff4c10;
 }
 
-.content_icon{
+.content_icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -642,19 +652,22 @@ html {
   background-color: white;
   transition: transform 0.2s, background-color 0.2s;
 }
-.content_icon:hover{
+
+.content_icon:hover {
   cursor: pointer;
   background-color: #ff4c10;
   transform: translateY(-2px);
 }
 
-.content_icon:hover i{
+.content_icon:hover i {
   color: white;
 }
-.content_icon:active{
+
+.content_icon:active {
   transform: scale(0.85);
 }
-.content_icon i{
+
+.content_icon i {
   font-size: 24px;
   color: #ff4c10;
   transition: color 0.2s;
@@ -669,7 +682,8 @@ html {
   color: white;
   border-top: 2px solid white;
 }
-.copy_at a:first-child:after{
+
+.copy_at a:first-child:after {
   content: '';
   margin: 0 12px;
   border-right: 1px solid white;
