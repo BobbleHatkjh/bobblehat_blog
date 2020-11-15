@@ -412,7 +412,9 @@ export default {
   mounted() {
     this.full_height = window.innerHeight;
     window.addEventListener("scroll", this.onScroll, true);
-    // console.log('-----4-----', window.innerHeight)
+    window.onresize = () =>{
+      window.innerHeight >= 650 && (this.full_height = window.innerHeight);
+    }
   },
   created() {
     console.log('%c\n┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +

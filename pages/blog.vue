@@ -13,10 +13,10 @@
       </div>
 
       <div class="blog_content">
+
         <h2>博客 迁移中...</h2>
         <Button @click="jumpCSDN" :scroll="true" icon="go">去看原博客</Button>
       </div>
-
 
     </div>
 
