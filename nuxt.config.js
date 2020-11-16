@@ -38,6 +38,7 @@ export default {
         preset: 'default',
         linkify: true,
         breaks: true,
+        typographer: true,
         use: [
             'markdown-it-div',
             'markdown-it-attrs'

@@ -15,8 +15,24 @@
       </div>
 
       <div class="blog_content">
+
+        <!-- 左边导航栏 -->
+        <div class="template_signal" style="justify-content: flex-start">
+          <div class="signal">
+            <i class="iconfont icon-down" style="transform: rotate(90deg) translateY(1px)"/>
+          </div>
+        </div>
+
+        <!-- 内容 -->
         <div class="blog_template">
           <div v-html="hello"></div>
+        </div>
+
+        <!-- 右边导航栏 -->
+        <div class="template_signal" style="justify-content: flex-end">
+          <div class="signal">
+            <i class="iconfont icon-down" style="transform: rotate(-90deg) translateY(1px)"/>
+          </div>
         </div>
 
 <!--        <h2>博客 迁移中...</h2>-->
@@ -53,10 +69,11 @@ export default {
     },
     /** 页面宽度发生变化时 */
     onResize(){
-      window.innerWidth <= 1100 ? (this.side_show = false) : (this.side_show = true)
+      window.innerWidth <= 1200 ? (this.side_show = false) : (this.side_show = true)
     },
   },
   mounted() {
+    this.onResize();
     window.addEventListener("resize", this.onResize);
   },
   destroyed() {
@@ -126,11 +143,42 @@ export default {
   flex: 1;
   overflow: scroll;
 }
+
+.template_signal{
+  position: sticky;
+  display: flex;
+  top: 0;
+  align-items: center;
+  height: 100%;
+  width: 70px;
+}
+.signal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  width: 36px;
+  border-radius: 100px;
+  background-color: #f1f1f1;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
+  color: #999999;
+}
+.signal:hover{
+  cursor: pointer;
+  background-color: #ff4c10;
+  color: white;
+}
+.signal:active{
+  transform: scale(0.8);
+}
+.signal i{
+  font-size: 22px;
+}
 .blog_template{
   /*background-color: #ff4c10;*/
   height: auto;
   /*width: calc();*/
-  width: 800px;
+  width: 760px;
   /*overflow-x: scroll;*/
 }
 

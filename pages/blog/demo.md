@@ -3,12 +3,17 @@
 ```bash
 最新更新时间: 2020-10-9
 ```
-
+| Left-aligned | Center-aligned | Right-aligned |
+| :---         |     :---:      |          ---: |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
+| git status   | git status     | git status    |
+| git diff     | git diff       | git diff      |
 ## 服务器维护:
 ~~服务器为nodeJS服务架构，采用nuxt前端模板框架~~
 
 | 工具      | 功能描述       | 补充          |
-| ------   | ------------- | ------------ |
+| :---     |      :---:   |         ---: |
 | Nginx    | 反向代理服务器   |              | 
 | pm2      | 进程控制器      |              | 
 | node     | node服务       |              |
