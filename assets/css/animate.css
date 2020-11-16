@@ -7,9 +7,8 @@
     opacity: 0;
 }
 
-
+/*关于message里的icon样式*/
 .icon{
-    /*background-color: #3b8070;*/
     font-size: 22px;
     margin-right: 10px;
     margin-left: -6px;

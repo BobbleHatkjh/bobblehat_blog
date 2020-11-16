@@ -31,6 +31,8 @@ export default {
 
 <style>
 .animate_button {
+  display: flex;
+  align-items: center;
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 16px;

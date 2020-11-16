@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="receive_row" v-for="row_data in receive_data">
-      <div class="receive_frame" v-for="single_data in row_data">
+    <div class="receive_row" v-for="(row_data, receive_index) in receive_data" :key="receive_index">
+      <div class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
         <div class="receive_photo">
           <img :src="single_data.img" alt/>
         </div>

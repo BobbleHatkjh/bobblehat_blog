@@ -2,9 +2,20 @@
   <div class="blog_bac">
 
     <div class="blog_side_bar" :style="!side_show && 'width: 0'">
-      <div>
-        bobblehat
+      <div class="blog_side_content">
+        <div class="blog_logo">
+          <img src="../assets/img/logo_orange.png" alt=""/>
+        </div>
+        <div class="side_frame">
+          <Button class="side_button">Virtual Dom</Button>
+          <Button class="side_button">Event Loop</Button>
+          <Button class="side_button">前端服务端渲染</Button>
+<!--          <Button class="side_button">细谈JS的存储方式（堆内存，栈内存）与深拷贝，浅拷贝</Button>-->
+
+        </div>
+
       </div>
+
     </div>
 
     <div class="blog_body">
@@ -94,13 +105,47 @@ export default {
 .blog_side_bar {
   display: flex;
   flex-shrink: 0;
-  height: calc(100% - 70px);
+  align-items: center;
+  height: 100%;
   width: 280px;
-  /*box-shadow: 4px 0 4px -4px #dadada;*/
-  border-right: 1px solid #dddddd;
   transition: width 0.5s;
   overflow: hidden;
 }
+.blog_side_content{
+  height: calc(100% - 70px);
+  width: 100%;
+  border-right: 1px solid #dddddd;
+}
+.blog_logo{
+  display: flex;
+  align-items: center;
+  height: 75px;
+  width: 100%;
+  transform: translateY(-35px);
+  /*border-bottom: 1px solid #dddddd;*/
+  /*background-color: #ff4c10;*/
+}
+.blog_logo img{
+  height: 60px;
+  margin-left: 26px;
+}
+.side_frame{
+  height: auto;
+  min-width: 224px;
+  width: 224px;
+  margin-left: 28px;
+  /*margin: auto;*/
+}
+.side_button{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  justify-content: space-between;
+  height: 50px;
+  /*margin-bottom: 10px !important;*/
+}
+
 
 .blog_body {
   display: flex;
@@ -156,8 +201,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 36px;
-  width: 36px;
+  height: 38px;
+  width: 38px;
   border-radius: 100px;
   background-color: #f1f1f1;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
