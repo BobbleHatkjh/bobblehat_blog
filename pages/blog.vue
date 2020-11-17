@@ -3,12 +3,14 @@
 
     <div class="blog_side_bar" :style="!side_show && 'width: 0'">
       <div class="blog_side_content">
+
+        <!-- 左上角logo -->
         <div class="blog_logo">
           <img src="../assets/img/logo_orange.png" alt=""/>
         </div>
-        <div class="side_div">
 
-          <!-- side router -->
+        <!-- side router -->
+        <div class="side_div">
           <div class="side_frame"
                v-for="(route, route_index) in side_router"
                :key="route_index"
@@ -17,17 +19,14 @@
           >
             <div class="side_frame_title" @click="route.state = !route.state">
               <p>{{ route.name }}</p>
-              <i class="iconfont icon-down" :style="!route.state && 'transform: rotate(-90deg)'"/>
+              <i class="iconfont icon-down" :style="!route.state && 'transform: rotate(-90deg); color: white'"/>
             </div>
             <div v-for="(content, content_index) in route.children" :key="content_index">
               <Button icon="go white" class="side_button" @click="selectBlog(content)">{{ content.name }}</Button>
             </div>
           </div>
-
         </div>
-
       </div>
-
     </div>
 
     <div class="blog_body">
@@ -116,7 +115,7 @@ export default {
     routeInit(){
       const test = [
         {
-          name: '面试相关',
+          name: '面试基础知识点',
           children: [
             {
               name: '前端服务端渲染',
@@ -130,7 +129,7 @@ export default {
           ]
         },
         {
-          name: '测试',
+          name: '面试算法题',
           children: [
             {
               name: 'Event Loop',
@@ -148,7 +147,7 @@ export default {
           ]
         },
         {
-          name: '测试2',
+          name: 'JS底层逻辑',
           children: [
             {
               name: 'Event Loop1',
@@ -261,9 +260,10 @@ export default {
   flex-shrink: 0;
   height: 60px;
   width: 224px;
+  padding-left: 20px;
   margin-left: 28px;
   overflow: hidden;
-  transition: height 0.3s;
+  transition: height 0.3s, padding-left 0.3s;
 }
 .side_frame_open:first-child{
   box-shadow:0 10px 10px -10px #dddddd,
@@ -274,6 +274,7 @@ export default {
   0 -10px 10px -10px #dddddd;
 }
 .side_frame_open{
+  padding-left: 0;
   box-shadow:0 10px 10px -10px #dddddd,
   0 -10px 10px -10px #dddddd;
 }
@@ -287,7 +288,11 @@ export default {
   /*transition: color 0.3s;*/
 }
 .side_frame_title i{
+  color: #ff4c10;
   transition: transform 0.3s;
+}
+.side_frame_title:hover i{
+  color: #ff4c10 !important;
 }
 .side_frame_title:hover{
   cursor: pointer;
