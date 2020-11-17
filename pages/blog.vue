@@ -6,12 +6,23 @@
         <div class="blog_logo">
           <img src="../assets/img/logo_orange.png" alt=""/>
         </div>
-        <div class="side_frame">
-          <Button class="side_button">Virtual Dom</Button>
-          <Button class="side_button">Event Loop</Button>
-          <Button class="side_button">前端服务端渲染</Button>
-          <Button class="side_button">antDPro动态路由</Button>
-<!--          <Button class="side_button">细谈JS的存储方式（堆内存，栈内存）与深拷贝，浅拷贝</Button>-->
+        <div class="side_div">
+
+          <!-- side router -->
+          <div class="side_frame"
+               v-for="(route, route_index) in side_router"
+               :key="route_index"
+               :style="route.state && `height:${ 68 + 50 * route.children.length }px`"
+               :class="route.state && 'side_frame_open'"
+          >
+            <div class="side_frame_title" @click="route.state = !route.state">
+              <p>{{ route.name }}</p>
+              <i class="iconfont icon-down" :style="!route.state && 'transform: rotate(-90deg)'"/>
+            </div>
+            <div v-for="(content, content_index) in route.children" :key="content_index">
+              <Button icon="go white" class="side_button" @click="selectBlog(content)">{{ content.name }}</Button>
+            </div>
+          </div>
 
         </div>
 
@@ -40,14 +51,17 @@
         <!-- 内容 -->
         <div class="blog_template">
           <div class="blog_title">
-            <p>前端服务端渲染</p>
-            <span>绒球帽 2020-11-2</span>
+            <p>{{ open_blog.name }}</p>
+            <span>绒球帽 {{open_blog.time}}</span>
           </div>
           <div class="blog_banner">
-            <Img :src="forest"/>
+            <Img :src="open_blog.banner"/>
           </div>
 
           <div style="height: auto;margin-bottom: 70px" v-html="hello"></div>
+          <div class="blog_comment">
+            评论
+          </div>
         </div>
 
         <!-- 右导航栏 -->
@@ -68,7 +82,6 @@
 </template>
 
 <script>
-import forest from '../assets/img/forest_animate_g.webp'
 import hello from './blog/demo.md'
 export default {
   components: {
@@ -77,16 +90,14 @@ export default {
   },
   data(){
     return {
-      side_show: true,  // 侧边栏打开状态 true为打开
-      model: '# Hello World!'
+      side_show: true,    // 侧边栏打开状态 true为打开
+      side_router: [],    // 侧边栏解析好的router
+      open_blog: {}       // 现在打开的博客页
     }
   },
   computed: {
     hello() {
       return hello
-    },
-    forest() {
-      return forest
     }
   },
 
@@ -98,9 +109,103 @@ export default {
     onResize(){
       window.innerWidth <= 1200 ? (this.side_show = false) : (this.side_show = true)
     },
+    selectBlog(val){
+      val.id !== this.open_blog.id && (this.open_blog = val)
+    },
+    /** 解析路由 */
+    routeInit(){
+      const test = [
+        {
+          name: '面试相关',
+          children: [
+            {
+              name: '前端服务端渲染',
+              time: '2020-11-3',
+              banner: 'https://i0.hdslb.com/bfs/sycp/creative_img/202011/45a6a5afdb540f7c9b2855c47c124b8b.jpg@412w_232h_1c'
+            },{
+              name: 'Virtual Dom',
+              time: '2020-10-9',
+              banner: 'https://i0.hdslb.com/bfs/archive/14aa66cef470bf78b7e98aa4a1bd79fb4846df8b.jpg@406w_254h_1e_1c.webp'
+            }
+          ]
+        },
+        {
+          name: '测试',
+          children: [
+            {
+              name: 'Event Loop',
+              time: '2020-10-30',
+              banner: 'https://i1.hdslb.com/bfs/archive/85178fb4efa00f6abb538ef5ea4b20e4181ca6ab.jpg@406w_254h_1e_1c.webp'
+            },
+            {
+              name: 'JS数据存储',
+              banner: 'https://activity.hdslb.com/blackboard/activity20124/a0287f637d14babe5ef2d6de33030db8.png'
+            },
+            {
+              name: 'URL到显示网页',
+              banner: 'https://s2.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/background.bc725153.png'
+            }
+          ]
+        },
+        {
+          name: '测试2',
+          children: [
+            {
+              name: 'Event Loop1',
+              banner: 'https://i0.hdslb.com/bfs/live/new_room_cover/b38ada6ef18245356c8b6b1784395ba68b165da5.jpg@406w_254h_1e_1c.webp'
+            }
+          ]
+        },
+        {
+          name: '测试3',
+          children: [
+            {
+              name: 'Event Loop2',
+              banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
+            }
+          ]
+        },
+        {
+          name: '测试4',
+          children: [
+            {
+              name: 'Event Loop24',
+              banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
+            }
+          ]
+        },
+        {
+          name: '测试5',
+          children: [
+            {
+              name: 'Event Loop21',
+              banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
+            }
+          ]
+        },
+      ];
+      this.side_router = test.map((item, index) => {
+        return {
+          state: false,
+          name: item.name,
+          children: item.children.map((child_item, child_index) => {
+            return {
+              id: item.id || 10 * index + child_index,
+              name: child_item.name,
+              time: child_item.time || '时间被吞噬掉惹',
+              banner: child_item.banner
+            }
+          })
+        }
+      });
+      this.open_blog = this.side_router[0].children[0];
+      console.log(this.side_router)
+
+    }
   },
   mounted() {
     this.onResize();
+    this.routeInit();
     window.addEventListener("resize", this.onResize);
   },
   destroyed() {
@@ -145,12 +250,51 @@ export default {
   height: 60px;
   margin-left: 26px;
 }
+.side_div{
+  height: calc(100% - 75px);
+  width: 100%;
+  min-width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
 .side_frame{
-  height: auto;
-  min-width: 224px;
+  flex-shrink: 0;
+  height: 60px;
   width: 224px;
   margin-left: 28px;
-  /*margin: auto;*/
+  overflow: hidden;
+  transition: height 0.3s;
+}
+.side_frame_open:first-child{
+  box-shadow:0 10px 10px -10px #dddddd,
+  0 -10px 10px -10px white;
+}
+.side_frame_open:last-child{
+  box-shadow:0 10px 10px -10px white,
+  0 -10px 10px -10px #dddddd;
+}
+.side_frame_open{
+  box-shadow:0 10px 10px -10px #dddddd,
+  0 -10px 10px -10px #dddddd;
+}
+.side_frame_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  /*font-size: 16px;*/
+  /*transition: color 0.3s;*/
+}
+.side_frame_title i{
+  transition: transform 0.3s;
+}
+.side_frame_title:hover{
+  cursor: pointer;
+  color: #ff4c10;
+  font-weight: bolder;
+  /*font-size: 18px;*/
+  /*background-color: #ff4c10;*/
 }
 .side_button{
   white-space: nowrap;
@@ -251,6 +395,7 @@ export default {
 }
 .blog_title p{
   font-size: 28px;
+  height: 40px;
   font-weight: bolder;
   letter-spacing: 1px;
   margin-bottom: 10px;
@@ -264,7 +409,14 @@ export default {
   border-radius: 15px;
   overflow: hidden;
   margin-bottom: 32px;
+  background-color: #dddddd;
 }
-
+.blog_comment{
+  height: 80px;
+  width: 100%;
+  border: 1px solid #333;
+  border-radius: 15px;
+  margin-bottom: 70px;
+}
 
 </style>
