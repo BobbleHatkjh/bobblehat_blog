@@ -357,7 +357,7 @@ export default {
       this.project_animate = new_data
     },
 
-    /** 透明度 计算*/
+    /** 透明度 计算 */
     scrollOpacity(now, i) {
       const call_back = (now - (0.8 + 0.7 * i) * this.full_height - 390) / (100 + 0.2 * this.full_height);
       if (call_back <= 0) {
@@ -369,7 +369,7 @@ export default {
       }
     },
 
-    /** 轨道 计算*/
+    /** 轨道 计算 */
     scrollTranslate(now, i) {
       const translate_back = ((1 + 0.7 * i) * this.full_height - now + 530);
       if (translate_back <= 0) {

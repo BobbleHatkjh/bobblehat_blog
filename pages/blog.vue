@@ -10,6 +10,7 @@
           <Button class="side_button">Virtual Dom</Button>
           <Button class="side_button">Event Loop</Button>
           <Button class="side_button">前端服务端渲染</Button>
+          <Button class="side_button">antDPro动态路由</Button>
 <!--          <Button class="side_button">细谈JS的存储方式（堆内存，栈内存）与深拷贝，浅拷贝</Button>-->
 
         </div>
@@ -20,14 +21,16 @@
 
     <div class="blog_body">
 
+      <!-- header -->
       <div class="blog_header">
         <i class="iconfont icon-fold" @click="side_show = !side_show" :style="!side_show && 'transform: rotate(180deg)'"/>
         <p>绒球帽的博客</p>
       </div>
 
+      <!-- 正文 -->
       <div class="blog_content">
 
-        <!-- 左边导航栏 -->
+        <!-- 左导航栏 -->
         <div class="template_signal" style="justify-content: flex-start">
           <div class="signal">
             <i class="iconfont icon-down" style="transform: rotate(90deg) translateY(1px)"/>
@@ -36,10 +39,18 @@
 
         <!-- 内容 -->
         <div class="blog_template">
-          <div v-html="hello"></div>
+          <div class="blog_title">
+            <p>前端服务端渲染</p>
+            <span>绒球帽 2020-11-2</span>
+          </div>
+          <div class="blog_banner">
+            <Img :src="forest"/>
+          </div>
+
+          <div style="height: auto;margin-bottom: 70px" v-html="hello"></div>
         </div>
 
-        <!-- 右边导航栏 -->
+        <!-- 右导航栏 -->
         <div class="template_signal" style="justify-content: flex-end">
           <div class="signal">
             <i class="iconfont icon-down" style="transform: rotate(-90deg) translateY(1px)"/>
@@ -57,9 +68,11 @@
 </template>
 
 <script>
+import forest from '../assets/img/forest_animate_g.webp'
 import hello from './blog/demo.md'
 export default {
   components: {
+    Img: () => import(/* webpackChunkName: "img_animate" */ '~/components/Img'),
     Button: () => import(/* webpackChunkName: "button_animate" */ '~/components/Button')
   },
   data(){
@@ -71,6 +84,9 @@ export default {
   computed: {
     hello() {
       return hello
+    },
+    forest() {
+      return forest
     }
   },
 
@@ -121,7 +137,7 @@ export default {
   align-items: center;
   height: 75px;
   width: 100%;
-  transform: translateY(-35px);
+  transform: translateY(-25px);
   /*border-bottom: 1px solid #dddddd;*/
   /*background-color: #ff4c10;*/
 }
@@ -183,7 +199,7 @@ export default {
 .blog_content {
   display: flex;
   justify-content: center;
-  padding: 60px 0;
+  /*padding: 70px 0;*/
   width: 100%;
   flex: 1;
   overflow: scroll;
@@ -220,11 +236,34 @@ export default {
   font-size: 22px;
 }
 .blog_template{
-  /*background-color: #ff4c10;*/
+  /*height: fit-content;*/
   height: auto;
-  /*width: calc();*/
   width: 760px;
+  margin: 56px 0;
+  color: #424242;
+  /*background-color: #ff4c10;*/
   /*overflow-x: scroll;*/
+}
+.blog_title{
+  width: 100%;
+  height: auto;
+  margin-bottom: 26px;
+}
+.blog_title p{
+  font-size: 28px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.blog_title span{
+  color: #7b7b7b;
+}
+.blog_banner{
+  height: 366px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 32px;
 }
 
 
