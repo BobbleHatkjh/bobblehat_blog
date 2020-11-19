@@ -66,7 +66,7 @@
           <div class="blog_banner">
             <Img :src="open_blog.banner"/>
           </div>
-          <div style="height: auto;margin-bottom: 70px" v-html="hello" />
+          <div style="height: auto;margin-bottom: 70px" v-html="open_blog.content || hello" />
           <div class="blog_comment">
             评论
           </div>
@@ -75,7 +75,7 @@
         <!-- 右导航栏 -->
         <div class="template_signal" style="align-items: flex-end">
           <div class="signal">
-            <i class="iconfont icon-comment" style="font-weight: bolder; transform: translateY(1px)"/>
+            <i class="iconfont icon-comment" style="font-weight: bold; transform: translateY(1px)"/>
           </div>
           <div class="signal">
             <i class="iconfont icon-down" style="transform: rotate(-90deg) translateY(1px)"/>
@@ -142,11 +142,12 @@ export default {
             {
               name: '前端服务端渲染',
               time: '2020-11-3',
-              banner: 'https://i0.hdslb.com/bfs/sycp/creative_img/202011/45a6a5afdb540f7c9b2855c47c124b8b.jpg@412w_232h_1c'
+              banner: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg',
+              content: 'https://raw.githubusercontent.com/BobbleHatkjh/VUE-Brick/master/README.md'
             },{
               name: 'Virtual Dom',
               time: '2020-10-9',
-              banner: 'https://i0.hdslb.com/bfs/archive/14aa66cef470bf78b7e98aa4a1bd79fb4846df8b.jpg@406w_254h_1e_1c.webp'
+              banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
             }
           ]
         },
@@ -156,7 +157,7 @@ export default {
             {
               name: 'Event Loop',
               time: '2020-10-30',
-              banner: 'https://i1.hdslb.com/bfs/archive/85178fb4efa00f6abb538ef5ea4b20e4181ca6ab.jpg@406w_254h_1e_1c.webp'
+              banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             },
             {
               name: 'JS数据存储',
@@ -220,7 +221,7 @@ export default {
         }
       });
       this.open_blog = this.side_router[0].children[0];
-      console.log(this.side_router)
+      // console.log(this.side_router)
 
     }
   },
@@ -288,17 +289,17 @@ export default {
   transition: height 0.3s, padding-left 0.3s;
 }
 .side_frame_open:first-child{
-  box-shadow:0 8px 8px -8px #cccccc,
-  0 -8px 8px -8px white;
+  box-shadow:0 6px 6px -6px #cccccc,
+  0 -6px 6px -6px white;
 }
 .side_frame_open:last-child{
-  box-shadow:0 8px 8px -8px white,
-  0 -8px 8px -8px #cccccc;
+  box-shadow:0 6px 6px -6px white,
+  0 -6px 6px -6px #cccccc;
 }
 .side_frame_open{
   padding-left: 0;
-  box-shadow:0 8px 8px -8px #cccccc,
-  0 -8px 8px -8px #cccccc;
+  box-shadow:0 6px 6px -6px #cccccc,
+  0 -6px 6px -6px #cccccc;
 }
 .side_frame_title{
   display: flex;
@@ -389,8 +390,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 38px;
-  width: 38px;
+  height: 40px;
+  width: 40px;
   margin: 14px 0;
   border-radius: 100px;
   background-color: #f1f1f1;

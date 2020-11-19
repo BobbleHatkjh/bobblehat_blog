@@ -1,126 +1,198 @@
-# 绒球帽的博客
->==标记文本==
->ssss
-```bash
-最新更新时间: 2020-10-9
+
+_'Brick-Library' is a Vue component library_<br/>
+
+Do you find it too boring to write repetitive work when writing Vue projects? <br/> Every project has to write headers and footers repeatedly?<br/>
+
+<!--
+
+_'Library'makes a whole set of functional class 'Vue' component libraries based on the common functions of programmers, whether small to 'A' tags, large to automated'HeadBar' with'router'and dynamic effects, or templates for the entire page,'Library' has everything. We hope 'Brick Library' will bring some convenience to your work._
+
+<br/>
+
+-->
+
+Now Brick-Library is fresh! You don't have to repeat many functional components anymore, we makes a whole set of functional class 'Vue' component libraries based on the common functional of programmers. you can build your entire customized website in the time of putting together a fingertip building block. Download and Import the components you need in the package, simply add them to your Vue project, and the wonderful content will be presented in a moment.
+
+##
+
+<br/>
+
+
+
+<!--
+
+>You can visit the following website to give a rough preview of the old version of 'Library' (some components are different, but the overall idea is the same).<br/>
+><a href="http://123.57.41.38:8080/game_center/#/" target="_blank">Library preview(old)</a>
+
+<br/>
+
+-->
+
+- Components
+    - [x] A
+    - [x] Account module (In testing)
+    - [x] Banner (In testing)
+    - [x] Button
+    - [x] Dot
+    - [x] Footer
+    - [x] HeadBar      
+    - [x] Inclusion
+    - [ ] Login
+    - [ ] Language switch
+    - [x] Notice
+    - [x] PageLabel 
+    - [ ] Register
+    - [ ] Router
+    - [x] SideBar
+    - [x] Slot
+    - [x] TabBar
+    - [ ] Tips   
+  
+<br/>
+  
+- Global Function
+    - [x] CSS Overall Control (In testing)
+    - [ ] Parallax Effect 
+    - [x] Test Mode (In testing)
+    - [x] Theme Configuration
+    - [ ] iconFont library
+
+<br/>
+
+- Description File
+    - [ ] Define Type Files
+
+##
+
+<br/>
+
+### introduction of _import_
+
+>Few components - Recommended ways of import
 ```
-| Left-aligned | Center-aligned | Right-aligned |
-| :---         |     :---:      |          ---: |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
-| git status   | git status     | git status    |
-| git diff     | git diff       | git diff      |
-## 服务器维护:
-~~服务器为nodeJS服务架构，采用nuxt前端模板框架~~
+<template>
+    <div>
+ 
+        <Notice :noticeData="myData" />
+        
+    </div>
+</template>
 
-| 工具      | 功能描述       | 补充          |
-| :---     |      :---:   |         ---: |
-| Nginx    | 反向代理服务器   |              | 
-| pm2      | 进程控制器      |              | 
-| node     | node服务       |              |
-
-## 在重新部署的时候需要进行的操作
-
-**关闭pm2的当前node进程*  
-**关闭Nginx的解析*   
-**上传nuxt文件包*  
-
-先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中先检查pm2上在跑的进程,生成如下图时说明当前服务器的node服务正在启动中
-
-
-### 步骤一:pm2
-```bash
-$ pm2 list 
-```
-```bash
-先检
-pm2基础操作:
-
-$ pm2 start npm -- start    运行此node进程 
-$ pm2 list                  打开pm2进程列表
-$ pm2 show 0                展开id为0的进程的详细信息
-$ pm2 stop 0/all            停止id为0/所有进程
-$ pm2 reload 0/all          重载id为0/所有表中的进程
-$ pm2 delete 0/all          删除表中的进程       
-```
-
-### 步骤二: Nginx
-```bash
-ps aux | grep nginx
-```
-```bash
-检查nginx是不是在已经启动了，若返回三条记录类似下图说明已经启动了
-
-root     32501  0.0  0.1 122956  2132 ?        Ss   15:02   0:00 nginx: master process nginx
-nginx    32502  0.0  0.1 125464  3576 ?        S    15:02   0:00 nginx: worker process
-root     32509  0.0  0.0 112712   960 pts/0    R+   15:02   0:00 grep --color=auto nginx
-
-Nginx基础操作:
-
-$ nginx                  启动Nginx
-$ nginx -s stop          立即停止Nginx，无论有程序是否未运行结束
-$ nginx -s quit          从容停止，等待最后一个程序结束运行后中断nginx
-$ killall nginx          杀死进程
-$ netstat -tlnp          查看端口状态
-```
-```bash
-Nginx配置:
-
-位置: etc/nginx/nginx.conf
-操作: vim nginx.conf
-模板及解释:
-```
-```bash
-http {
-
-    ...
-
-    gzip                on;  // 进行网页gzip压缩
-    gzip_comp_level     8;   // 1-9 压缩等级从小到大
-    gzip_types text/plain application/javascript text/css;
-
-    ...
-
-    upstream nodenuxt {
-        server 172.17.0.12:3000;  // 内网ip以及部署端口号
-        keepalive 64;
-    }
-
-    server {
-        listen       80;          // 监听端口
-        server_name  bobblehat.cn;   // 映射域名
-        root         /usr/share/nginx/html;
-
-        # Load configuration files for the default server block.
-        include /etc/nginx/default.d/*.conf;
-
-        location / {
-                proxy_pass http://bobblehat.cn:3000/;
+<script>
+    import { Notice } from 'b-library';
+ 
+    export default {
+        components: {
+            Notice
+        },
+        data(){
+            return {
+                myData: ['111', '222', '333', '444']
+            }
         }
     }
-}
+</script>
+
+// 这是在引入的组件相对较少的情况下推荐的方案，在页面内直接引入简单快捷又很便于维护 
 ```
 
-### 步骤三: 上传nuxt相关文件
-```bash 
-$ npm run build (在本地先打包,线上打包会找不到模板)
+<br/>
+<br/>
+
+
+>Multi components - Recommended ways of import   
 ```
+    project
+        |...
+        |router
+            |index.js   <-
+        |...
+
+// 在router下的index.js文件批量引入所需的组件，这样又省力，又便于您可能会在store里关联进行状态管理   
+// 这一步需要 vue-router 的支持，并需要您在类似的项目结构里手动配置     
+```
+
+<br/>
+
+
+> router/index.js
 ```bash
-需要上传的文件:
-─┬─
- │── .nuxt
- │── static
- │── package.json
- └── nuxt.config.js
+import { 
+    Footer, 
+    HeadBar 
+} from 'b-library';
 
-上传完毕后更新node_modules:
 
-$ npm install -production 
+Vue.component('Header', Header);
+Vue.component('Footer', Footer);
+
+
+// 这是在引入的组件相对较多的情况下推荐的方案，在index.js里批量引入，相对来说一劳永逸
 ```
 
-### 步骤四: 启动服务 
+<br/>
+
+>src/xxx/xxx.vue 
+
+```
+<template>
+    <div class="index">
+ 
+        <HeadBar :menuData="menuData" @return="callBack" />
+        <Footer :logo="logo" :grid="true" :support="supportList"/>
+        
+    </div>
+</template>
+
+...
+
+```
+
+<br/>
+
+> ! The project is still in the development stage and the functionality of many components is still incomplete. After entering the 1.0 public version, demo and API guides will be launched simultaneously on the official website of 'Brick'.
+
+
+
+<br/>
+
+>The 'brick-library' is still under development, If you have any suggestions or find any bugs, I will be appreciate that if you could write a letter to my mailbox:<br/>
+>3206633623@qq.com
+
+<br/>
+
+<br/>
 
 
 
 
-#
+As the official website is still under construction, you can briefly preview the following pictures
+
+<br/>
+
+<br/>
+
+
+
+
+
+<br/>
+    
+<p align="center">
+    <img width="400" alt="" src="https://raw.githubusercontent.com/BobbleHatkjh/Vue_BuildingBlock/master/pic/100lllogo.png"/>
+</p>
+
+
+
+<p align="center" style="margin-top: 20px">
+    <a href="https://www.npmjs.com/package/b-library" target="_blank"><img src="https://img.shields.io/npm/v/b-library.svg" alt="npm"></a>
+    <img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg" alt="Build Status">
+    <a href="https://github.com/BobbleHatkjh/VUE-Brick/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/npm/l/b-library.svg" alt="License"></a>
+</p> 
+
+<br/>
+
+<p align="center">
+    <a href="https://www.npmjs.com/package/b-library" target="_blank"><img width="140" alt="" src="https://raw.githubusercontent.com/BobbleHatkjh/Vue_BuildingBlock/master/pic/npm.png"/></a> &nbsp;
+    <a href="https://github.com/BobbleHatkjh/VUE-Brick" target="_blank"><img width="210" alt="" src="https://raw.githubusercontent.com/BobbleHatkjh/Vue_BuildingBlock/master/pic/githubLogo.png"/></a> 
+</p>
