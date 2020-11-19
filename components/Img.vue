@@ -1,7 +1,10 @@
 <template>
   <div ref="img_" class="bobble_img" :style="{ height: height, width: width, 'background: white': loading_ }">
     <div class="img_drop" v-if="loading_">
-      <i class="iconfont icon-loading"/>
+      <i
+          :class="`iconfont icon-${ !reject ? 'loading' : 'shut' }`"
+          :style="{ animation: reject ? 'none' : '2s roll ease infinite' }"
+      />
     </div>
   </div>
 </template>
@@ -24,12 +27,14 @@ export default {
   },
   data(){
     return{
-      loading_: true  // 是否加载，true为正在加载
+      loading_: true,  // 是否加载，true为正在加载
+      reject: false
     }
   },
   watch:{
     src(val){
       this.loading_ = true;
+      this.reject = false;
       this.initImg(val)
     }
   },
@@ -37,10 +42,13 @@ export default {
     initImg(val){
       let background = new Image();
       background.src = val;
-      background.onload = () =>{
+      background.onload = () => { /** 成功加载 */
         if(!this.loading_) return;
         this.loading_ = false;
         this.$refs.img_.style.background = 'url(' + background.src + ') no-repeat center center/cover'
+      }
+      background.onerror = () => { /** 加载失败 */
+        this.reject = true;
       }
     }
   },
@@ -67,9 +75,11 @@ export default {
 .img_drop i{
   font-size: 48px;
   color: #ff4c10;
-  animation: 2s roll ease infinite;
+  /*animation: 2s roll ease infinite;*/
 }
-
+.icon-shut{
+  font-weight: bolder;
+}
 @keyframes move_out {
   from {
     opacity: 0;

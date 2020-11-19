@@ -44,7 +44,7 @@ export default {
 }
 .animate_button:hover{
   cursor: pointer;
-  color: white;
+  color: white !important;
   transform: translate3d(0, 0, 0);
   background: url('~assets/img/button_bac.png') no-repeat left/100% 100%;
 }

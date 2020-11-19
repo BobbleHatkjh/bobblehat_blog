@@ -1,6 +1,7 @@
 <template>
   <div class="blog_bac">
 
+    <!-- 左侧sidebar -->
     <div class="blog_side_bar" :style="!side_show && 'width: 0'">
       <div class="blog_side_content">
 
@@ -14,7 +15,7 @@
           <div class="side_frame"
                v-for="(route, route_index) in side_router"
                :key="route_index"
-               :style="route.state && `height:${ 68 + 50 * route.children.length }px`"
+               :style="route.state && `height:${ 64 + 50 * route.children.length }px`"
                :class="route.state && 'side_frame_open'"
           >
             <div class="side_frame_title" @click="route.state = !route.state">
@@ -22,13 +23,21 @@
               <i class="iconfont icon-down" :style="!route.state && 'transform: rotate(-90deg); color: white'"/>
             </div>
             <div v-for="(content, content_index) in route.children" :key="content_index">
-              <Button icon="go white" class="side_button" @click="selectBlog(content)">{{ content.name }}</Button>
+              <Button
+                  icon="go white"
+                  :style="content.id === open_blog.id && 'color: rgb(255,76,16)'"
+                  class="side_button"
+                  @click="selectBlog(content)"
+              >
+                {{ content.name }}
+              </Button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- 右侧header + 正文内容 -->
     <div class="blog_body">
 
       <!-- header -->
@@ -38,10 +47,10 @@
       </div>
 
       <!-- 正文 -->
-      <div class="blog_content">
+      <div ref="blog_content" class="blog_content">
 
         <!-- 左导航栏 -->
-        <div class="template_signal" style="justify-content: flex-start">
+        <div class="template_signal" style="align-items: flex-start">
           <div class="signal">
             <i class="iconfont icon-down" style="transform: rotate(90deg) translateY(1px)"/>
           </div>
@@ -53,20 +62,26 @@
             <p>{{ open_blog.name }}</p>
             <span>绒球帽 {{open_blog.time}}</span>
           </div>
+          <!-- 760 x 366-->
           <div class="blog_banner">
             <Img :src="open_blog.banner"/>
           </div>
-
-          <div style="height: auto;margin-bottom: 70px" v-html="hello"></div>
+          <div style="height: auto;margin-bottom: 70px" v-html="hello" />
           <div class="blog_comment">
             评论
           </div>
         </div>
 
         <!-- 右导航栏 -->
-        <div class="template_signal" style="justify-content: flex-end">
+        <div class="template_signal" style="align-items: flex-end">
+          <div class="signal">
+            <i class="iconfont icon-comment" style="font-weight: bolder; transform: translateY(1px)"/>
+          </div>
           <div class="signal">
             <i class="iconfont icon-down" style="transform: rotate(-90deg) translateY(1px)"/>
+          </div>
+          <div class="signal" @click="backTop">
+            <i class="iconfont icon-top" style="font-size: 26px"/>
           </div>
         </div>
 
@@ -91,7 +106,8 @@ export default {
     return {
       side_show: true,    // 侧边栏打开状态 true为打开
       side_router: [],    // 侧边栏解析好的router
-      open_blog: {}       // 现在打开的博客页
+      open_blog: {},      // 现在打开的博客页
+      blog_count: [],     // 现在打开博客页的下标
     }
   },
   computed: {
@@ -108,8 +124,14 @@ export default {
     onResize(){
       window.innerWidth <= 1200 ? (this.side_show = false) : (this.side_show = true)
     },
+    /** 点击了博客 => 展示 */
     selectBlog(val){
       val.id !== this.open_blog.id && (this.open_blog = val)
+    },
+    /** 回到顶部 */
+    backTop(){
+      // console.log(this.$refs.blog_content.scrollTop)
+      this.$refs.blog_content.scrollTop = 0
     },
     /** 解析路由 */
     routeInit(){
@@ -258,7 +280,7 @@ export default {
 }
 .side_frame{
   flex-shrink: 0;
-  height: 60px;
+  height: 56px;
   width: 224px;
   padding-left: 20px;
   margin-left: 28px;
@@ -266,17 +288,17 @@ export default {
   transition: height 0.3s, padding-left 0.3s;
 }
 .side_frame_open:first-child{
-  box-shadow:0 10px 10px -10px #dddddd,
-  0 -10px 10px -10px white;
+  box-shadow:0 8px 8px -8px #cccccc,
+  0 -8px 8px -8px white;
 }
 .side_frame_open:last-child{
-  box-shadow:0 10px 10px -10px white,
-  0 -10px 10px -10px #dddddd;
+  box-shadow:0 8px 8px -8px white,
+  0 -8px 8px -8px #cccccc;
 }
 .side_frame_open{
   padding-left: 0;
-  box-shadow:0 10px 10px -10px #dddddd,
-  0 -10px 10px -10px #dddddd;
+  box-shadow:0 8px 8px -8px #cccccc,
+  0 -8px 8px -8px #cccccc;
 }
 .side_frame_title{
   display: flex;
@@ -357,8 +379,9 @@ export default {
 .template_signal{
   position: sticky;
   display: flex;
+  flex-direction: column;
   top: 0;
-  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 70px;
 }
@@ -368,6 +391,7 @@ export default {
   align-items: center;
   height: 38px;
   width: 38px;
+  margin: 14px 0;
   border-radius: 100px;
   background-color: #f1f1f1;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
@@ -411,7 +435,7 @@ export default {
 .blog_banner{
   height: 366px;
   width: 100%;
-  border-radius: 15px;
+  border-radius: 16px;
   overflow: hidden;
   margin-bottom: 32px;
   background-color: #dddddd;

@@ -38,7 +38,6 @@ class Message {
  * @param {String} state     是要显示的状态
  * @param {Number} duration  是要显示的时长
  */
-
 function Message_(content, state, duration) {
 
     /** 外面的包裹元素 */
