@@ -211,12 +211,6 @@
 </template>
 
 <script>
-import img_gobang from '../assets/img/gobang.webp'
-import img_vtuber from '../assets/img/vtbmusic.webp'
-import img_npm from '../assets/img/b_library.webp'
-import img_1zhan from '../assets/img/1zhan.webp'
-import img_tiangong from '../assets/img/tiangong.webp'
-
 import Message from "~/components/message/message";
 
 export default {
@@ -262,24 +256,24 @@ export default {
       ],
 
       banner: [
-        img_vtuber,
-        img_npm,
-        img_1zhan,
-        img_gobang,
-        img_tiangong
+        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/vtbmusic.webp',
+        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/b_library.webp',
+        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/1zhan.webp',
+        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/gobang.webp',
+        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/tiangong.webp'
       ],
       receive: [
         {
           title: '这里是标题1',
-          img: img_tiangong
+          img: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg'
         },
         {
           title: '这里是标题2',
-          img: img_tiangong
+          img: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
         },
         {
           title: '这里是标题3',
-          img: img_tiangong
+          img: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
         }
 
       ]
@@ -447,7 +441,7 @@ html {
   align-items: center;
   /*text-align: center;*/
   transform: translate3d(0, 0, 0);
-  background: url('~assets/img/forest_animate_g.webp') no-repeat center center/cover fixed;
+  background: url('https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/forest_animate_g.webp') no-repeat center center/cover fixed;
 }
 
 .head_bar {

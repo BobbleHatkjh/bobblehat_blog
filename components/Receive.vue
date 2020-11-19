@@ -2,9 +2,7 @@
   <div>
     <div class="receive_row" v-for="(row_data, receive_index) in receive_data" :key="receive_index">
       <div class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
-        <div class="receive_photo">
-          <img :src="single_data.img" alt/>
-        </div>
+        <Img height="150px" :src="single_data.img"/>
         <div class="receive_title">
           {{ single_data.title }}
         </div>
@@ -14,7 +12,9 @@
 </template>
 
 <script>
+import Img from "@/components/Img";
 export default {
+  components: {Img},
   props: {
     data: {
       type: Array
@@ -70,12 +70,6 @@ export default {
 }
 .receive_frame:active {
   transform: scale(0.85);
-}
-
-.receive_photo {
-  height: 150px;
-  width: 100%;
-  overflow: hidden;
 }
 
 .receive_photo > img {

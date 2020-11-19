@@ -63,10 +63,8 @@
             <span>绒球帽 {{open_blog.time}}</span>
           </div>
           <!-- 760 x 366-->
-          <div class="blog_banner">
-            <Img :src="open_blog.banner"/>
-          </div>
-          <div style="height: auto;margin-bottom: 70px" v-html="open_blog.content || hello" />
+          <Img height="366px" class="blog_banner" :src="open_blog.banner"/>
+          <div style="height: auto;margin-bottom: 70px;font-size: 18px" v-html="open_blog.content || hello" />
           <div class="blog_comment">
             评论
           </div>
@@ -434,8 +432,6 @@ export default {
   color: #7b7b7b;
 }
 .blog_banner{
-  height: 366px;
-  width: 100%;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 32px;
