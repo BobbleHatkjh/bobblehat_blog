@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="receive_row" v-for="(row_data, receive_index) in receive_data" :key="receive_index">
-      <div class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
-        <Img height="150px" :src="single_data.img"/>
+      <div @click="clickBack" class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
+        <Img height="150px" :src="single_data.banner"/>
         <div class="receive_title">
           {{ single_data.title }}
         </div>
@@ -37,9 +37,15 @@ export default {
     initData(resource) {
       this.receive_data.push(resource.splice(0, this.column));
       resource.length !== 0 && this.initData(resource)
+    },
+
+    /** 点击某一个框的回调 */
+    clickBack(){
+      this.$emit('select')
     }
   },
   created() {
+    console.log('receive - created')
     this.initData(this.data)
   }
 }

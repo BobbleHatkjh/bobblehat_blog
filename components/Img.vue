@@ -1,8 +1,8 @@
 <template>
   <div ref="img_" class="bobble_img" :style="{ height: height, width: width, 'background: white': loading_ }">
-    <div class="img_drop" v-if="loading_">
+    <div class="img_drop" v-if="loading_" :style="reject && 'background-color: #dddddd'">
       <i
-          :class="`iconfont icon-${ !reject ? 'loading' : 'shut' }`"
+          :class="`iconfont icon-${ reject ? 'shut' : 'loading' }`"
           :style="{ animation: reject ? 'none' : '2s roll ease infinite' }"
       />
     </div>

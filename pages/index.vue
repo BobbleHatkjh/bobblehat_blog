@@ -148,7 +148,7 @@
         <!-- sticky 图片-->
         <div class="scroll_frame">
           <div ref="sticky" class="scroll_box">
-            <Img :src="banner[project_pic]"/>
+            <Img v-if="project_pic !== -1" :src="banner[project_pic]"/>
           </div>
         </div>
       </ContentFrame>
@@ -212,7 +212,7 @@
 
 <script>
 import Message from "~/components/message/message";
-
+import route_test from '../assets/js/router.js'
 export default {
   components: {
     Context: () => import(/* webpackChunkName: "receive" */ '~/components/Context'),
@@ -262,21 +262,7 @@ export default {
         'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/gobang.webp',
         'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/tiangong.webp'
       ],
-      receive: [
-        {
-          title: '这里是标题1',
-          img: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg'
-        },
-        {
-          title: '这里是标题2',
-          img: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
-        },
-        {
-          title: '这里是标题3',
-          img: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
-        }
-
-      ]
+      receive: []
     }
   },
   methods: {
@@ -407,12 +393,26 @@ export default {
           break;
       }
 
+    },
+
+    /** 博客部分route的初始化 */
+    blogInit(){
+      const router = route_test;
+      for(let i = 0; i < router.length; i++){
+        for(let blog = 0; blog < router[i].children.length; blog ++){
+          if(this.receive.length < 3){
+            this.receive.push(router[i].children[blog])
+          } else return
+        }
+      }
+
     }
   },
   mounted() {
     this.full_height = window.innerHeight;
     window.addEventListener("scroll", this.onScroll, true);
     window.addEventListener("resize", this.onResize);
+    this.blogInit();
   },
   created() {
     console.log('%c\n┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
@@ -430,7 +430,7 @@ export default {
 
 <style>
 html {
-  background-color: #8a8a8a;
+  background-color: #999999;
 }
 
 .container {

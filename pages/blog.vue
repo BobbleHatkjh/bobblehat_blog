@@ -64,7 +64,7 @@
           </div>
           <!-- 760 x 366-->
           <Img height="366px" class="blog_banner" :src="open_blog.banner"/>
-          <div style="height: auto;margin-bottom: 70px;font-size: 18px" v-html="open_blog.content || hello" />
+          <div style="height: auto;margin-bottom: 70px;font-size: 18px" v-html="open_blog.content || helo" />
           <div class="blog_comment">
             评论
           </div>
@@ -94,7 +94,8 @@
 </template>
 
 <script>
-import hello from './blog/demo.md'
+import route_test from '../assets/js/router.js'
+import helo from './blog/demo.md'
 export default {
   components: {
     Img: () => import(/* webpackChunkName: "img_animate" */ '~/components/Img'),
@@ -109,11 +110,10 @@ export default {
     }
   },
   computed: {
-    hello() {
-      return hello
+    helo() {
+      return helo
     }
   },
-
   methods: {
     jumpCSDN() {
       window.open('https://blog.csdn.net/BobbleHat')
@@ -133,85 +133,15 @@ export default {
     },
     /** 解析路由 */
     routeInit(){
-      const test = [
-        {
-          name: '面试基础知识点',
-          children: [
-            {
-              name: '前端服务端渲染',
-              time: '2020-11-3',
-              banner: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg',
-              content: 'https://raw.githubusercontent.com/BobbleHatkjh/VUE-Brick/master/README.md'
-            },{
-              name: 'Virtual Dom',
-              time: '2020-10-9',
-              banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
-            }
-          ]
-        },
-        {
-          name: '面试算法题',
-          children: [
-            {
-              name: 'Event Loop',
-              time: '2020-10-30',
-              banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
-            },
-            {
-              name: 'JS数据存储',
-              banner: 'https://activity.hdslb.com/blackboard/activity20124/a0287f637d14babe5ef2d6de33030db8.png'
-            },
-            {
-              name: 'URL到显示网页',
-              banner: 'https://s2.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/background.bc725153.png'
-            }
-          ]
-        },
-        {
-          name: 'JS底层逻辑',
-          children: [
-            {
-              name: 'Event Loop1',
-              banner: 'https://i0.hdslb.com/bfs/live/new_room_cover/b38ada6ef18245356c8b6b1784395ba68b165da5.jpg@406w_254h_1e_1c.webp'
-            }
-          ]
-        },
-        {
-          name: '测试3',
-          children: [
-            {
-              name: 'Event Loop2',
-              banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
-            }
-          ]
-        },
-        {
-          name: '测试4',
-          children: [
-            {
-              name: 'Event Loop24',
-              banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
-            }
-          ]
-        },
-        {
-          name: '测试5',
-          children: [
-            {
-              name: 'Event Loop21',
-              banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
-            }
-          ]
-        },
-      ];
-      this.side_router = test.map((item, index) => {
+      const router = route_test;
+      this.side_router = router.map((item, index) => {
         return {
           state: false,
           name: item.name,
           children: item.children.map((child_item, child_index) => {
             return {
               id: item.id || 10 * index + child_index,
-              name: child_item.name,
+              name: child_item.title,
               time: child_item.time || '时间被吞噬掉惹',
               banner: child_item.banner
             }
