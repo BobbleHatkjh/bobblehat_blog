@@ -4,7 +4,15 @@
       <div @click="clickBack" class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
         <Img height="150px" :src="single_data.banner"/>
         <div class="receive_title">
-          {{ single_data.title }}
+          <p>{{ single_data.title }}</p>
+          <p class="receive_title_name">
+            <span>
+              绒球帽
+            </span>
+            <time>
+              {{ single_data.time }}
+            </time>
+          </p>
         </div>
       </div>
     </div>
@@ -58,7 +66,7 @@ export default {
 }
 
 .receive_frame {
-  height: 220px;
+  height: 226px;
   width: 300px;
   margin: 20px;
   border-radius: 10px;
@@ -71,8 +79,8 @@ export default {
 
 .receive_frame:hover {
   cursor: pointer;
-  transform: translateY(-8px);
-  box-shadow: 0 6px 16px #c6c6c6;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 16px -6px #c6c6c6;
 }
 .receive_frame:active {
   transform: scale(0.85);
@@ -84,6 +92,18 @@ export default {
   object-fit: cover;
 }
 .receive_title{
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 76px;
+  padding: 10px 12px;
+  font-size: 18px;
+}
+.receive_title_name{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 14px;
+  color: #7b7b7b;
 }
 </style>

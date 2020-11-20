@@ -70,7 +70,7 @@ export default {
   height: 100%;
   width: 100%;
   animation: 0.5s move_out ease;
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(230, 230, 230, 0.5);
 }
 .img_drop i{
   font-size: 48px;
