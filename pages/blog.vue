@@ -204,7 +204,7 @@ export default {
   height: calc(100% - 75px);
   width: 100%;
   min-width: 100%;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
 }
 .side_frame{
@@ -302,7 +302,7 @@ export default {
   /*padding: 70px 0;*/
   width: 100%;
   flex: 1;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .template_signal{
@@ -352,6 +352,8 @@ export default {
   margin-bottom: 26px;
 }
 .blog_title p{
+  display: flex;
+  align-items: center;
   font-size: 28px;
   height: 40px;
   font-weight: bolder;

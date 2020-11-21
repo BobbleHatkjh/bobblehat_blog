@@ -8,6 +8,11 @@
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
+  "config": {
+    "nuxt": {
+      "host": "192.168.0.101"
+    }
+  },
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.10",
     "core-js": "^3.4.8",
