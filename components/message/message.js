@@ -57,7 +57,7 @@ function Message_(content, state, duration) {
     message.appendChild(content_)
 
     message.style.cssText = "" +
-        "position: fixed;" +
+        "position: absolute;" +
         "display: flex;" +
         "align-items: center;" +
         "left: 50%;" +

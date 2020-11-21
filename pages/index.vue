@@ -412,9 +412,9 @@ export default {
     this.full_height = window.innerHeight;
     window.addEventListener("scroll", this.onScroll, true);
     window.addEventListener("resize", this.onResize);
-    this.blogInit();
   },
   created() {
+    this.blogInit();
     console.log('%c\n┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
         '├┴┐│ │├┴┐├┴┐│  ├┤ ├─┤├─┤ │ \n' +
         '└─┘└─┘└─┘└─┘┴─┘└─┘┴ ┴┴ ┴ ┴ \n个人主页',
