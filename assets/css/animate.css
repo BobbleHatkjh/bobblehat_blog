@@ -65,6 +65,14 @@
     /*background-color: white;*/
 }
 
+
+[title~=green]{
+    background-color: #3b8070;
+}
+[title~=red]{
+    background-color: #ff4c10;
+}
+
 /* 转圈圈animate */
 @keyframes roll {
     from {
