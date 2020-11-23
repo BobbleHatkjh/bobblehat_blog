@@ -433,6 +433,16 @@ html {
   background-color: #999999;
 }
 
+/*设置整个滚动条宽高*/
+html::-webkit-scrollbar {
+  position: fixed;
+  z-index: 99;
+  width: 8px;
+  height: 100%;margin-right: 30px;
+  background: transparent;
+
+}
+
 .container {
   min-height: 100vh;
   /*min-width: 1024px;*/

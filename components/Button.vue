@@ -31,6 +31,8 @@ export default {
 
 <style>
 .animate_button {
+  --color_bac: #ff4c10;
+
   display: flex;
   align-items: center;
   padding: 12px 20px;
@@ -39,14 +41,14 @@ export default {
   font-weight: bold;
   margin: 0 5px;
   transform: translate3d(0, 0, 0);
-  background: url('~assets/img/button_bac.png') no-repeat left/0 100%;
+  background: linear-gradient(to left, #fff calc(100% - 100%), var(--color_bac) calc(100% - 100%)) no-repeat left/0 100%;
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 .animate_button:hover{
   cursor: pointer;
   color: white !important;
   transform: translate3d(0, 0, 0);
-  background: url('~assets/img/button_bac.png') no-repeat left/100% 100%;
+  background: linear-gradient(to left, #fff calc(100% - 100%), var(--color_bac) calc(100% - 100%)) no-repeat left/100% 100%;
 }
 .animate_button:active{
   transform: scale(0.8);
