@@ -428,20 +428,7 @@ export default {
 }
 </script>
 
-<style>
-html {
-  background-color: #999999;
-}
-
-/*设置整个滚动条宽高*/
-html::-webkit-scrollbar {
-  position: fixed;
-  z-index: 99;
-  width: 8px;
-  height: 100%;margin-right: 30px;
-  background: transparent;
-
-}
+<style scoped>
 
 .container {
   min-height: 100vh;
@@ -451,10 +438,10 @@ html::-webkit-scrollbar {
   align-items: center;
   transition: background 0.5s;
   transform: translate3d(0, 0, 0);
-  background: url("https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg") no-repeat center center/cover fixed;
+  /*background: url("https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg") no-repeat center center/cover fixed;*/
   /*background: url("https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg") no-repeat center center/cover fixed;*/
   /*background: url("https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg") no-repeat center center/cover fixed;*/
-  /*background: url('https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/forest_animate_g.webp') no-repeat center center/cover fixed;*/
+  background: url('https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/forest_animate_g.webp') no-repeat center center/cover fixed;
 }
 
 .head_bar {

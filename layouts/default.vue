@@ -16,6 +16,7 @@ html {
     Arial,
     sans-serif;
   font-size: 16px;
+  background-color: #999999;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

@@ -42,7 +42,7 @@ export default [
         ]
     },
     {
-        name: '测试3',
+        name: '线性代数',
         children: [
             {
                 title: 'Event Loop2',
@@ -51,7 +51,7 @@ export default [
         ]
     },
     {
-        name: '测试4',
+        name: '数据结构',
         children: [
             {
                 title: 'Event Loop24',
@@ -60,10 +60,10 @@ export default [
         ]
     },
     {
-        name: '测试5',
+        name: '大学物理3-2',
         children: [
             {
-                title: 'Event Loop21',
+                title: '好耶！',
                 banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
             }
         ]

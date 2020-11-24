@@ -39,14 +39,14 @@
 /*::-webkit-scrollbar {*/
 /*    position: fixed;*/
 /*    z-index: 99;*/
-/*    width: 8px;*/
+/*    width: 6px;*/
 /*    height: 100%;margin-right: 30px;*/
 /*    background: transparent;*/
 
 /*}*/
 /*!*设置滑块*!*/
 /*::-webkit-scrollbar-thumb {*/
-/*    width: 8px;*/
+/*    width: 6px;*/
 /*    background-color: rgba(255,76,16,0.8);*/
 /*    border-radius: 20px;*/
 /*}*/
@@ -54,7 +54,7 @@
 /*    background-color: rgb(255,76,16);*/
 /*    cursor: pointer;*/
 /*}*/
-/*!*设置背景透明*!*/
+/*!*设置轨道*!*/
 /*::-webkit-scrollbar-track {*/
 /*    background: rgba(255, 255, 255,0);*/
 /*    opacity: 0;*/

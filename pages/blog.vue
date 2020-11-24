@@ -164,7 +164,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .blog_bac {
   display: flex;
   align-items: center;
@@ -376,5 +376,39 @@ export default {
   border-radius: 15px;
   margin-bottom: 70px;
 }
+
+
+
+
+/*设置整个滚动条宽高*/
+::-webkit-scrollbar {
+  position: fixed;
+  z-index: 99;
+  width: 6px;
+  height: 100%;margin-right: 30px;
+  background: transparent;
+
+}
+/*设置滑块*/
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  background-color: rgba(255,76,16,0.9);
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(255,76,16);
+  cursor: pointer;
+}
+/*设置轨道*/
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255,0);
+  opacity: 0;
+}
+::-webkit-scrollbar-track:hover{
+  opacity: 1;
+  /*background-color: white;*/
+}
+
+
 
 </style>
