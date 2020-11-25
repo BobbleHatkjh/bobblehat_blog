@@ -24,7 +24,7 @@ export default [
             },
             {
                 title: 'JS数据存储',
-                banner: 'https://activity.hdslb.com/blackboard/activity20124/a0287f637d14babe5ef2d6de33030db8.png'
+                banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg'
             },
             {
                 title: 'URL到显示网页',
