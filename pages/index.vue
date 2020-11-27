@@ -46,7 +46,7 @@
               class="about_sloan"
               :style="{opacity: tag_opacity, transform: `translateX(${-tag_translate * 3}px) translateY(${-tag_translate * 0.5}px) scale(${tag_scale})`}"
           >
-            <a>cp粉</a>
+            cp粉
           </div>
 
           <div
@@ -77,7 +77,7 @@
         <p>偷来的人生信条:</p>
         <p>"要学的东西太多了"</p>
         <div class="about_me" style="margin-top: 68px">
-          项目经历
+          个人经历
         </div>
       </ContentFrame>
 
@@ -550,11 +550,11 @@ export default {
   color: white;
   transition: background-color 0.2s, box-shadow 0.2s;
   background-color: rgba(255, 76, 16, 0.9);
+  box-shadow: 0 0 10px #cccccc;
 }
 
 .about_sloan:hover {
   cursor: pointer;
-  box-shadow: 0 0 10px #cccccc;
 }
 
 .scroll_word {

@@ -53,7 +53,6 @@ export default {
     }
   },
   created() {
-    console.log('receive - created')
     this.initData(this.data)
   }
 }

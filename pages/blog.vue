@@ -29,7 +29,7 @@
                   class="side_button"
                   @click="selectBlog(content)"
               >
-                {{ content.name }}
+                {{ content.name || content.title }}
               </Button>
             </div>
           </div>
@@ -59,8 +59,8 @@
         <!-- 内容 -->
         <div class="blog_template">
           <div class="blog_title">
-            <p>{{ open_blog.name }}</p>
-            <span>绒球帽 {{open_blog.time}}</span>
+            <p>{{ open_blog.title }}</p>
+            <span>绒球帽 {{ open_blog.time }}</span>
           </div>
           <!-- 760 x 366-->
           <Img height="366px" class="blog_banner" :src="open_blog.banner"/>
@@ -141,7 +141,8 @@ export default {
           children: item.children.map((child_item, child_index) => {
             return {
               id: item.id || 10 * index + child_index,
-              name: child_item.title,
+              name: child_item.name,
+              title: child_item.title,
               time: child_item.time || '时间被吞噬掉惹',
               banner: child_item.banner
             }
@@ -341,7 +342,7 @@ export default {
   /*height: fit-content;*/
   height: auto;
   width: 760px;
-  margin: 56px 0;
+  margin: 62px 0;
   color: #424242;
   /*background-color: #ff4c10;*/
   /*overflow-x: scroll;*/
@@ -354,9 +355,9 @@ export default {
 .blog_title p{
   display: flex;
   align-items: center;
-  font-size: 28px;
+  font-size: 29px;
   height: 40px;
-  font-weight: bolder;
+  font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
@@ -408,7 +409,5 @@ export default {
   opacity: 1;
   /*background-color: white;*/
 }
-
-
 
 </style>

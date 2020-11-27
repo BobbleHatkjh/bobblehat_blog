@@ -3,12 +3,14 @@ export default [
         name: '面试基础知识点',
         children: [
             {
+                name: '前端服务端渲染',
                 title: '前端服务端渲染',
                 time: '2020-11-3',
                 banner: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg',
                 content: 'https://raw.githubusercontent.com/BobbleHatkjh/VUE-Brick/master/README.md'
             },{
-                title: 'Virtual Dom',
+                name: 'Virtual Dom',
+                title: 'Virtual Dom（虚拟Dom）',
                 time: '2020-10-9',
                 banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
             }
