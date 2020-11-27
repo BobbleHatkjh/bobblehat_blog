@@ -12,14 +12,15 @@
 
         <!-- side router -->
         <div class="side_div">
-          <div class="side_frame"
-               v-for="(route, route_index) in side_router"
-               :key="route_index"
-               :style="route.state && `height:${ 64 + 50 * route.children.length }px`"
-               :class="route.state && 'side_frame_open'"
+          <div
+              class="side_frame"
+              v-for="(route, route_index) in side_router"
+              :key="route_index"
+              :style="route.state && `height:${ 64 + 50 * route.children.length }px`"
+              :class="route.state && 'side_frame_open'"
           >
             <div class="side_frame_title" @click="route.state = !route.state">
-              <p>{{ route.name }}</p>
+              <p :style="blog_count[0] === route_index && 'color: rgb(255,76,16)'">{{ route.name }}</p>
               <i class="iconfont icon-down" :style="!route.state && 'transform: rotate(-90deg); color: white'"/>
             </div>
             <div v-for="(content, content_index) in route.children" :key="content_index">
@@ -27,9 +28,9 @@
                   icon="go white"
                   :style="content.id === open_blog.id && 'color: rgb(255,76,16)'"
                   class="side_button"
-                  @click="selectBlog(content)"
+                  @click="selectBlog(content, route_index, content_index)"
               >
-                {{ content.name || content.title }}
+                {{ content.name }}
               </Button>
             </div>
           </div>
@@ -123,8 +124,11 @@ export default {
       window.innerWidth <= 1200 ? (this.side_show = false) : (this.side_show = true)
     },
     /** 点击了博客 => 展示 */
-    selectBlog(val){
-      val.id !== this.open_blog.id && (this.open_blog = val)
+    selectBlog(val, row, col){
+      if(val.id !== this.open_blog.id){
+        this.open_blog = val;
+        this.blog_count = [row, col]
+      }
     },
     /** 回到顶部 */
     backTop(){
@@ -141,7 +145,7 @@ export default {
           children: item.children.map((child_item, child_index) => {
             return {
               id: item.id || 10 * index + child_index,
-              name: child_item.name,
+              name: child_item.name || child_item.title,
               title: child_item.title,
               time: child_item.time || '时间被吞噬掉惹',
               banner: child_item.banner
@@ -150,8 +154,7 @@ export default {
         }
       });
       this.open_blog = this.side_router[0].children[0];
-      // console.log(this.side_router)
-
+      this.blog_count = [0, 0]
     }
   },
   mounted() {

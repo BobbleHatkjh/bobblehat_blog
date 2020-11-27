@@ -6,7 +6,7 @@ export default [
                 name: '前端服务端渲染',
                 title: '前端服务端渲染',
                 time: '2020-11-3',
-                banner: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg',
+                banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg',
                 content: 'https://raw.githubusercontent.com/BobbleHatkjh/VUE-Brick/master/README.md'
             },{
                 name: 'Virtual Dom',
@@ -20,13 +20,14 @@ export default [
         name: '面试算法题',
         children: [
             {
-                title: 'Event Loop',
+                name: 'Event Loop',
+                title: 'Event Loop（事件循环）',
                 time: '2020-10-30',
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             },
             {
                 title: 'JS数据存储',
-                banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg'
+                banner: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg'
             },
             {
                 title: 'URL到显示网页',

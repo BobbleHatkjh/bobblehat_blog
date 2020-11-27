@@ -438,6 +438,7 @@ export default {
   align-items: center;
   transition: background 0.5s;
   transform: translate3d(0, 0, 0);
+  /*background: url("https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg") no-repeat center center/cover fixed;*/
   /*background: url("https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg") no-repeat center center/cover fixed;*/
   /*background: url("https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg") no-repeat center center/cover fixed;*/
   /*background: url("https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg") no-repeat center center/cover fixed;*/
