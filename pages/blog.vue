@@ -194,11 +194,11 @@ export default {
 .blog_logo{
   display: flex;
   align-items: center;
-  height: 75px;
+  height: 60px;
   width: 100%;
-  transform: translateY(-25px);
+  transform: translateY(-30px);
   /*border-bottom: 1px solid #dddddd;*/
-  /*background-color: #ff4c10;*/
+  /*background-color: #10ff20;*/
 }
 .blog_logo img{
   height: 60px;
