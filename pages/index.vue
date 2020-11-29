@@ -161,7 +161,7 @@
         <div class="about_me" style="margin-top: 0">
           最新博客
         </div>
-        <Receive :data="receive" :column="3"/>
+        <Receive @select="receiveSelect" :data="receive" :column="3"/>
         <Button @click="jumpRoute('blog')" :scroll="true" icon="go">
           想去看看
         </Button>
@@ -370,7 +370,7 @@ export default {
     jumpRoute(to) {
       switch (to) {
         case 'blog':
-          this.$router.push('blog');
+          this.$router.push({name: 'blog', params: {row: 0, id: 0 }});
           break;
         case 'vtb':
           window.open('https://vtbmusic.com');
@@ -393,6 +393,12 @@ export default {
           break;
       }
 
+    },
+
+    /** 点击了博客框 */
+    receiveSelect(row, data){
+      this.$router.push({name: 'blog', params: { row: row, id: data }})
+      Message.success('开发中，请点击下方的按钮进入博客')
     },
 
     /** 博客部分route的初始化 */

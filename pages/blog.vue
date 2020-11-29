@@ -138,23 +138,33 @@ export default {
     /** 解析路由 */
     routeInit(){
       const router = route_test;
+      // console.log(this.$route.params.row , 1);
+      let pre_route = [0, 0];    // 进入时打开的路由
+      let pre_data = [];
+
       this.side_router = router.map((item, index) => {
         return {
-          state: false,
+          state: this.$route.params.row === index,
           name: item.name,
           children: item.children.map((child_item, child_index) => {
+            if(this.$route.params.id === child_item.id){
+              console.log(this.state);
+              pre_route = [index, child_index];
+              pre_data = child_item
+            }
             return {
               id: item.id || 10 * index + child_index,
               name: child_item.name || child_item.title,
               title: child_item.title,
               time: child_item.time || '时间被吞噬掉惹',
-              banner: child_item.banner
+              banner: child_item.banner,
+              content: child_item.content
             }
           })
         }
       });
-      this.open_blog = this.side_router[0].children[0];
-      this.blog_count = [0, 0]
+      this.open_blog = pre_data;
+      this.blog_count = pre_route
     }
   },
   mounted() {
