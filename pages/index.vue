@@ -177,7 +177,7 @@
                     extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
           <div class="connect_logo">
-            <img src="../assets/img/logo_white.png" alt="BobbleHat"/>
+            <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_white.png" alt="BobbleHat"/>
             <div class="content_icon">
               <i class="iconfont icon-qq"/>
             </div>
@@ -256,11 +256,11 @@ export default {
       ],
 
       banner: [
-        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/vtbmusic.webp',
-        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/b_library.webp',
-        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/1zhan.webp',
-        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/gobang.webp',
-        'https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/tiangong.webp'
+        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/vtbmusic.webp',
+        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/b_library.webp',
+        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/1zhan.webp',
+        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/gobang.webp',
+        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/tiangong.webp'
       ],
       receive: []
     }
@@ -370,7 +370,7 @@ export default {
     jumpRoute(to) {
       switch (to) {
         case 'blog':
-          this.$router.push({name: 'blog', params: {row: 0, id: 0 }});
+          this.$router.push({name: 'blog', params: { row: 0, id: 0 }});
           break;
         case 'vtb':
           window.open('https://vtbmusic.com');
@@ -448,7 +448,8 @@ export default {
   /*background: url("https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg") no-repeat center center/cover fixed;*/
   /*background: url("https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg") no-repeat center center/cover fixed;*/
   /*background: url("https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg") no-repeat center center/cover fixed;*/
-  background: url('https://raw.githubusercontent.com/BobbleHatkjh/bobblehat_blog/main/assets/img/forest_animate_g.webp') no-repeat center center/cover fixed;
+
+  background: url('https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/forest_animate_g.webp') no-repeat center center/cover fixed;
 }
 
 .head_bar {
@@ -483,12 +484,12 @@ export default {
   height: 100%;
   width: 230px;
   transition: background 0.5s;
-  background: url('~assets/img/logo_white.png') no-repeat left/auto 100%;
+  background: url('https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_white.png') no-repeat left/auto 100%;
   background-size: auto 100%;
 }
 
 .head_logo_down {
-  background: url('~assets/img/logo_orange.png') no-repeat left/auto 100%;
+  background: url('https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png') no-repeat left/auto 100%;
 }
 
 .head_route {

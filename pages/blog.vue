@@ -7,7 +7,7 @@
 
         <!-- 左上角logo -->
         <div class="blog_logo">
-          <img src="../assets/img/logo_orange.png" alt=""/>
+          <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>
         </div>
 
         <!-- side router -->
@@ -140,15 +140,14 @@ export default {
       const router = route_test;
       // console.log(this.$route.params.row , 1);
       let pre_route = [0, 0];    // 进入时打开的路由
-      let pre_data = [];
+      let pre_data = [];         // 进入时打开的博客
 
       this.side_router = router.map((item, index) => {
         return {
-          state: this.$route.params.row === index,
+          state: false,
           name: item.name,
           children: item.children.map((child_item, child_index) => {
             if(this.$route.params.id === child_item.id){
-              console.log(this.state);
               pre_route = [index, child_index];
               pre_data = child_item
             }
@@ -164,7 +163,8 @@ export default {
         }
       });
       this.open_blog = pre_data;
-      this.blog_count = pre_route
+      this.blog_count = pre_route;
+      this.side_router[pre_route[0]].state = true
     }
   },
   mounted() {
