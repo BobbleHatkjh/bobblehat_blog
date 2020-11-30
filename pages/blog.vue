@@ -61,7 +61,7 @@
         <div class="blog_template">
           <div class="blog_title">
             <p>{{ open_blog.title }}</p>
-            <span>绒球帽 {{ open_blog.time }}</span>
+            <span>绒球帽 &nbsp; {{ open_blog.time }}</span>
           </div>
           <!-- 760 x 366-->
           <Img height="366px" class="blog_banner" :src="open_blog.banner"/>
@@ -321,6 +321,7 @@ export default {
 .blog_content {
   display: flex;
   justify-content: center;
+  /*background-color: #40ff32;*/
   /*padding: 70px 0;*/
   width: 100%;
   flex: 1;
@@ -360,13 +361,11 @@ export default {
   font-size: 22px;
 }
 .blog_template{
-  /*height: fit-content;*/
-  height: auto;
+  height: fit-content;
+  /*height: auto;*/
   width: 760px;
-  margin: 62px 0;
+  margin: 62px 0 0 0;
   color: #424242;
-  /*background-color: #ff4c10;*/
-  /*overflow-x: scroll;*/
 }
 .blog_title{
   width: 100%;
@@ -407,7 +406,7 @@ export default {
   position: fixed;
   z-index: 99;
   width: 6px;
-  height: 100%;margin-right: 30px;
+  height: 0;
   background: transparent;
 
 }
