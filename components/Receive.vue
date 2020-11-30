@@ -48,8 +48,8 @@ export default {
     },
 
     /** 点击某一个框的回调 */
-    clickBack(row, data){
-      this.$emit('select', row, data.id)
+    clickBack(data){
+      this.$emit('select', data.id)
     }
   },
   created() {

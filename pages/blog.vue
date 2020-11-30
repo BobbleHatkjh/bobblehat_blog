@@ -138,7 +138,6 @@ export default {
     /** 解析路由 */
     routeInit(){
       const router = route_test;
-      // console.log(this.$route.params.row , 1);
       let pre_route = [0, 0];    // 进入时打开的路由
       let pre_data = [];         // 进入时打开的博客
 
@@ -165,11 +164,20 @@ export default {
       this.open_blog = pre_data;
       this.blog_count = pre_route;
       this.side_router[pre_route[0]].state = true
+    },
+    async ttt(){
+      let a = document.createElement('div')
+      a.src = 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
+      a.onload = () => {
+        console.log(a)
+      }
+
     }
   },
   mounted() {
     this.onResize();
     this.routeInit();
+    this.ttt();
     window.addEventListener("resize", this.onResize);
   },
   destroyed() {

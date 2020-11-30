@@ -370,7 +370,7 @@ export default {
     jumpRoute(to) {
       switch (to) {
         case 'blog':
-          this.$router.push({name: 'blog', params: { row: 0, id: 0 }});
+          this.$router.push({name: 'blog', params: { id: 0 }});
           break;
         case 'vtb':
           window.open('https://vtbmusic.com');
@@ -397,8 +397,7 @@ export default {
 
     /** 点击了博客框 */
     receiveSelect(row, data){
-      this.$router.push({name: 'blog', params: { row: row, id: data }})
-      Message.success('开发中，请点击下方的按钮进入博客')
+      this.$router.push({name: 'blog', params: { id: data }})
     },
 
     /** 博客部分route的初始化 */

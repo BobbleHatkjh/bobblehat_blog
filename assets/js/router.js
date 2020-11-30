@@ -8,7 +8,7 @@ export default [
                 title: '前端服务端渲染',
                 time: '2020-11-3',
                 banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg',
-                content: 'https://raw.githubusercontent.com/BobbleHatkjh/VUE-Brick/master/README.md'
+                content: 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
             },{
                 id: 1,
                 name: 'Virtual Dom',
