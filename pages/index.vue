@@ -396,7 +396,7 @@ export default {
     },
 
     /** 点击了博客框 */
-    receiveSelect(row, data){
+    receiveSelect(data){
       this.$router.push({name: 'blog', params: { id: data }})
     },
 

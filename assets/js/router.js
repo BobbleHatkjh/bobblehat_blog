@@ -7,7 +7,7 @@ export default [
                 name: '前端服务端渲染',
                 title: '前端服务端渲染',
                 time: '2020-11-3',
-                banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg',
+                banner: 'https://static001.geekbang.org/resource/image/fc/06/fca4f3cfb6c277a554c45839717ec106.jpg',
                 content: 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
             },{
                 id: 1,
@@ -35,7 +35,7 @@ export default [
             },
             {
                 title: 'URL到显示网页',
-                banner: 'https://s2.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/background.bc725153.png'
+                banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg'
             }
         ]
     },

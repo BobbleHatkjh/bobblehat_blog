@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="receive_row" v-for="(row_data, receive_index) in receive_data" :key="receive_index">
-      <div @click="clickBack(receive_index, single_data)" class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
+      <div @click="clickBack(single_data)" class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
         <Img height="160px" :src="single_data.banner"/>
         <div class="receive_title">
           <p>{{ single_data.title }}</p>
