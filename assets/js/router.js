@@ -44,7 +44,7 @@ export default [
         children: [
             {
                 title: 'Event Loop1',
-                banner: 'https://i0.hdslb.com/bfs/live/new_room_cover/b38ada6ef18245356c8b6b1784395ba68b165da5.jpg@406w_254h_1e_1c.webp'
+                banner: 'https://static001.geekbang.org/resource/image/b6/dc/b6054ee4f5c6a70df306edb0159f12dc.jpg'
             }
         ]
     },
