@@ -97,7 +97,7 @@ function Message_(content, state, duration) {
         },
     ];
 
-    message.animate(message_key_frame_in, {duration: 160})
+    message.animate(message_key_frame_in, { duration: 160 })
     message.animate(message_key_frame_out, {
         delay: duration - 160,
         duration: 220,

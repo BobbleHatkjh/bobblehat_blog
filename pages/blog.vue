@@ -52,7 +52,7 @@
 
         <!-- 左导航栏 -->
         <div class="template_signal" style="align-items: flex-start">
-          <div class="signal">
+          <div class="signal" @click="warnFault">
             <i class="iconfont icon-down" style="transform: rotate(90deg) translateY(1px)"/>
           </div>
         </div>
@@ -65,7 +65,7 @@
           </div>
           <!-- 760 x 366-->
           <Img height="366px" class="blog_banner" :src="open_blog.banner"/>
-          <div style="height: auto;margin-bottom: 70px;font-size: 18px" v-html="open_blog.content || helo" />
+          <div style="height: auto;margin-bottom: 70px;font-size: 18px;overflow-x: hidden" v-html="open_blog.content || helo" />
           <div class="blog_comment">
             评论
           </div>
@@ -73,10 +73,10 @@
 
         <!-- 右导航栏 -->
         <div class="template_signal" style="align-items: flex-end">
-          <div class="signal">
-            <i class="iconfont icon-comment" style="font-weight: bold; transform: translateY(1px)"/>
+          <div class="signal" @click="warnFault">
+            <i class="iconfont icon-comment" style="position: relative;font-weight: bold;left: 1px;top:1px"/>
           </div>
-          <div class="signal">
+          <div class="signal" @click="warnFault">
             <i class="iconfont icon-down" style="transform: rotate(-90deg) translateY(1px)"/>
           </div>
           <div class="signal" @click="backTop">
@@ -95,6 +95,7 @@
 </template>
 
 <script>
+import Message from "~/components/message/message";
 import route_test from '../assets/js/router.js'
 import helo from './blog/demo.md'
 export default {
@@ -116,8 +117,8 @@ export default {
     }
   },
   methods: {
-    jumpCSDN() {
-      window.open('https://blog.csdn.net/BobbleHat')
+    warnFault() {
+      Message.warn('还在开发中哦')
     },
     /** 页面宽度发生变化时 */
     onResize(){
@@ -166,6 +167,7 @@ export default {
       this.side_router[pre_route[0]].state = true
     },
     async ttt(){
+      console.log('ttt');
       let a = document.createElement('div')
       a.src = 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
       a.onload = () => {

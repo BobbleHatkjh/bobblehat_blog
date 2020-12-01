@@ -7,7 +7,7 @@ export default [
                 name: '前端服务端渲染',
                 title: '前端服务端渲染',
                 time: '2020-11-3',
-                banner: 'https://static001.geekbang.org/resource/image/fc/06/fca4f3cfb6c277a554c45839717ec106.jpg',
+                banner: 'https://static001.geekbang.org/resource/image/b6/dc/b6054ee4f5c6a70df306edb0159f12dc.jpg',
                 content: 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
             },{
                 id: 1,
@@ -44,7 +44,7 @@ export default [
         children: [
             {
                 title: 'Event Loop1',
-                banner: 'https://static001.geekbang.org/resource/image/b6/dc/b6054ee4f5c6a70df306edb0159f12dc.jpg'
+                banner: 'https://static001.geekbang.org/resource/image/fc/06/fca4f3cfb6c277a554c45839717ec106.jpg'
             }
         ]
     },

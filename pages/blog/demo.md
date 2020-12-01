@@ -93,7 +93,8 @@ Now Brick-Library is fresh! You don't have to repeat many functional components 
     }
 </script>
 
-// 这是在引入的组件相对较少的情况下推荐的方案，在页面内直接引入简单快捷又很便于维护 
+// 这是在引入的组件相对较少的情况下推荐的方案
+// 在页面内直接引入简单快捷又很便于维护 
 ```
 
 <br/>
@@ -108,7 +109,8 @@ Now Brick-Library is fresh! You don't have to repeat many functional components 
             |index.js   <-
         |...
 
-// 在router下的index.js文件批量引入所需的组件，这样又省力，又便于您可能会在store里关联进行状态管理   
+// 在router下的index.js文件批量引入所需的组件
+// 这样又省力，又便于您可能会在store里关联进行状态管理   
 // 这一步需要 vue-router 的支持，并需要您在类似的项目结构里手动配置     
 ```
 
@@ -127,7 +129,8 @@ Vue.component('Header', Header);
 Vue.component('Footer', Footer);
 
 
-// 这是在引入的组件相对较多的情况下推荐的方案，在index.js里批量引入，相对来说一劳永逸
+// 这是在引入的组件相对较多的情况下推荐的方案
+// 在index.js里批量引入，相对来说一劳永逸
 ```
 
 <br/>
