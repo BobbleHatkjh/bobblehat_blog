@@ -7,7 +7,8 @@
 
         <!-- 左上角logo -->
         <div class="blog_logo">
-          <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>
+          <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png"
+               alt=""/>
         </div>
 
         <!-- side router -->
@@ -43,7 +44,8 @@
 
       <!-- header -->
       <div class="blog_header">
-        <i class="iconfont icon-fold" @click="side_show = !side_show" :style="!side_show && 'transform: rotate(180deg)'"/>
+        <i class="iconfont icon-fold" @click="side_show = !side_show"
+           :style="!side_show && 'transform: rotate(180deg)'"/>
         <p>绒球帽的博客</p>
       </div>
 
@@ -65,7 +67,8 @@
           </div>
           <!-- 760 x 366-->
           <Img height="366px" class="blog_banner" :src="open_blog.banner"/>
-          <div style="height: auto;margin-bottom: 70px;font-size: 18px;overflow-x: hidden" v-html="open_blog.content || helo" />
+          <div style="height: auto;margin-bottom: 70px;font-size: 18px;overflow-x: hidden"
+               v-html="open_blog.content || helo"/>
           <div class="blog_comment">
             评论
           </div>
@@ -74,7 +77,7 @@
         <!-- 右导航栏 -->
         <div class="template_signal" style="align-items: flex-end">
           <div class="signal" @click="warnFault">
-            <i class="iconfont icon-comment" style="position: relative;font-weight: bold;left: 1px;top:1px"/>
+            <i class="iconfont icon-comment" style="font-weight: bold; left: 0;top: 1px"/>
           </div>
           <div class="signal" @click="warnFault">
             <i class="iconfont icon-down" style="transform: rotate(-90deg) translateY(1px)"/>
@@ -84,8 +87,8 @@
           </div>
         </div>
 
-<!--        <h2>博客 迁移中...</h2>-->
-<!--        <Button @click="jumpCSDN" :scroll="true" icon="go">去看原博客</Button>-->
+        <!--        <h2>博客 迁移中...</h2>-->
+        <!--        <Button @click="jumpCSDN" :scroll="true" icon="go">去看原博客</Button>-->
       </div>
 
     </div>
@@ -98,12 +101,13 @@
 import Message from "~/components/message/message";
 import route_test from '../assets/js/router.js'
 import helo from './blog/demo.md'
+
 export default {
   components: {
     Img: () => import(/* webpackChunkName: "img_animate" */ '~/components/Img'),
     Button: () => import(/* webpackChunkName: "button_animate" */ '~/components/Button')
   },
-  data(){
+  data() {
     return {
       side_show: true,    // 侧边栏打开状态 true为打开
       side_router: [],    // 侧边栏解析好的router
@@ -121,23 +125,24 @@ export default {
       Message.warn('还在开发中哦')
     },
     /** 页面宽度发生变化时 */
-    onResize(){
+    onResize() {
       window.innerWidth <= 1200 ? (this.side_show = false) : (this.side_show = true)
     },
     /** 点击了博客 => 展示 */
-    selectBlog(val, row, col){
-      if(val.id !== this.open_blog.id){
+    selectBlog(val, row, col) {
+      if (val.id !== this.open_blog.id) {
         this.open_blog = val;
-        this.blog_count = [row, col]
+        this.blog_count = [row, col];
+        this.backTop()
       }
     },
     /** 回到顶部 */
-    backTop(){
+    backTop() {
       // console.log(this.$refs.blog_content.scrollTop)
       this.$refs.blog_content.scrollTop = 0
     },
     /** 解析路由 */
-    routeInit(){
+    routeInit() {
       const router = route_test;
       let pre_route = [0, 0];    // 进入时打开的路由
       let pre_data = [];         // 进入时打开的博客
@@ -147,7 +152,7 @@ export default {
           state: false,
           name: item.name,
           children: item.children.map((child_item, child_index) => {
-            if(this.$route.params.id === child_item.id){
+            if (this.$route.params.id === child_item.id) {
               pre_route = [index, child_index];
               pre_data = child_item
             }
@@ -166,7 +171,7 @@ export default {
       this.blog_count = pre_route;
       this.side_router[pre_route[0]].state = true
     },
-    async ttt(){
+    async ttt() {
       console.log('ttt');
       let a = document.createElement('div')
       a.src = 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
@@ -206,12 +211,14 @@ export default {
   transition: width 0.5s;
   overflow: hidden;
 }
-.blog_side_content{
+
+.blog_side_content {
   height: calc(100% - 70px);
   width: 100%;
   border-right: 1px solid #dddddd;
 }
-.blog_logo{
+
+.blog_logo {
   display: flex;
   align-items: center;
   height: 60px;
@@ -220,18 +227,21 @@ export default {
   /*border-bottom: 1px solid #dddddd;*/
   /*background-color: #10ff20;*/
 }
-.blog_logo img{
+
+.blog_logo img {
   height: 60px;
   margin-left: 26px;
 }
-.side_div{
+
+.side_div {
   height: calc(100% - 75px);
   width: 100%;
   min-width: 100%;
   overflow: auto;
   overflow-x: hidden;
 }
-.side_frame{
+
+.side_frame {
   flex-shrink: 0;
   height: 56px;
   width: 224px;
@@ -240,20 +250,24 @@ export default {
   overflow: hidden;
   transition: height 0.3s, padding-left 0.3s;
 }
-.side_frame_open:first-child{
-  box-shadow:0 6px 6px -6px #cccccc,
+
+.side_frame_open:first-child {
+  box-shadow: 0 6px 6px -6px #cccccc,
   0 -6px 6px -6px white;
 }
-.side_frame_open:last-child{
-  box-shadow:0 6px 6px -6px white,
+
+.side_frame_open:last-child {
+  box-shadow: 0 6px 6px -6px white,
   0 -6px 6px -6px #cccccc;
 }
-.side_frame_open{
+
+.side_frame_open {
   padding-left: 0;
-  box-shadow:0 6px 6px -6px #cccccc,
+  box-shadow: 0 6px 6px -6px #cccccc,
   0 -6px 6px -6px #cccccc;
 }
-.side_frame_title{
+
+.side_frame_title {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -262,21 +276,25 @@ export default {
   /*font-size: 16px;*/
   /*transition: color 0.3s;*/
 }
-.side_frame_title i{
+
+.side_frame_title i {
   color: #ff4c10;
   transition: transform 0.3s;
 }
-.side_frame_title:hover i{
+
+.side_frame_title:hover i {
   color: #ff4c10 !important;
 }
-.side_frame_title:hover{
+
+.side_frame_title:hover {
   cursor: pointer;
   color: #ff4c10;
   font-weight: bolder;
   /*font-size: 18px;*/
   /*background-color: #ff4c10;*/
 }
-.side_button{
+
+.side_button {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -306,16 +324,19 @@ export default {
   /*box-shadow: 0 4px 4px -4px #dadada;*/
   border-bottom: 1px solid #dddddd;
 }
-.blog_header i{
+
+.blog_header i {
   font-size: 22px;
   margin-right: 18px;
   transition: color 0.3s, transform 0.5s;
 }
-.blog_header i:hover{
+
+.blog_header i:hover {
   cursor: pointer;
   color: #ff4c10;
 }
-.blog_header i:active{
+
+.blog_header i:active {
   transform: scale(0.8);
 }
 
@@ -330,7 +351,7 @@ export default {
   overflow: auto;
 }
 
-.template_signal{
+.template_signal {
   position: sticky;
   display: flex;
   flex-direction: column;
@@ -339,7 +360,8 @@ export default {
   height: 100%;
   width: 70px;
 }
-.signal{
+
+.signal {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -351,30 +373,37 @@ export default {
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
   color: #999999;
 }
-.signal:hover{
+
+.signal:hover {
   cursor: pointer;
   background-color: #ff4c10;
   color: white;
 }
-.signal:active{
+
+.signal:active {
   transform: scale(0.8);
 }
-.signal i{
+
+.signal i {
+  position: relative;
   font-size: 22px;
 }
-.blog_template{
+
+.blog_template {
   height: fit-content;
   /*height: auto;*/
   width: 760px;
   margin: 62px 0 0 0;
   color: #424242;
 }
-.blog_title{
+
+.blog_title {
   width: 100%;
   height: auto;
   margin-bottom: 26px;
 }
-.blog_title p{
+
+.blog_title p {
   display: flex;
   align-items: center;
   font-size: 29px;
@@ -383,24 +412,25 @@ export default {
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
-.blog_title span{
+
+.blog_title span {
   color: #7b7b7b;
 }
-.blog_banner{
+
+.blog_banner {
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 32px;
   background-color: #dddddd;
 }
-.blog_comment{
+
+.blog_comment {
   height: 80px;
   width: 100%;
   border: 1px solid #333;
   border-radius: 15px;
   margin-bottom: 70px;
 }
-
-
 
 
 /*设置整个滚动条宽高*/
@@ -412,22 +442,26 @@ export default {
   background: transparent;
 
 }
+
 /*设置滑块*/
 ::-webkit-scrollbar-thumb {
   width: 6px;
-  background-color: rgba(255,76,16,0.9);
+  background-color: rgba(255, 76, 16, 0.9);
   border-radius: 20px;
 }
-::-webkit-scrollbar-thumb:hover{
-  background-color: rgb(255,76,16);
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(255, 76, 16);
   cursor: pointer;
 }
+
 /*设置轨道*/
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255,0);
+  background: rgba(255, 255, 255, 0);
   opacity: 0;
 }
-::-webkit-scrollbar-track:hover{
+
+::-webkit-scrollbar-track:hover {
   opacity: 1;
   /*background-color: white;*/
 }
