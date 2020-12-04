@@ -7,8 +7,7 @@
 
         <!-- 左上角logo -->
         <div class="blog_logo">
-          <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png"
-               alt=""/>
+          <img @click="$router.push('/')" src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>
         </div>
 
         <!-- side router -->
@@ -187,7 +186,7 @@ export default {
       this.side_router[pre_route[0]].state = true
     },
     async ttt() {
-      console.log('ttt');
+      // console.log('ttt');
       let a = document.createElement('div')
       a.src = 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
       a.onload = () => {
@@ -199,7 +198,7 @@ export default {
   mounted() {
     this.onResize();
     this.routeInit();
-    this.ttt();
+    // this.ttt();
     window.addEventListener("resize", this.onResize);
   },
   destroyed() {
@@ -239,13 +238,14 @@ export default {
   height: 60px;
   width: 100%;
   transform: translateY(-30px);
-  /*border-bottom: 1px solid #dddddd;*/
-  /*background-color: #10ff20;*/
 }
 
 .blog_logo img {
   height: 60px;
   margin-left: 26px;
+}
+.blog_logo img:hover{
+  cursor: pointer;
 }
 
 .side_div {
