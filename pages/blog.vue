@@ -29,7 +29,7 @@
                   icon="go white"
                   :style="content.id === open_blog.id && 'color: rgb(255,76,16)'"
                   class="side_button"
-                  @click="selectBlog(content, route_index, content_index)"
+                  @click="content.id !== open_blog.id && $router.push({ query: {id: `${content.id}` }})"
               >
                 {{ content.name }}
               </Button>
@@ -115,7 +115,23 @@ export default {
       blog_count: [],     // 现在打开博客页的下标
     }
   },
+  watch:{
+    query(newVal, oldVal) {
+      for(let i = 0; i < this.side_router.length; i++){
+        for(let blog = 0; blog < this.side_router[i].children.length; blog ++){
+          if(newVal.id === `${this.side_router[i].children[blog].id}`){
+            this.open_blog = this.side_router[i].children[blog];
+            this.blog_count = [i, blog];
+            this.$refs.blog_content.scrollTop = 0
+          }
+        }
+      }
+    }
+  },
   computed: {
+    query() {
+      return this.$route.query
+    },
     helo() {
       return helo
     }
@@ -128,18 +144,16 @@ export default {
     onResize() {
       window.innerWidth <= 1200 ? (this.side_show = false) : (this.side_show = true)
     },
+
     /** 点击了博客 => 展示 */
-    selectBlog(val, row, col) {
+    selectBlog(val) {
       if (val.id !== this.open_blog.id) {
-        this.open_blog = val;
-        this.blog_count = [row, col];
-        this.backTop()
+        this.$router.push({ query: {id: `${val.id}` }})
       }
     },
 
     /** 回到顶部 */
     backTop() {
-      // console.log(this.$refs.blog_content.scrollTop)
       this.$refs.blog_content.scrollTop = 0
     },
 
@@ -148,13 +162,12 @@ export default {
       const router = route_test;
       let pre_route = [0, 0];    // 进入时打开的路由
       let pre_data = [];         // 进入时打开的博客
-      console.log(this.$route.query.id);
       this.side_router = router.map((item, index) => {
         return {
           state: false,
           name: item.name,
           children: item.children.map((child_item, child_index) => {
-            if (this.$route.query.id === `${child_item.id}`) {
+            if (this.query.id === `${child_item.id || 10 * index + child_index}`) {
               pre_route = [index, child_index];
               pre_data = child_item
             }
