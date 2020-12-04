@@ -136,23 +136,25 @@ export default {
         this.backTop()
       }
     },
+
     /** 回到顶部 */
     backTop() {
       // console.log(this.$refs.blog_content.scrollTop)
       this.$refs.blog_content.scrollTop = 0
     },
+
     /** 解析路由 */
     routeInit() {
       const router = route_test;
       let pre_route = [0, 0];    // 进入时打开的路由
       let pre_data = [];         // 进入时打开的博客
-
+      console.log(this.$route.query.id);
       this.side_router = router.map((item, index) => {
         return {
           state: false,
           name: item.name,
           children: item.children.map((child_item, child_index) => {
-            if (this.$route.params.id === child_item.id) {
+            if (this.$route.query.id === `${child_item.id}`) {
               pre_route = [index, child_index];
               pre_data = child_item
             }
