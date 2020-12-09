@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="receive_row" v-for="(row_data, receive_index) in receive_data" :key="receive_index">
-      <div @click="clickBack(single_data)" class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
+      <div @click="clickBack(single_data)" class="receive_frame" v-for="(single_data, row_index) in row_data"
+           :key="row_index">
         <Img height="160px" :src="single_data.banner"/>
         <div class="receive_title">
           <p>{{ single_data.title }}</p>
@@ -21,6 +22,7 @@
 
 <script>
 import Img from "@/components/Img";
+
 export default {
   components: {Img},
   props: {
@@ -36,10 +38,16 @@ export default {
       default: 3
     }
   },
-  data(){
-    return{
+  data() {
+    return {
       receive_data: []
     }
+  },
+  watch: {
+    // data(newVal, oldVal) {
+    //   console.log(newVal);
+    //   // this.initData(newVal)
+    // }
   },
   methods: {
     initData(resource) {
@@ -48,7 +56,7 @@ export default {
     },
 
     /** 点击某一个框的回调 */
-    clickBack(data){
+    clickBack(data) {
       this.$emit('select', data.id)
     }
   },
@@ -81,6 +89,7 @@ export default {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 10px 16px -6px #c6c6c6;
 }
+
 .receive_frame:active {
   transform: scale(0.85);
 }
@@ -90,7 +99,8 @@ export default {
   width: 100%;
   object-fit: cover;
 }
-.receive_title{
+
+.receive_title {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -98,7 +108,8 @@ export default {
   padding: 10px 12px;
   font-size: 18px;
 }
-.receive_title_name{
+
+.receive_title_name {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;

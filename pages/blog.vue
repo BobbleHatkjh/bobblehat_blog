@@ -115,6 +115,9 @@ export default {
     }
   },
   watch:{
+    /**
+     * 点击路由或返回上级的时候触发的
+     * */
     query(newVal, oldVal) {
       for(let i = 0; i < this.side_router.length; i++){
         for(let blog = 0; blog < this.side_router[i].children.length; blog ++){

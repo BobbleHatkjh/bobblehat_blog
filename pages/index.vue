@@ -105,7 +105,7 @@
           >
             <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
             总结了在实习过程参与开发的项目经验，针对中小型企业的官网类网站快速架设，制作了「b-library」功能组件库，
-            库包含如 导航栏，侧边栏，页脚，全球化，主题定制 等常用数据驱动的功能组件，开箱即用，学习成本低
+            库包含如 导航栏，侧边栏，页脚，全球化，主题定制 等常用数据驱动的功能组件，开箱即用，学习成本低，现已在NPM开放下载
           </Context>
 
           <Context
@@ -127,7 +127,7 @@
               :style="{opacity: project_animate[3].opacity, transform: `translateX(${project_animate[3].translate}px) translateY(${-project_animate[3].translate}px`}"
           >
             <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
-            这里是第4个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
+            "Gobang"是线上多人五子棋对战平台 and suggestions for fixes, quick and safe refactorings with one-step
             undo, intelligent code completion, dead code detection, and documentation hints help all
           </Context>
 
@@ -161,7 +161,7 @@
         <div class="about_me" style="margin-top: 0">
           最新博客
         </div>
-        <Receive @select="receiveSelect" :data="receive" :column="3"/>
+        <Receive @select="receiveSelect" :data="receive" :column="receive_column"/>
         <Button @click="jumpRoute('blog')" :scroll="true" icon="go">
           想去看看
         </Button>
@@ -262,7 +262,8 @@ export default {
         'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/gobang.webp',
         'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/tiangong.webp'
       ],
-      receive: []
+      receive: [],
+      receive_column: 3,
     }
   },
   methods: {
@@ -282,7 +283,6 @@ export default {
         const banner_ = this.stickyCalculate(this.$refs.content.scrollTop)
         if (this.project_pic !== banner_) {
           this.project_pic = banner_;
-          // this.$refs.sticky.style.background = `url('${this.banner[banner_]}') no-repeat center center/cover`
         }
       }
     },
@@ -290,6 +290,14 @@ export default {
     /** 页面高度发生变化时 */
     onResize(){
       window.innerHeight >= 650 && (this.full_height = window.innerHeight);
+      // if(window.innerWidth > 1800 && this.receive_column !== 4){
+      //   this.receive_column = 4;
+      //   this.blogInit()
+      // }else if(window.innerWidth <= 1800 && this.receive_column !== 3) {
+      //   this.receive_column = 3;
+      //   this.blogInit()
+      // }
+
     },
 
     /** 滚动时 tag 的各项计算值 */
@@ -400,21 +408,23 @@ export default {
       this.$router.push({name: 'blog', query: { id: `${data}` }})
     },
 
-    /** 博客部分route的初始化 */
-    blogInit(){
+    /** 博客route的初始化 */
+    blogInit() {
       const router = route_test;
       for(let i = 0; i < router.length; i++){
         for(let blog = 0; blog < router[i].children.length; blog ++){
-          if(this.receive.length < 3){
+          if(this.receive.length < this.receive_column){
             this.receive.push(router[i].children[blog])
           } else return
         }
       }
-
     }
+
+
   },
   mounted() {
     this.full_height = window.innerHeight;
+    // this.receive_column = (window.innerWidth > 1800 ? 4 : 3)
     window.addEventListener("scroll", this.onScroll, true);
     window.addEventListener("resize", this.onResize);
   },
