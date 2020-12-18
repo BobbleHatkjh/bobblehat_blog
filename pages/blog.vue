@@ -11,12 +11,11 @@
 
           <div class="blog_info">
             <div class="my_photo">
-              <Img src="https://pic4.zhimg.com/v2-7e4c3f4450b3400a8b386de32c22bb6e_1440w.jpg?source=172ae18b"/>
+              <Img :src="kjh"/>
             </div>
             <div class="my_info">
-              <p>康嘉禾</p>
-              <p>...</p>
-              <p>...</p>
+              <p style="font-size: 19px;color: #35495e">康嘉禾</p>
+              <p style="font-size: 12px;margin-top: 8px">天津工业大学学生，京东云与AI事业部前端实习生，b-library组件库创始人</p>
             </div>
           </div>
 
@@ -112,6 +111,7 @@
 import Message from "~/components/message/message";
 import route_test from '../assets/js/router.js'
 import helo from './blog/demo.md'
+import kjh from '../assets/kjh.png'
 
 export default {
   components: {
@@ -148,6 +148,9 @@ export default {
     },
     helo() {
       return helo
+    },
+    kjh(){
+      return kjh
     }
   },
   methods: {
@@ -236,7 +239,7 @@ export default {
   flex-shrink: 0;
   align-items: center;
   height: 100%;
-  width: 300px;
+  width: 320px;
   transition: width 0.5s;
   overflow: hidden;
 }
@@ -252,7 +255,6 @@ export default {
   /*align-items: center;*/
   height: 200px;
   width: 100%;
-  /*background-color: #40ff32;*/
   /*transform: translateY(-30px);*/
 }
 
@@ -267,20 +269,23 @@ export default {
 }
 
 .blog_info{
+  position: relative;
+  top: 10px;
   display: flex;
-  width: 300px;
+  width: 320px;
   flex-shrink: 0;
 }
 .my_photo{
   height: 110px;
   width: 90px;
-  margin-left: 30px;
+  margin-left: 40px;
   border-radius: 8px;
+  box-shadow: 0 0 10px #dddddd;
   overflow: hidden;
 }
 .my_info{
   height: 110px;
-  padding-left: 12px;
+  padding: 0 14px;
   flex: 1;
 }
 
@@ -296,8 +301,8 @@ export default {
 .side_frame {
   flex-shrink: 0;
   height: 56px;
-  width: 244px;
-  padding-left: 2px;
+  width: 264px;
+  padding-left: 12px;
   margin-left: 28px;
   overflow: hidden;
   transition: height 0.3s, padding-left 0.3s;

@@ -31,7 +31,7 @@ export default [
         children: [
             {
                 id: 10,
-                name: 'Event Loop',
+                name: 'Vue生命周期详解',
                 title: 'Event Loop（事件循环）',
                 time: '2020-10-30',
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
@@ -42,7 +42,7 @@ export default [
                 banner: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg'
             },
             {
-                title: 'URL到显示网页',
+                title: 'Vue3',
                 banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg'
             }
         ]
@@ -107,6 +107,15 @@ export default [
                 title: '网络优化小技巧（前端向）',
                 time: '2020-10-9',
                 banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
+            }
+        ]
+    },
+    {
+        name: 'Webpack相关',
+        children: [
+            {
+                title: 'Event Loop24',
+                banner: 'https://i0.hdslb.com/bfs/activity-plat/static/20201103/b8f2b74d0482aed61472c7065dc1ed56/3qAwQlMt1o.jpg'
             }
         ]
     },

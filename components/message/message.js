@@ -58,13 +58,14 @@ function Message_(content, state, duration) {
 
     message.style.cssText = "" +
         "position: absolute;" +
+        "z-index: 100;" +
         "display: flex;" +
         "align-items: center;" +
         "left: 50%;" +
         "transform: translateX(-50%) translate3d(0, 0, 0);" +
         "color: #333333;" +
         "top: 80px;" +
-        "border-radius:10px;" +
+        "border-radius: 10px;" +
         "background-color: white;" +
         "padding: 15px 24px;" +
         "box-shadow: 0 0 12px #cfcfcf;";
