@@ -8,6 +8,18 @@
         <!-- 左上角logo -->
         <div class="blog_logo">
           <img @click="$router.push('/')" src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>
+
+          <div class="blog_info">
+            <div class="my_photo">
+              <Img src="https://pic4.zhimg.com/v2-7e4c3f4450b3400a8b386de32c22bb6e_1440w.jpg?source=172ae18b"/>
+            </div>
+            <div class="my_info">
+              <p>康嘉禾</p>
+              <p>...</p>
+              <p>...</p>
+            </div>
+          </div>
+
         </div>
 
         <!-- side router -->
@@ -224,7 +236,7 @@ export default {
   flex-shrink: 0;
   align-items: center;
   height: 100%;
-  width: 280px;
+  width: 300px;
   transition: width 0.5s;
   overflow: hidden;
 }
@@ -236,25 +248,47 @@ export default {
 }
 
 .blog_logo {
-  display: flex;
-  align-items: center;
-  height: 60px;
+  /*display: flex;*/
+  /*align-items: center;*/
+  height: 200px;
   width: 100%;
-  transform: translateY(-30px);
+  /*background-color: #40ff32;*/
+  /*transform: translateY(-30px);*/
 }
 
 .blog_logo img {
-  height: 60px;
-  margin-left: 26px;
+  position: relative;
+  top: -30px;
+  height: 56px;
+  margin-left: 5px;
 }
 .blog_logo img:hover{
   cursor: pointer;
 }
 
+.blog_info{
+  display: flex;
+  width: 300px;
+  flex-shrink: 0;
+}
+.my_photo{
+  height: 110px;
+  width: 90px;
+  margin-left: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.my_info{
+  height: 110px;
+  padding-left: 12px;
+  flex: 1;
+}
+
 .side_div {
-  height: calc(100% - 75px);
+  height: calc(100% - 200px);
   width: 100%;
   min-width: 100%;
+  /*background-color: #35495e;*/
   overflow: auto;
   overflow-x: hidden;
 }
@@ -262,27 +296,29 @@ export default {
 .side_frame {
   flex-shrink: 0;
   height: 56px;
-  width: 224px;
-  padding-left: 20px;
+  width: 244px;
+  padding-left: 2px;
   margin-left: 28px;
   overflow: hidden;
   transition: height 0.3s, padding-left 0.3s;
 }
 
-.side_frame_open:first-child {
-  box-shadow: 0 6px 6px -6px #cccccc,
-  0 -6px 6px -6px white;
-}
+/*.side_frame_open:first-child {*/
+/*  box-shadow: 0 6px 6px -6px #cccccc,*/
+/*  0 -6px 6px -6px white;*/
+/*}*/
 
 .side_frame_open:last-child {
-  box-shadow: 0 6px 6px -6px white,
-  0 -6px 6px -6px #cccccc;
+  /*box-shadow: 0 6px 6px -6px white,*/
+  /*0 -6px 6px -6px #cccccc;*/
+  box-shadow: none;
 }
 
 .side_frame_open {
-  padding-left: 0;
-  box-shadow: 0 6px 6px -6px #cccccc,
-  0 -6px 6px -6px #cccccc;
+  /*padding-left: 0;*/
+  /*box-shadow: 0 6px 6px -6px #cccccc,*/
+  /*0 -6px 6px -6px #cccccc;*/
+  box-shadow: 0 6px 6px -6px #cccccc;
 }
 
 .side_frame_title {

@@ -1,20 +1,21 @@
 <template>
   <div>
-    <Nuxt />
+    <Nuxt/>
   </div>
 </template>
 
 <style>
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: PingFang SC, Helvetica Neue, Verdana, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+  /*font-family:*/
+  /*  'Source Sans Pro',*/
+  /*  -apple-system,*/
+  /*  BlinkMacSystemFont,*/
+  /*  'Segoe UI',*/
+  /*  Roboto,*/
+  /*  'Helvetica Neue',*/
+  /*  Arial,*/
+  /*  sans-serif;*/
   font-size: 16px;
   background-color: #999999;
   word-spacing: 1px;
