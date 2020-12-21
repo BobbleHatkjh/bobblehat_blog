@@ -113,7 +113,7 @@
               button="微信搜索"
               icon="go"
               @open="jumpRoute('1_station')"
-              :style="{opacity: project_animate[2].opacity, transform: `translateX(${-project_animate[2].translate}px) translateY(${-project_animate[2].translate}px`}"
+              :style="{opacity: project_animate[2].opacity, transform: `translateY(${project_animate[2].translate}px`}"
           >
             <i>React + taro</i><br/>
             参与开发了「1站团」新零售微信小程序。「1站团」秉着”生活何必东奔西跑”的概念，将人们日常的生活必需品，包含15大品类，上千种商品直达社区，极速送达用户手中，打造社区团购“新生活”
@@ -124,7 +124,7 @@
               button="想去玩玩"
               icon="go"
               @open="jumpRoute"
-              :style="{opacity: project_animate[3].opacity, transform: `translateX(${project_animate[3].translate}px) translateY(${-project_animate[3].translate}px`}"
+              :style="{opacity: project_animate[3].opacity, transform: `translateY(${project_animate[3].translate}px`}"
           >
             <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
             "Gobang"是线上多人五子棋对战平台 and suggestions for fixes, quick and safe refactorings with one-step
@@ -136,7 +136,7 @@
               button="内网Only"
               icon="shut"
               @open="jumpRoute('tg')"
-              :style="{opacity: project_animate[4].opacity, transform: `translateX(${-project_animate[4].translate}px) translateY(${-project_animate[4].translate}px`}"
+              :style="{opacity: project_animate[4].opacity, transform: `translateY(${project_animate[4].translate}px`}"
           >
             <i>React + AntDPro</i><br/>
             这里是第5个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
