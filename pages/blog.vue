@@ -262,7 +262,7 @@ export default {
   position: relative;
   top: -30px;
   height: 56px;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 .blog_logo img:hover{
   cursor: pointer;
@@ -308,11 +308,6 @@ export default {
   transition: height 0.3s, padding-left 0.3s;
 }
 
-/*.side_frame_open:first-child {*/
-/*  box-shadow: 0 6px 6px -6px #cccccc,*/
-/*  0 -6px 6px -6px white;*/
-/*}*/
-
 .side_frame_open:last-child {
   /*box-shadow: 0 6px 6px -6px white,*/
   /*0 -6px 6px -6px #cccccc;*/
@@ -332,8 +327,17 @@ export default {
   align-items: center;
   height: 60px;
   width: 100%;
+  font-weight: bolder;
+  transition: padding-left 0.3s;
   /*font-size: 16px;*/
   /*transition: color 0.3s;*/
+}
+.side_frame_title:hover {
+  cursor: pointer;
+  color: #ff4c10;
+  padding-left: 3px;
+  /*font-size: 18px;*/
+  /*background-color: #ff4c10;*/
 }
 
 .side_frame_title i {
@@ -345,13 +349,6 @@ export default {
   color: #ff4c10 !important;
 }
 
-.side_frame_title:hover {
-  cursor: pointer;
-  color: #ff4c10;
-  font-weight: bolder;
-  /*font-size: 18px;*/
-  /*background-color: #ff4c10;*/
-}
 
 .side_button {
   white-space: nowrap;

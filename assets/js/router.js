@@ -37,12 +37,15 @@ export default [
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             },
             {
-                id: 11,
-                title: 'JS数据存储',
+                title: 'Vue自定义指令',
                 banner: 'https://static001.geekbang.org/resource/image/e1/aa/e16dae3c4f404fd3e8fb2eca9e0b7daa.jpg'
             },
             {
-                title: 'Vue3',
+                title: 'Vue Router详解',
+                banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg'
+            },
+            {
+                title: 'Vue 3',
                 banner: 'https://static001.geekbang.org/resource/image/03/b4/03d4b082f8894a2781567c510970a3b4.jpg'
             }
         ]
@@ -71,6 +74,11 @@ export default [
             {
                 name: 'GC 垃圾回收',
                 title: 'GC 垃圾回收',
+                banner: 'https://static001.geekbang.org/resource/image/fc/06/fca4f3cfb6c277a554c45839717ec106.jpg'
+            },
+            {
+                name: '数据存储',
+                title: '数据存储',
                 banner: 'https://static001.geekbang.org/resource/image/fc/06/fca4f3cfb6c277a554c45839717ec106.jpg'
             },
             {

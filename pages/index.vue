@@ -89,7 +89,7 @@
               button="想去看看"
               icon="go"
               @open="jumpRoute('vtb')"
-              :style="{opacity: project_animate[0].opacity, transform: `translateX(${-project_animate[0].translate}px) translateY(${-project_animate[0].translate}px`}"
+              :style="{opacity: project_animate[0].opacity, transform: `translateY(${project_animate[0].translate}px`}"
           >
             <i>Vue + iView</i> <i class="iconfont icon-github"/><br/>
             推Vtuber的时候结识了一些官组的成员，站长 静谷 发起了该非盈利开源项目，意在收录Vtuber演唱的歌曲，
@@ -101,7 +101,7 @@
               button="想去试试"
               icon="go"
               @open="jumpRoute('npm')"
-              :style="{opacity: project_animate[1].opacity, transform: `translateX(${project_animate[1].translate}px) translateY(${-project_animate[1].translate}px`}"
+              :style="{opacity: project_animate[1].opacity, transform: `translateY(${project_animate[1].translate}px`}"
           >
             <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
             总结了在实习过程参与开发的项目经验，针对中小型企业的官网类网站快速架设，制作了「b-library」功能组件库，
@@ -196,7 +196,7 @@
             <h3>联系到我</h3>
             <p @click="jumpRoute('email')">发邮件给我</p>
             <p>Segmentfault</p>
-            <p>BiliBili 频道</p>
+            <p>bilibili 频道</p>
           </div>
         </div>
         <div class="copy_at">
