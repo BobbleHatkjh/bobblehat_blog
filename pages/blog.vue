@@ -6,8 +6,9 @@
       <div class="blog_side_content">
 
         <!-- 左上角logo -->
-        <div class="blog_logo">
-          <img @click="$router.push('/')" src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>
+        <div class="blog_logo" style="">
+
+<!--          <img @click="$router.push('/')" src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>-->
 
           <div class="blog_info">
             <div class="my_photo">
@@ -56,7 +57,7 @@
       <div class="blog_header">
         <i class="iconfont icon-fold" @click="side_show = !side_show"
            :style="!side_show && 'transform: rotate(180deg)'"/>
-        <p>绒球帽的博客</p>
+<!--        <p>绒球帽的博客</p>-->
       </div>
 
       <!-- 正文 -->
@@ -245,16 +246,23 @@ export default {
 }
 
 .blog_side_content {
-  height: calc(100% - 70px);
+  height: calc(100%);
   width: 100%;
-  border-right: 1px solid #dddddd;
+  /*border-right: 1px solid #dddddd;*/
 }
 
 .blog_logo {
-  /*display: flex;*/
-  /*align-items: center;*/
+  display: flex;
+  align-items: flex-end;
+
   height: 200px;
-  width: 100%;
+  width: 290px;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #dddddd;
+  background: url('https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/forest_animate_g.webp') no-repeat center center/cover;
+  overflow: hidden;
   /*transform: translateY(-30px);*/
 }
 
@@ -270,30 +278,35 @@ export default {
 
 .blog_info{
   position: relative;
-  top: 10px;
   display: flex;
-  width: 320px;
+  align-items: center;
+  flex-direction: column;
+  width: 290px;
   flex-shrink: 0;
 }
 .my_photo{
-  height: 110px;
-  width: 90px;
-  margin-left: 40px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #dddddd;
+  height: 76px;
+  width: 76px;
+  border-radius: 90px;
+  transform: translateY(30px);
+  /*box-shadow: 0 0 10px #dddddd;*/
   overflow: hidden;
 }
 .my_info{
-  height: 110px;
-  padding: 0 14px;
-  flex: 1;
+  /*height: 110px;*/
+  padding: 14px;
+  /*flex: 1;*/
+  background-color: white;
 }
 
 .side_div {
-  height: calc(100% - 200px);
-  width: 100%;
-  min-width: 100%;
-  /*background-color: #35495e;*/
+  height: calc(100% - 265px);
+  width: 290px;
+  min-width: 290px;
+  margin: 20px 0 0 20px;
+  box-shadow: 0 0 10px #dddddd;
+  border-radius: 10px;
+
   overflow: auto;
   overflow-x: hidden;
 }
@@ -301,9 +314,9 @@ export default {
 .side_frame {
   flex-shrink: 0;
   height: 56px;
-  width: 264px;
+  width: 260px;
   padding-left: 12px;
-  margin-left: 28px;
+  margin-left: 10px;
   overflow: hidden;
   transition: height 0.3s, padding-left 0.3s;
 }
@@ -371,14 +384,18 @@ export default {
 }
 
 .blog_header {
+  position: relative;
   display: flex;
   height: 66px;
   align-items: center;
-  width: calc(100% - 60px);
+  width: calc(100% - 20px);
+  /*width: 100%;*/
   font-size: 18px;
   color: #5c5c5c;
+  z-index: 90;
+  /*background-color: #35495e;*/
   /*box-shadow: 0 4px 4px -4px #dadada;*/
-  border-bottom: 1px solid #dddddd;
+  /*border-bottom: 1px solid #dddddd;*/
 }
 
 .blog_header i {
@@ -398,12 +415,15 @@ export default {
 
 
 .blog_content {
+  position: relative;
   display: flex;
   justify-content: center;
   /*background-color: #40ff32;*/
   /*padding: 70px 0;*/
   width: 100%;
   flex: 1;
+  margin-top: -66px;
+  z-index: 10;
   overflow: auto;
 }
 
@@ -450,7 +470,7 @@ export default {
   height: fit-content;
   /*height: auto;*/
   width: 760px;
-  margin: 62px 0 0 0;
+  margin: 90px 0 0 0;
   color: #424242;
 }
 
