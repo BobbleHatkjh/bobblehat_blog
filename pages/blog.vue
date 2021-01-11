@@ -12,7 +12,7 @@
 
           <div class="blog_info">
             <div class="my_photo">
-              <Img :src="kjh"/>
+              <Img :src="kjh" style="border-radius: 100px"/>
             </div>
             <div class="my_info">
               <p style="font-size: 19px;color: #35495e">康嘉禾</p>
@@ -56,7 +56,8 @@
       <!-- header -->
       <div class="blog_header">
         <i class="iconfont icon-fold" @click="side_show = !side_show"
-           :style="!side_show && 'transform: rotate(180deg)'"/>
+           :style="!side_show && 'transform: rotate(180deg);margin-left: 12px'"/>
+        <Button @click="jumpRoute('home')">首页</Button>
 <!--        <p>绒球帽的博客</p>-->
       </div>
 
@@ -155,6 +156,14 @@ export default {
     }
   },
   methods: {
+    jumpRoute(key) {
+      switch (key){
+        case 'home':
+          this.$router.push('/');
+          break;
+      }
+
+    },
     warnFault() {
       Message.warn('还在开发中哦')
     },
@@ -204,15 +213,7 @@ export default {
       this.blog_count = pre_route;
       this.side_router[pre_route[0]].state = true
     },
-    async ttt() {
-      // console.log('ttt');
-      let a = document.createElement('div')
-      a.src = 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
-      a.onload = () => {
-        console.log(a)
-      }
 
-    }
   },
   mounted() {
     this.onResize();
@@ -262,6 +263,8 @@ export default {
   border-radius: 10px;
   box-shadow: 0 0 10px #dddddd;
   background: url('https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/forest_animate_g.webp') no-repeat center center/cover;
+  /*background: url('../assets/dark.jpg') no-repeat center center/cover;*/
+
   overflow: hidden;
   /*transform: translateY(-30px);*/
 }
@@ -285,16 +288,18 @@ export default {
   flex-shrink: 0;
 }
 .my_photo{
-  height: 76px;
-  width: 76px;
+  height: 80px;
+  width: 80px;
+  padding: 5px;
   border-radius: 90px;
-  transform: translateY(30px);
+  transform: translateY(40px);
   /*box-shadow: 0 0 10px #dddddd;*/
   overflow: hidden;
+  background-color: rgba(255,255,255,0.5);
 }
 .my_info{
   /*height: 110px;*/
-  padding: 14px;
+  padding: 10px 14px 12px;
   /*flex: 1;*/
   background-color: white;
 }
@@ -311,6 +316,11 @@ export default {
   overflow-x: hidden;
 }
 
+.side_div::-webkit-scrollbar {
+  width: 4px;
+
+}
+
 .side_frame {
   flex-shrink: 0;
   height: 56px;
@@ -325,6 +335,7 @@ export default {
   /*box-shadow: 0 6px 6px -6px white,*/
   /*0 -6px 6px -6px #cccccc;*/
   box-shadow: none;
+  margin-bottom: 10px;
 }
 
 .side_frame_open {
@@ -370,6 +381,7 @@ export default {
   word-break: break-all;
   justify-content: space-between;
   height: 50px;
+  font-weight: normal;
   /*margin-bottom: 10px !important;*/
 }
 
@@ -387,6 +399,7 @@ export default {
   position: relative;
   display: flex;
   height: 66px;
+  justify-content: space-between;
   align-items: center;
   width: calc(100% - 20px);
   /*width: 100%;*/
@@ -401,7 +414,7 @@ export default {
 .blog_header i {
   font-size: 22px;
   margin-right: 18px;
-  transition: color 0.3s, transform 0.5s;
+  transition: color 0.3s, transform 0.5s, margin-left 0.5s;
 }
 
 .blog_header i:hover {
