@@ -12,7 +12,7 @@
 
           <div class="blog_info">
             <div class="my_photo">
-              <Img :src="kjh" style="border-radius: 100px"/>
+              <Img :src="kjh" style="border-radius: 100px;overflow: hidden"/>
             </div>
             <div class="my_info">
               <p style="font-size: 19px;color: #35495e">康嘉禾</p>
@@ -292,7 +292,7 @@ export default {
   width: 80px;
   padding: 5px;
   border-radius: 90px;
-  transform: translateY(40px);
+  transform: translateY(35px);
   /*box-shadow: 0 0 10px #dddddd;*/
   overflow: hidden;
   background-color: rgba(255,255,255,0.5);
