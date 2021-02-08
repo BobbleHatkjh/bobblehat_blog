@@ -56,15 +56,12 @@ function Message_(content, state, duration) {
 
     message.appendChild(content_)
 
-    message.style.cssText = "" +
-        "position: absolute;" +
-        "z-index: 100;" +
+    message.style.cssText =
         "display: flex;" +
         "align-items: center;" +
-        "left: 50%;" +
-        "transform: translateX(-50%) translate3d(0, 0, 0);" +
+        "flex-shrink: 0;" +
         "color: #333333;" +
-        "top: 80px;" +
+        "margin-top: 22px;" +
         "border-radius: 10px;" +
         "background-color: white;" +
         "padding: 15px 24px;" +
@@ -76,11 +73,11 @@ function Message_(content, state, duration) {
             opacity: 0,
             easing: 'ease',
             filter: 'blur(10px)',
-            transform: 'translateY(-70px) translateX(-50%) scale(0.5,2)'
+            transform: 'translateY(-70px) scale(2,0.5)'
         }, {
             opacity: 1,
             filter: 'blur(0)',
-            transform: 'translateY(0) translateX(-50%) scale(1)'
+            transform: 'translateY(0) scale(1)'
         }
     ];
 
@@ -90,11 +87,11 @@ function Message_(content, state, duration) {
             opacity: 1,
             easing: 'ease',
             filter: 'blur(0)',
-            transform: 'translateY(0) translateX(-50%) scale(1)'
+            transform: 'translateY(0) scale(1)'
         }, {
             opacity: 0,
             filter: 'blur(10px)',
-            transform: 'translateY(-70px) translateX(-50%) scale(0.5,2)'
+            transform: 'translateY(-70px) scale(0.5,2)'
         },
     ];
 
@@ -104,10 +101,15 @@ function Message_(content, state, duration) {
         duration: 220,
     })
 
-    document.body.appendChild(message);
+    document.getElementById("message_rail").appendChild(message);
     setTimeout(() => {
-        document.body.removeChild(message)
+        document.getElementById("message_rail").removeChild(message)
     }, duration)
+
+    // document.body.appendChild(message);
+    // setTimeout(() => {
+    //     document.body.removeChild(message)
+    // }, duration)
 
 }
 

@@ -50,6 +50,7 @@
       </div>
     </div>
 
+
     <!-- 右侧header + 正文内容 -->
     <div class="blog_body">
 
@@ -64,7 +65,7 @@
       <!-- 正文 -->
       <div ref="blog_content" class="blog_content">
 
-        <!-- 左导航栏 -->
+        <!-- 左边栏 -->
         <div class="template_signal" :style="!side_show && 'width: 90px'" style="align-items: flex-start">
           <div class="signal" @click="warnFault">
             <i class="iconfont icon-down" style="transform: rotate(90deg) translateY(1px)"/>
@@ -86,7 +87,7 @@
           </div>
         </div>
 
-        <!-- 右导航栏 -->
+        <!-- 右边栏 -->
         <div class="template_signal" :style="!side_show && 'width: 90px'" style="align-items: flex-end">
           <div class="signal" @click="warnFault">
             <i class="iconfont icon-comment" style="font-weight: bold; left: 0;top: 1px"/>
@@ -113,6 +114,7 @@
 import Message from "~/components/message/message";
 import route_test from '../assets/js/router.js'
 import helo from './blog/demo.md'
+// import helo from 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
 import kjh from '../assets/kjh.png'
 
 export default {
@@ -152,6 +154,8 @@ export default {
       return helo
     },
     kjh(){
+      // var demo = require('https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md');
+      // require('https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md')
       return kjh
     }
   },

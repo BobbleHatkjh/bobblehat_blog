@@ -169,7 +169,10 @@
 
       <!-- ? -->
       <ContentFrame background="white">
-        1111
+        <div class="about_me">
+          我的新鲜事
+        </div>
+
       </ContentFrame>
 
       <!-- 页脚 -->
@@ -212,7 +215,8 @@
 
 <script>
 import Message from "~/components/message/message";
-import route_test from '../assets/js/router.js'
+import route_test from '../assets/js/router.js';
+import mc from '../assets/mc.png'
 export default {
   components: {
     Context: () => import(/* webpackChunkName: "receive" */ '~/components/Context'),
@@ -226,7 +230,7 @@ export default {
       scroll_now: 0,       // 现在滚动到的位置 精确到px
       full_height: 0,      // 页面全高
 
-      project_pic: -1,      // 图片的下标
+      project_pic: -1,     // 图片的下标
 
       tag_opacity: 0,      // *优化* tag的透明度变化
       tag_translate: 0,    // *优化* tag的位置改变
@@ -259,6 +263,7 @@ export default {
         'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/vtbmusic.webp',
         'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/b_library.webp',
         'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/1zhan.webp',
+        // mc,
         'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/gobang.webp',
         'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/tiangong.webp'
       ],
@@ -544,8 +549,8 @@ export default {
 .about_me {
   display: flex;
   align-items: center;
-  /*height: 50px;*/
-  min-height: 50px;
+  flex-shrink: 0;
+  height: 50px;
   font-weight: bolder;
   font-size: 28px;
   margin-top: 80px;

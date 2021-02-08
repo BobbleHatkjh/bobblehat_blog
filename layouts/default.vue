@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div id="message_rail" class="message_rail"/>
     <Nuxt/>
   </div>
 </template>
@@ -25,7 +26,22 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
+.message_rail {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0;
+  background-color: #00bbff;
+  z-index: 100;
+}
+.message_rail:first-child{
+  margin-top: 50px;
+}
 *,
 *::before,
 *::after {

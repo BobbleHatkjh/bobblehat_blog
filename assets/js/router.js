@@ -15,7 +15,7 @@ export default [
                 id: 1,
                 name: 'Virtual Dom',
                 title: 'Virtual Dom（虚拟Dom）',
-                time: '2020-10-9',
+                time: '2020-12-9',
                 banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
             },{
                 id: 2,
@@ -33,7 +33,7 @@ export default [
                 id: 10,
                 name: 'Vue生命周期详解',
                 title: 'Event Loop（事件循环）',
-                time: '2020-10-30',
+                time: '2020-12-30',
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             },
             {
@@ -56,19 +56,19 @@ export default [
             {
                 name: 'JS实现-调用栈',
                 title: 'JS实现原理篇 | 调用栈',
-                time: '2020-10-30',
+                time: '2020-12-30',
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             },
             {
                 name: 'JS实现-作用域',
                 title: 'JS实现原理篇 | 作用域',
-                time: '2020-10-30',
+                time: '2020-12-30',
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             },
             {
                 name: 'JS实现-原型',
                 title: 'JS实现原理篇 | 原型',
-                time: '2020-10-30',
+                time: '2020-12-30',
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             },
             {
@@ -84,36 +84,42 @@ export default [
             {
                 name: 'Event Loop',
                 title: 'Event Loop（事件循环）',
-                time: '2020-10-30',
+                time: '2020-12-30',
                 banner: 'https://static001.geekbang.org/resource/image/f7/c7/f7bfd8fd26cdc15e18ecc8c21d3dafc7.jpg'
             }
         ]
     },
     {
-        name: 'JS上层知识点',
+        name: 'JS上层/浏览器相关',
         children: [
             {
                 name: 'Virtual Dom',
                 title: 'Virtual Dom（虚拟Dom）',
-                time: '2020-10-9',
+                time: '2020-12-9',
                 banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
             },
             {
                 name: 'Js渲染性能优化相关',
                 title: 'Js渲染性能优化相关',
-                time: '2020-10-9',
+                time: '2020-12-9',
                 banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
             },
             {
                 name: '页面被渲染经历的过程',
                 title: '页面被渲染经历的过程',
-                time: '2020-10-9',
+                time: '2020-12-9',
                 banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
             },
             {
                 name: '网络优化小技巧',
                 title: '网络优化小技巧（前端向）',
-                time: '2020-10-9',
+                time: '2020-12-9',
+                banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
+            },
+            {
+                name: '路由 hash/history 模式',
+                title: '路由的 hash 和 history 模式',
+                time: '2020-12-9',
                 banner: 'https://static001.geekbang.org/resource/image/79/ff/794b4ab4c12a872889d3645efd363fff.jpg'
             }
         ]
