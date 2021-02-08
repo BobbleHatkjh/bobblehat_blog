@@ -168,11 +168,11 @@
       </ContentFrame>
 
       <!-- ? -->
-      <ContentFrame background="white">
+      <ContentFrame background="white" extra_css="flex-direction: column; justify-content: flex-start; align-items: center">
         <div class="about_me">
           我的新鲜事
         </div>
-
+        <div>1111111</div>
       </ContentFrame>
 
       <!-- 页脚 -->
