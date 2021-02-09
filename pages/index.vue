@@ -93,7 +93,7 @@
               :key="index"
               :style="{opacity: project_animate[index].opacity, transform: `translateY(${project_animate[index].translate}px`}"
           >
-            <i>{{ project.technology }}</i> <i v-for="(library) in project.library" :class="['iconfont', library]"/><br/>
+            <i>{{ project.technology }}</i> <i v-for="(library, lib_index) in project.library" :key="lib_index" :class="['iconfont', library]"/><br/>
             {{ project.content }}
           </Context>
         </div>
@@ -114,7 +114,7 @@
         <div class="about_me" style="margin-top: 0">
           最新博客
         </div>
-        <Receive @select="receiveSelect" :data="receive" :column="receive_column"/>
+        <Receive v-if="receive_column !== null" @select="receiveSelect" :data="receive" :column="receive_column"/>
         <Button @click="jumpRoute('blog')" :scroll="true" icon="go">
           想去看看
         </Button>
@@ -196,7 +196,7 @@ export default {
       project_data: [],    // 项目介绍的data
 
       receive: [],
-      receive_column: 3,
+      receive_column: null,// 最新博客显示多少个
     }
   },
   methods: {
@@ -209,7 +209,8 @@ export default {
       (this.$refs.content.scrollTop < this.full_height) && this.scrollTag(this.$refs.content.scrollTop);
 
       // *优化* 项目经历的动画,仅在滑动到项目经历时触发
-      if (this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= (this.project_data.length - 0.5) * this.full_height) {
+      if (this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= (this.project_data.length - 0.6) * this.full_height) {
+        (this.receive_column !== 3) && ( this.receive_column = 3 );
         // 左边的动画
         this.scrollProject(this.$refs.content.scrollTop);
         // 切换右边的图片
@@ -223,6 +224,12 @@ export default {
     /** 页面高度发生变化时 */
     onResize() {
       window.innerHeight >= 650 && (this.full_height = window.innerHeight);
+      // const run_column = (window.innerWidth > 1600) ? 4 : 3;
+      // if(this.receive_column !== run_column){
+      //   this.receive_column = run_column;
+      //   this.blogInit(run_column)
+      //   console.log('323233232')
+      // }
     },
 
     /** 滚动时 tag 的各项计算值 */
@@ -331,27 +338,36 @@ export default {
     },
 
     /** 博客route的初始化 */
-    blogInit() {
+    blogInit(column = 3) {
       const router = route_blog;
       for (let i = 0; i < router.length; i++) {
         for (let blog = 0; blog < router[i].children.length; blog++) {
-          if (this.receive.length < this.receive_column) {
+          if (this.receive.length < column) {
             this.receive.push(router[i].children[blog])
-          } else return
+          }
         }
       }
-    }
 
+      // let test = [];
+      // for (let i = 0; i < router.length; i++) {
+      //   for (let blog = 0; blog < router[i].children.length; blog++) {
+      //     if (test.length < column) {
+      //       test.push(router[i].children[blog])
+      //     }
+      //   }
+      // }
+      // console.log('init',test)
+    }
 
   },
   mounted() {
     this.full_height = window.innerHeight;
+    this.blogInit((window.innerWidth > 1700) ? 4 : 3);
     window.addEventListener("scroll", this.onScroll, true);
     window.addEventListener("resize", this.onResize);
   },
   created() {
     this.projectInit();
-    this.blogInit();
     console.log('%c\n┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
         '├┴┐│ │├┴┐├┴┐│  ├┤ ├─┤├─┤ │ \n' +
         '└─┘└─┘└─┘└─┘┴─┘└─┘┴ ┴┴ ┴ ┴ \n个人主页',

@@ -309,20 +309,20 @@ export default {
 }
 
 .side_div {
-  height: calc(100% - 265px);
+  height: auto;
   width: 290px;
+  max-height: calc(100% - 265px);
   min-width: 290px;
   margin: 20px 0 0 20px;
   box-shadow: 0 0 10px #dddddd;
   border-radius: 10px;
-
+  padding-bottom: 10px;
   overflow: auto;
   overflow-x: hidden;
 }
 
 .side_div::-webkit-scrollbar {
   width: 4px;
-
 }
 
 .side_frame {

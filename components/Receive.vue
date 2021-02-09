@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="receive_row" v-for="(row_data, receive_index) in receive_data" :key="receive_index">
-      <div @click="clickBack(single_data)" class="receive_frame" v-for="(single_data, row_index) in row_data"
-           :key="row_index">
+      <div @click="clickBack(single_data)" class="receive_frame" v-for="(single_data, row_index) in row_data" :key="row_index">
         <Img height="160px" :src="single_data.banner"/>
         <div class="receive_title">
           <p>{{ single_data.title }}</p>
@@ -44,10 +43,19 @@ export default {
     }
   },
   watch: {
-    // data(newVal, oldVal) {
-    //   console.log(newVal);
-    //   // this.initData(newVal)
+    // data:{
+    //   handler(newVal){
+    //     console.log('receive',newVal);
+    //     this.receive_data = newVal
+    //   },
+    //   immediate: true,
+    //   deep: true
     // }
+
+    data(newVal, oldVal) {
+      console.log('receive',newVal);
+      // this.initData(this.data)
+    }
   },
   methods: {
     initData(resource) {
