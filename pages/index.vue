@@ -85,70 +85,23 @@
       <ContentFrame background="white" height="auto">
         <div class="scroll_word">
           <Context
-              title="VTB Music"
-              button="想去看看"
-              icon="go"
-              @open="jumpRoute('vtb')"
-              :style="{opacity: project_animate[0].opacity, transform: `translateY(${project_animate[0].translate}px`}"
+              v-for="(project, index) in project_data"
+              :title="project.title"
+              :button="project.button"
+              :icon="project.icon"
+              @open="project.open"
+              :key="index"
+              :style="{opacity: project_animate[index].opacity, transform: `translateY(${project_animate[index].translate}px`}"
           >
-            <i>Vue + iView</i> <i class="iconfont icon-github"/><br/>
-            推Vtuber的时候结识了一些官组的成员，站长 静谷 发起了该非盈利开源项目，意在收录Vtuber演唱的歌曲，
-            团队人数130+，包含翻译，运营，前后端，运维甚至法务，并逐步扩展到统计V的生涯信息以及会社的近况，友站biliOB和Vtbs.moe提供了数据支持
+            <i>{{ project.technology }}</i> <i v-for="(library) in project.library" :class="['iconfont', library]"/><br/>
+            {{ project.content }}
           </Context>
-
-          <Context
-              title="B-Library"
-              button="想去试试"
-              icon="go"
-              @open="jumpRoute('npm')"
-              :style="{opacity: project_animate[1].opacity, transform: `translateY(${project_animate[1].translate}px`}"
-          >
-            <i>Vue</i> <i class="iconfont icon-github"/><i class="iconfont icon-npm"/><br/>
-            总结了在实习过程参与开发的项目经验，针对中小型企业的官网类网站快速架设，制作了「b-library」功能组件库，
-            库包含如 导航栏，侧边栏，页脚，全球化，主题定制 等常用数据驱动的功能组件，开箱即用，学习成本低，现已在NPM开放下载
-          </Context>
-
-          <Context
-              title="1站团"
-              button="微信搜索"
-              icon="go"
-              @open="jumpRoute('1_station')"
-              :style="{opacity: project_animate[2].opacity, transform: `translateY(${project_animate[2].translate}px`}"
-          >
-            <i>React + taro</i><br/>
-            参与开发了「1站团」新零售微信小程序。「1站团」秉着”生活何必东奔西跑”的概念，将人们日常的生活必需品，包含15大品类，上千种商品直达社区，极速送达用户手中，打造社区团购“新生活”
-          </Context>
-
-          <Context
-              title="GoBang"
-              button="想去玩玩"
-              icon="go"
-              @open="jumpRoute"
-              :style="{opacity: project_animate[3].opacity, transform: `translateY(${project_animate[3].translate}px`}"
-          >
-            <i>Vue + b-library</i> <i class="iconfont icon-github"/><br/>
-            "Gobang"是线上多人五子棋对战平台 and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints help all
-          </Context>
-
-          <Context
-              title="校企合作平台"
-              button="内网Only"
-              icon="shut"
-              @open="jumpRoute('tg')"
-              :style="{opacity: project_animate[4].opacity, transform: `translateY(${project_animate[4].translate}px`}"
-          >
-            <i>React + AntDPro</i><br/>
-            这里是第5个例子On-the-fly error detection and suggestions for fixes, quick and safe refactorings with one-step
-            undo, intelligent code completion, dead code detection, and documentation hints help all
-          </Context>
-
         </div>
 
         <!-- sticky 图片-->
         <div class="scroll_frame">
           <div ref="sticky" class="scroll_box">
-            <Img v-if="project_pic !== -1" :src="banner[project_pic]"/>
+            <Img v-if="project_pic !== -1" :src="project_data[project_pic].image"/>
           </div>
         </div>
       </ContentFrame>
@@ -168,7 +121,8 @@
       </ContentFrame>
 
       <!-- ? -->
-      <ContentFrame background="white" extra_css="flex-direction: column; justify-content: flex-start; align-items: center">
+      <ContentFrame background="white"
+                    extra_css="flex-direction: column; justify-content: flex-start; align-items: center">
         <div class="about_me">
           我的新鲜事
         </div>
@@ -180,7 +134,8 @@
                     extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
           <div class="connect_logo">
-            <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_white.png" alt="BobbleHat"/>
+            <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_white.png"
+                 alt="BobbleHat"/>
             <div class="content_icon">
               <i class="iconfont icon-qq"/>
             </div>
@@ -215,8 +170,9 @@
 
 <script>
 import Message from "~/components/message/message";
-import route_test from '../assets/js/router.js';
-import mc from '../assets/mc.png'
+import route_blog from '../assets/js/router.js';
+import route_project from '../assets/js/project.js';
+
 export default {
   components: {
     Context: () => import(/* webpackChunkName: "receive" */ '~/components/Context'),
@@ -236,37 +192,9 @@ export default {
       tag_translate: 0,    // *优化* tag的位置改变
       tag_scale: 1,        // *优化* tag的大小改变
 
-      project_animate: [   // *优化* 项目介绍的改变
-        {
-          opacity: 0,
-          translate: 0,
-        },
-        {
-          opacity: 0,
-          translate: 0,
-        },
-        {
-          opacity: 0,
-          translate: 0,
-        },
-        {
-          opacity: 0,
-          translate: 0,
-        },
-        {
-          opacity: 0,
-          translate: 0,
-        },
-      ],
+      project_animate: [], // *优化* 项目介绍的改变
+      project_data: [],    // 项目介绍的data
 
-      banner: [
-        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/vtbmusic.webp',
-        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/b_library.webp',
-        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/1zhan.webp',
-        // mc,
-        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/gobang.webp',
-        'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/tiangong.webp'
-      ],
       receive: [],
       receive_column: 3,
     }
@@ -281,7 +209,7 @@ export default {
       (this.$refs.content.scrollTop < this.full_height) && this.scrollTag(this.$refs.content.scrollTop);
 
       // *优化* 项目经历的动画,仅在滑动到项目经历时触发
-      if (this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= 4.5 * this.full_height) {
+      if (this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= (this.project_data.length - 0.5) * this.full_height) {
         // 左边的动画
         this.scrollProject(this.$refs.content.scrollTop);
         // 切换右边的图片
@@ -293,16 +221,8 @@ export default {
     },
 
     /** 页面高度发生变化时 */
-    onResize(){
+    onResize() {
       window.innerHeight >= 650 && (this.full_height = window.innerHeight);
-      // if(window.innerWidth > 1800 && this.receive_column !== 4){
-      //   this.receive_column = 4;
-      //   this.blogInit()
-      // }else if(window.innerWidth <= 1800 && this.receive_column !== 3) {
-      //   this.receive_column = 3;
-      //   this.blogInit()
-      // }
-
     },
 
     /** 滚动时 tag 的各项计算值 */
@@ -340,7 +260,7 @@ export default {
     scrollProject(now) {
       // 5是5个项目的模板，可以往上加
       const new_data = []
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < this.project_data.length; i++) {
         const single_data = {
           opacity: this.scrollOpacity(now, i),
           translate: this.scrollTranslate(now, i)
@@ -383,42 +303,39 @@ export default {
     jumpRoute(to) {
       switch (to) {
         case 'blog':
-          this.$router.push({name: 'blog', query: { id: "0" }});
-          break;
-        case 'vtb':
-          window.open('https://vtbmusic.com');
-          break;
-        case 'tg':
-          // Message('肥肠爆芡，仅学校内网可以访问哦');
-          Message.error('肥肠爆芡，仅学校内网可以访问哦');
+          this.$router.push({name: 'blog', query: {id: "0"}});
           break;
         case 'email':
           window.open('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=WDo3Ojo0PTA5LBgpKXY7NzU')
-          break;
-        case '1_station':
-          window.open('https://www.1ztuan.com/')
-          break;
-        case 'npm':
-          window.open('https://www.npmjs.com/package/b-library')
           break;
         default:
           Message.open('前面的区域，以后再来探索吧');
           break;
       }
-
     },
 
     /** 点击了博客框 */
-    receiveSelect(data){
-      this.$router.push({name: 'blog', query: { id: `${data}` }})
+    receiveSelect(data) {
+      this.$router.push({name: 'blog', query: {id: `${data}`}})
+    },
+
+    /** 项目经历的初始化 */
+    projectInit() {
+      this.project_data = route_project;
+      for (let i = 0; i < route_project.length; i++) {
+        this.project_animate.push({
+          opacity: 0,
+          translate: 0,
+        })
+      }
     },
 
     /** 博客route的初始化 */
     blogInit() {
-      const router = route_test;
-      for(let i = 0; i < router.length; i++){
-        for(let blog = 0; blog < router[i].children.length; blog ++){
-          if(this.receive.length < this.receive_column){
+      const router = route_blog;
+      for (let i = 0; i < router.length; i++) {
+        for (let blog = 0; blog < router[i].children.length; blog++) {
+          if (this.receive.length < this.receive_column) {
             this.receive.push(router[i].children[blog])
           } else return
         }
@@ -429,11 +346,11 @@ export default {
   },
   mounted() {
     this.full_height = window.innerHeight;
-    // this.receive_column = (window.innerWidth > 1800 ? 4 : 3)
     window.addEventListener("scroll", this.onScroll, true);
     window.addEventListener("resize", this.onResize);
   },
   created() {
+    this.projectInit();
     this.blogInit();
     console.log('%c\n┌┐ ┌─┐┌┐ ┌┐ ┬  ┌─┐┬ ┬┌─┐┌┬┐\n' +
         '├┴┐│ │├┴┐├┴┐│  ├┤ ├─┤├─┤ │ \n' +
