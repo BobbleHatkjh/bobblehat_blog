@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="arrow">
-          <i class="iconfont icon-down"/>
+          <i class="iconfont icon-down" @click="jumpRoute"/>
         </div>
       </ContentFrame>
 
@@ -210,7 +210,7 @@ export default {
 
       // *优化* 项目经历的动画,仅在滑动到项目经历时触发
       if (this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= (this.project_data.length - 0.6) * this.full_height) {
-        (this.receive_column !== 3) && ( this.receive_column = 3 );
+        (this.receive_column !== 5) && ( this.receive_column = 5 );
         // 左边的动画
         this.scrollProject(this.$refs.content.scrollTop);
         // 切换右边的图片
