@@ -186,7 +186,7 @@ export default {
       scroll_now: 0,       // 现在滚动到的位置 精确到px
       full_height: 0,      // 页面全高
 
-      project_pic: -1,     // 图片的下标
+      project_pic: 0,      // 图片的下标
 
       tag_opacity: 0,      // *优化* tag的透明度变化
       tag_translate: 0,    // *优化* tag的位置改变
