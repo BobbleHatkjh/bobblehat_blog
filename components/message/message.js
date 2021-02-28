@@ -73,7 +73,7 @@ function Message_(content, state, duration) {
             opacity: 0,
             easing: 'ease',
             filter: 'blur(10px)',
-            transform: 'translateY(-70px) scale(2,0.5)'
+            transform: 'translateY(-70px) scale(0.5,2)'
         }, {
             opacity: 1,
             filter: 'blur(0)',
