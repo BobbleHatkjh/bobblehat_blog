@@ -6,7 +6,7 @@
       <div class="blog_side_content">
 
         <!-- 左上角logo -->
-        <div class="blog_logo" style="">
+        <div class="blog_logo" :style="!side_show && 'width: 0; height: 0'">
 
 <!--          <img @click="$router.push('/')" src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>-->
 
@@ -23,12 +23,13 @@
         </div>
 
         <!-- side router -->
+
         <div class="side_div">
           <div
               class="side_frame"
               v-for="(route, route_index) in side_router"
               :key="route_index"
-              :style="route.state && `height:${ 64 + 50 * route.children.length }px`"
+              :style="[route.state && { height: `${ 64 + 50 * route.children.length }px`}, !side_show && { transform: 'translateX(-100%)' }, {transition: `height 0.3s, padding-left 0.3s, transform 0.5s ${side_show ? route_index * 0.15 : 0}s`}]"
               :class="route.state && 'side_frame_open'"
           >
             <div class="side_frame_title" @click="route.state = !route.state">
@@ -47,6 +48,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
 
@@ -215,7 +218,7 @@ export default {
       });
       this.open_blog = pre_data;
       this.blog_count = pre_route;
-      this.side_router[pre_route[0]].state = true
+      // this.side_router[pre_route[0]].state = true
     },
 
   },
@@ -259,7 +262,7 @@ export default {
 .blog_logo {
   display: flex;
   align-items: flex-end;
-
+  transition: width 0.5s, height 0.5s;
   height: 200px;
   width: 290px;
   margin-left: 20px;
@@ -307,7 +310,10 @@ export default {
   /*flex: 1;*/
   background-color: white;
 }
-
+.side_animate_div{
+  overflow: hidden;
+  transition: width 1s, height 1s;
+}
 .side_div {
   height: auto;
   width: 290px;
@@ -332,7 +338,6 @@ export default {
   padding-left: 12px;
   margin-left: 10px;
   overflow: hidden;
-  transition: height 0.3s, padding-left 0.3s;
 }
 
 .side_frame_open:last-child {
