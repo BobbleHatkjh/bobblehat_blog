@@ -6,7 +6,7 @@
       <div class="blog_side_content">
 
         <!-- 左上角logo -->
-        <div class="blog_logo" :style="!side_show && 'width: 0; height: 0'">
+        <div class="blog_logo" :style="!side_show && 'transform: scale(0) translate(-80%, -80%);'">
 
 <!--          <img @click="$router.push('/')" src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_orange.png" alt=""/>-->
 
@@ -24,7 +24,7 @@
 
         <!-- side router -->
 
-        <div class="side_div">
+        <div class="side_div" :style="!side_show && 'transform: scale(0) translate(-80%,-120%);'">
           <div
               class="side_frame"
               v-for="(route, route_index) in side_router"
@@ -254,6 +254,7 @@ export default {
 }
 
 .blog_side_content {
+  align-items: flex-start;
   height: calc(100%);
   width: 100%;
   /*border-right: 1px solid #dddddd;*/
@@ -262,7 +263,7 @@ export default {
 .blog_logo {
   display: flex;
   align-items: flex-end;
-  transition: width 0.5s, height 0.5s;
+  transition: width 0.5s, height 0.5s, transform .5s;
   height: 200px;
   width: 290px;
   margin-left: 20px;
@@ -321,6 +322,7 @@ export default {
   min-width: 290px;
   margin: 20px 0 0 20px;
   box-shadow: 0 0 10px #dddddd;
+  transition: transform .5s;
   border-radius: 10px;
   padding-bottom: 10px;
   overflow: auto;
