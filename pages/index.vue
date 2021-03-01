@@ -130,22 +130,21 @@
       </ContentFrame>
 
       <!-- 页脚 -->
-      <ContentFrame height="270px"
-                    extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
+      <ContentFrame height="275px" extra_css="flex-direction: column; justify-content: flex-start; align-items: center;">
         <div class="connect">
           <div class="connect_logo">
             <img src="https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog_assets/logo_white.png"
                  alt="BobbleHat"/>
-            <div class="content_icon">
+            <div class="content_icon" @click="jumpRoute">
               <i class="iconfont icon-qq"/>
             </div>
-            <div class="content_icon">
+            <div class="content_icon" @click="jumpRoute">
               <i class="iconfont icon-github"/>
             </div>
-            <div class="content_icon">
+            <div class="content_icon" @click="jumpRoute">
               <i class="iconfont icon-twiter"/>
             </div>
-            <div class="content_icon">
+            <div class="content_icon" @click="jumpRoute">
               <i class="iconfont icon-npm"/>
             </div>
           </div>
@@ -155,6 +154,13 @@
             <p @click="jumpRoute('email')">发邮件给我</p>
             <p>Segmentfault</p>
             <p>bilibili 频道</p>
+          </div>
+
+          <div class="connect_frame">
+            <h3>小伙伴</h3>
+            <p @click="jumpRoute('heimu')">黑木先森</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
           </div>
         </div>
         <div class="copy_at">
@@ -314,6 +320,9 @@ export default {
           break;
         case 'email':
           window.open('http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=WDo3Ojo0PTA5LBgpKXY7NzU')
+          break;
+        case 'heimu':
+          window.open('https://kilins.com');
           break;
         default:
           Message.open('前面的区域，以后再来探索吧');
@@ -550,7 +559,7 @@ export default {
   justify-content: space-between;
   height: 190px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   color: white;
   /*background-color: #3b8070;*/
 }
