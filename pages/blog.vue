@@ -16,14 +16,13 @@
             </div>
             <div class="my_info">
               <p style="font-size: 19px;color: #35495e">康嘉禾</p>
-              <p style="font-size: 12px;margin-top: 8px">天津工业大学学生，京东云与AI事业部前端实习生，b-library组件库创始人</p>
+              <p style="font-size: 12px;margin-top: 8px">天津工业大学学生，京东科技Iot事业部前端实习生，b-library组件库创始人</p>
             </div>
           </div>
 
         </div>
 
         <!-- side router -->
-
         <div class="side_div" :style="!side_show && 'transform: scale(0) translate(-80%,-120%);'">
           <div
               class="side_frame"
