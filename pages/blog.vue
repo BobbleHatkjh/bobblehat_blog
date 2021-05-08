@@ -99,7 +99,21 @@
           </no-ssr>
 
           <div class="blog_comment">
-            评论
+            <div class="blog_comment_content">
+              <label>
+                <textarea maxlength="233" placeholder="写点什么呀～" style="resize: none;width: 100%;height: 100%;outline: none;border: none" />
+              </label>
+            </div>
+            <div class="comment_tool_bar">
+              <div class="tool_bar_imo">
+                <div class="_imo">@</div>
+                <div class="_imo">#</div>
+                <div class="_imo">😊</div>
+              </div>
+              <div class="comment_push">
+                发送
+              </div>
+            </div>
           </div>
         </div>
 
@@ -572,12 +586,16 @@ export default {
   background-color: #f1f1f1;
   transition: color 0.3s, background-color 0.3s, transform 0.3s;
   color: #999999;
+
 }
 
 .signal:hover {
   cursor: pointer;
   background-color: #ff4c10;
   color: white;
+  /*background-color: white;*/
+  /*color: rgba(255,76,16,0.9);*/
+  /*border: 1px solid rgba(255,76,16,0.4);*/
 }
 
 .signal:active {
@@ -622,16 +640,70 @@ export default {
   overflow: hidden;
   margin-bottom: 32px;
   background-color: #dddddd;
-  box-shadow: 0 0 10px #dddddd;
+  /*box-shadow: 0 0 10px #dddddd;*/
 }
 
 .blog_comment {
-  height: 80px;
+  /*height: 80px;*/
   width: 100%;
-  border: 1px solid #333;
-  border-radius: 15px;
+  /*border: 1px solid #333;*/
+  border-radius: 16px;
   margin-bottom: 70px;
+  padding: 10px;
+  box-shadow: 0 0 10px #dddddd;
 }
+.blog_comment_content {
+  border-radius: 10px;
+  height: 100px;
+  padding: 6px;
+  border: 1px solid #999999;
+}
+.comment_tool_bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  height: 32px;
+  /*background-color: #40ff32;*/
+}
+.comment_push{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80px;
+  color: #ff4c10;
+  border-radius: 10px;
+  border: 1px solid #ff4c10;
+  transition: transform 0.3s, color 0.3s, background-color 0.3s;
+
+}
+.comment_push:hover{
+  color: white;
+  cursor: pointer;
+  background-color: #ff4c10;
+}
+.comment_push:active{
+  transform: scale(0.8);
+}
+
+.tool_bar_imo{
+  display: flex;
+}
+._imo{
+  font-size: 22px;
+  margin-right: 8px;
+  transition: transform 0.3s, color 0.3s;
+}
+._imo:hover{
+  cursor: pointer;
+  color: #ff4c10;
+}
+._imo:active{
+  transform: scale(0.8);
+}
+
+
 
 
 /*设置整个滚动条宽高*/
