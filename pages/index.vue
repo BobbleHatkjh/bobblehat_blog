@@ -525,18 +525,21 @@ export default {
   height: 100%;
   flex: 1;
   min-width: 300px;
+  max-width: 400px;
   /*background-color: #3b8070;*/
   padding: 130px 20px;
 }
 
 .scroll_frame {
   flex: 1;
+  display: flex;
+  justify-content: flex-end;
   padding: 100px 15px 100px 0;
 }
 
 .scroll_box {
   position: sticky;
-  top: 140px;
+  top: calc(15vh + 30px);
   height: 70vh;
   width: 105.7vh;
   border-radius: 15px;

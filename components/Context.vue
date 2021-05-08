@@ -74,6 +74,7 @@ export default {
   line-height: 28px;
   color: #606060;
   word-wrap: break-word;
+  word-break: break-all;
 }
 
 .scroll_context > i {

@@ -42,7 +42,7 @@ export default {
   justify-content: center;
   height: 100%;
   min-width: 1200px;
-  width: 80%;
+  width: 75%;
 }
 .content_context > p{
   line-height: 28px;
