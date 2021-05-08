@@ -2,7 +2,6 @@
 .page-leave-active {
     transition: opacity 0.5s;
 }
-
 .page-enter,
 .page-leave-active {
     opacity: 0;
@@ -33,6 +32,11 @@
 
 .icon-help {
     color: #b300ff;
+}
+
+.v-show-content{
+    padding: 0 !important;
+    background-color: white !important;
 }
 
 /*!*设置整个滚动条宽高*!*/

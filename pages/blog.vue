@@ -82,8 +82,22 @@
           </div>
           <!-- 760 x 366-->
           <Img height="366px" class="blog_banner" :src="open_blog.banner"/>
-          <div style="height: auto;margin-bottom: 70px;font-size: 18px;overflow-x: hidden"
-               v-html="open_blog.content || helo"/>
+<!--          <div style="height: auto;margin-bottom: 70px;font-size: 18px;overflow-x: hidden"-->
+<!--               v-html="open_blog.content || helo"/>-->
+
+          <no-ssr>
+            <mavon-editor
+                style="box-shadow: none; padding: 0;margin-bottom: 70px;"
+                :subfield="false"
+                :default-open="'preview'"
+                :toolbars-flag="false"
+                :editable="false"
+                :scroll-style="false"
+                :ishljs="true"
+                v-model="mavon_demo"
+            />
+          </no-ssr>
+
           <div class="blog_comment">
             评论
           </div>
@@ -115,8 +129,6 @@
 <script>
 import Message from "~/components/message/message";
 import route_test from '../assets/js/router.js'
-import helo from './blog/demo.md'
-// import helo from 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
 import kjh from '../assets/kjh.png'
 
 export default {
@@ -130,6 +142,94 @@ export default {
       side_router: [],    // 侧边栏解析好的router
       open_blog: {},      // 现在打开的博客页
       blog_count: [],     // 现在打开博客页的下标
+      mavon_demo: '_\'Brick-Library\' is a Vue component library_<br/>\n' +
+          '\n' +
+          'Do you find it too boring to write repetitive work when writing Vue projects? <br/> Every project has to write headers and footers repeatedly?<br/>\n' +
+          '\n' +
+          '<!--\n' +
+          '\n' +
+          '_\'Library\'makes a whole set of functional class \'Vue\' component libraries based on the common functions of programmers, whether small to \'A\' tags, large to automated\'HeadBar\' with\'router\'and dynamic effects, or templates for the entire page,\'Library\' has everything. We hope \'Brick Library\' will bring some convenience to your work._\n' +
+          '\n' +
+          '<br/>\n' +
+          '\n' +
+          '-->\n' +
+          '\n' +
+          'Now Brick-Library is fresh! You don\'t have to repeat many functional components anymore, we makes a whole set of functional class \'Vue\' component libraries based on the common functional of programmers. you can build your entire customized website in the time of putting together a fingertip building block. Download and Import the components you need in the package, simply add them to your Vue project, and the wonderful content will be presented in a moment.\n' +
+          '\n' +
+          '##  \n' +
+          '\n' +
+          '<br/>\n' +
+          '\n' +
+          '\n' +
+          '\n' +
+          '<!--\n' +
+          '\n' +
+          '>You can visit the following website to give a rough preview of the old version of \'Library\' (some components are different, but the overall idea is the same).<br/>\n' +
+          '><a href="http://123.57.41.38:8080/game_center/#/" target="_blank">Library preview(old)</a>\n' +
+          '\n' +
+          '<br/>\n' +
+          '\n' +
+          '-->\n' +
+          '\n' +
+          '- Components\n' +
+          '    - [x] A\n' +
+          '    - [x] Account module (In testing)\n' +
+          '    - [x] Banner (In testing)\n' +
+          '    - [x] Button\n' +
+          '    - [x] Dot\n' +
+          '    - [x] Footer\n' +
+          '    - [x] HeadBar      \n' +
+          '    - [x] Inclusion\n' +
+          '    - [ ] Login\n' +
+          '    - [ ] Language switch\n' +
+          '    - [x] Notice\n' +
+          '    - [x] PageLabel \n' +
+          '    - [ ] Register\n' +
+          '    - [ ] Router\n' +
+          '    - [x] SideBar\n' +
+          '    - [x] Slot\n' +
+          '    - [x] TabBar\n' +
+          '    - [ ] Tips   \n' +
+          '  \n' +
+          '<br/>\n' +
+          '  \n' +
+          '- Global Function\n' +
+          '    - [x] CSS Overall Control (In testing)\n' +
+          '    - [ ] Parallax Effect \n' +
+          '    - [x] Test Mode (In testing)\n' +
+          '    - [x] Theme Configuration\n' +
+          '    - [ ] iconFont library\n' +
+          '\n' +
+          '<br/>\n\n' +
+          '### introduction of _import_\n' +
+          '\n' +
+          '>Few components - Recommended ways of import \n \n ```\n' +
+          '<template>\n' +
+          '    <div>\n' +
+          ' \n' +
+          '        <Notice :noticeData="myData" />\n' +
+          '        \n' +
+          '    </div>\n' +
+          '</template>\n``` \n \n <br/><p align="center">\n' +
+          '    <img width="400" alt="" src="https://raw.githubusercontent.com/BobbleHatkjh/Vue_BuildingBlock/master/pic/100lllogo.png"/>\n' +
+          '</p>\n' +
+          '\n' +
+          '\n' +
+          '\n' +
+          '<p align="center" style="margin-top: 20px">\n' +
+          '    <a href="https://www.npmjs.com/package/b-library" target="_blank"><img src="https://img.shields.io/npm/v/b-library.svg" alt="npm"></a>\n' +
+          '    <img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg" alt="Build Status">\n' +
+          '    <a href="https://github.com/BobbleHatkjh/VUE-Brick/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/npm/l/b-library.svg" alt="License"></a>\n' +
+          '</p> \n' +
+          '\n' +
+          '<br/>\n' +
+          '\n' +
+          '<p align="center">\n' +
+          '    <a href="https://www.npmjs.com/package/b-library" target="_blank"><img width="140" alt="" src="https://raw.githubusercontent.com/BobbleHatkjh/Vue_BuildingBlock/master/pic/npm.png"/></a> &nbsp;\n' +
+          '    <a href="https://github.com/BobbleHatkjh/VUE-Brick" target="_blank"><img width="210" alt="" src="https://raw.githubusercontent.com/BobbleHatkjh/Vue_BuildingBlock/master/pic/githubLogo.png"/></a> \n' +
+          '</p> \n \n ```<div>' +
+          'test' +
+          '</div>```'
     }
   },
   watch:{

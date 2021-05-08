@@ -14,11 +14,8 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/markdownit": "^1.2.10",
     "core-js": "^3.4.8",
-    "markdown-it-attrs": "^3.0.3",
-    "markdown-it-div": "^1.1.0",
+    "mavon-editor": "^2.9.1",
     "nuxt": "^2.14.6"
-  },
-  "devDependencies": {}
+  }
 }
