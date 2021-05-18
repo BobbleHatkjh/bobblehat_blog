@@ -2,6 +2,19 @@
 
 export default [
     {
+        name: '前端头脑风暴',
+        children: [
+            {
+                id: 0,
+                name: '前端servermore',
+                title: '将前端服务拆成多个',
+                time: '2021-5-18',
+                banner: 'https://static001.geekbang.org/resource/image/b6/dc/b6054ee4f5c6a70df306edb0159f12dc.jpg',
+                content: 'https://bobblehat-1259032998.cos.ap-beijing.myqcloud.com/bobblehat_blog/demo.md'
+            },
+        ]
+    },
+    {
         name: 'React相关知识点',
         children: [
             {

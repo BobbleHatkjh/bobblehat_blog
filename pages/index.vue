@@ -35,10 +35,10 @@
       <!-- 自我介绍 -->
       <ContentFrame
           background="white"
-          height="500px"
+
           extra_css="color: #424242;flex-direction: column; justify-content: flex-start; align-items: center;"
       >
-        <div class="about_me">
+        <div class="about_me first_me">
           关于我
         </div>
         <div class="about_frame">
@@ -76,7 +76,7 @@
         <p>GitHub总提交行数 5w+</p>
         <p>偷来的人生信条:</p>
         <p>"要学的东西太多了"</p>
-        <div class="about_me" style="margin-top: 68px">
+        <div class="about_me" style="margin: auto auto -60px auto">
           个人经历
         </div>
       </ContentFrame>
@@ -206,13 +206,12 @@ export default {
     }
   },
   methods: {
-
     /** 在滚动时触发 */
     onScroll() {
       this.scroll_now = this.$refs.content.scrollTop;
 
       // *优化* tag的动画,仅在滑动到介绍时触发
-      (this.$refs.content.scrollTop < this.full_height) && this.scrollTag(this.$refs.content.scrollTop);
+      ((this.$refs.content.scrollTop > this.full_height / 2) && (this.$refs.content.scrollTop < 1.5 * this.full_height)) && this.scrollTag(this.$refs.content.scrollTop);
 
       // *优化* 项目经历的动画,仅在滑动到项目经历时触发
       if (this.$refs.content.scrollTop > this.full_height && this.$refs.content.scrollTop <= (this.project_data.length - 0.6) * this.full_height) {
@@ -230,18 +229,13 @@ export default {
     /** 页面高度发生变化时 */
     onResize() {
       window.innerHeight >= 650 && (this.full_height = window.innerHeight);
-      // const run_column = (window.innerWidth > 1600) ? 4 : 3;
-      // if(this.receive_column !== run_column){
-      //   this.receive_column = run_column;
-      //   this.blogInit(run_column)
-      //   console.log('323233232')
-      // }
     },
 
     /** 滚动时 tag 的各项计算值 */
     scrollTag(now) {
+
       // 透明度
-      const tag_back = (now + 0.04 * this.full_height - 390) / (100 + 0.2 * this.full_height);
+      const tag_back = 1 - (this.full_height - now) / 100;
       if (tag_back <= 0) {
         this.tag_opacity = 0
       } else if (tag_back >= 1) {
@@ -251,21 +245,20 @@ export default {
       }
 
       // 位置
-      const translate_back = (0.16 * this.full_height - now + 530);
-      if (translate_back <= 0) {
+      if ((this.full_height - now) <= 0) {
         this.tag_translate = 0
-      } else if (translate_back > 0.6 * this.full_height) {
-        this.tag_translate = 0.6 * this.full_height
+      } else if ((this.full_height - now) > this.full_height) {
+        this.tag_translate = this.full_height
       } else {
-        this.tag_translate = translate_back
+        this.tag_translate = (this.full_height - now) * 1.4
       }
 
       // 大小
-      const scale_back = (-0.075 * this.full_height - now + 583 + 0.21 * this.full_height) * 0.03;
-      if (scale_back < 1) {
+      const size = (this.full_height - now) / 17
+      if (size < 0) {
         this.tag_scale = 1
       } else {
-        this.tag_scale = scale_back
+        this.tag_scale = size + 1
       }
     },
 
@@ -285,7 +278,7 @@ export default {
 
     /** 透明度 计算 */
     scrollOpacity(now, i) {
-      const call_back = (now - (0.8 + 0.7 * i) * this.full_height - 390) / (100 + 0.2 * this.full_height);
+      const call_back = (now - (1.6 + 0.7 * i) * this.full_height ) / (100 + 0.2 * this.full_height);
       if (call_back <= 0) {
         return 0
       } else if (call_back >= 1) {
@@ -297,7 +290,7 @@ export default {
 
     /** 轨道 计算 */
     scrollTranslate(now, i) {
-      const translate_back = ((1 + 0.7 * i) * this.full_height - now + 530);
+      const translate_back = ((1.9 + 0.7 * i) * this.full_height - now);
       if (translate_back <= 0) {
         return 0
       } else if (translate_back > 0.6 * this.full_height) {
@@ -309,7 +302,8 @@ export default {
 
     /** 中间图片的切换 */
     stickyCalculate(scroll_now_init) {
-      return (((scroll_now_init - 500) / this.full_height - 1.5) / 0.7 + 1) <= 0 ? 0 : Math.floor(((scroll_now_init - 500) / this.full_height - 1.5) / 0.7) + 1
+      const mid__ = ((scroll_now_init) / this.full_height - 2.4) / 0.7;
+      return (mid__ + 1) <= 0 ? 0 : Math.floor(mid__) + 1
     },
 
     /** 跳转 */
@@ -499,6 +493,9 @@ export default {
   margin-bottom: 20px;
   border-bottom: 3px solid #ff4c10;
 }
+.first_me{
+  margin-top: calc(30vh + 30px);
+}
 
 .about_frame {
   display: flex;
@@ -524,7 +521,7 @@ export default {
 .scroll_word {
   height: 100%;
   flex: 1;
-  min-width: 300px;
+  min-width: 340px;
   max-width: 400px;
   /*background-color: #3b8070;*/
   padding: 130px 20px;

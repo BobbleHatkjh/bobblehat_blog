@@ -45,7 +45,7 @@ export default {
   width: 75%;
 }
 .content_context > p{
-  line-height: 28px;
+  line-height: 30px;
 }
 
 @media screen and (max-width: 1400px) {

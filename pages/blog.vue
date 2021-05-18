@@ -16,7 +16,7 @@
             </div>
             <div class="my_info">
               <p style="font-size: 19px;color: #35495e">康嘉禾</p>
-              <p style="font-size: 12px;margin-top: 8px">天津工业大学学生，京东科技Iot事业部前端实习生，b-library组件库创始人，GRIS系统核心研发</p>
+              <p style="font-size: 12px;margin-top: 8px">天津工业大学学生，京东科技Iot事业部前端实习生，b-library组件库创始人，GRIS金融系统核心研发工程师</p>
             </div>
           </div>
 
@@ -656,7 +656,8 @@ export default {
   border-radius: 10px;
   height: 100px;
   padding: 6px;
-  border: 1px solid #999999;
+  box-shadow: 0 0 10px #e8e8e8 inset;
+  /*border: 1px solid #999999;*/
 }
 .comment_tool_bar{
   display: flex;
@@ -692,7 +693,7 @@ export default {
 }
 ._imo{
   font-size: 22px;
-  margin-right: 8px;
+  margin: 6px;
   transition: transform 0.3s, color 0.3s;
 }
 ._imo:hover{
