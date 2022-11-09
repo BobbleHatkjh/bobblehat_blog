@@ -1,7 +1,7 @@
 export default {
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
-        title: '绒球帽',
+        title: '绒球帽技术分享',
         htmlAttrs: {
             lang: 'zh-CN'
         },

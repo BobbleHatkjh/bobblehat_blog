@@ -165,7 +165,7 @@
         </div>
         <div class="copy_at">
           <a>Powered by @ 2020 绒球帽</a>
-          <a>津ICP备2020008428号</a>
+          <a href="https://beian.miit.gov.cn/" style="color: white; text-decoration: none">津ICP备2020008428号</a>
         </div>
       </ContentFrame>
 
