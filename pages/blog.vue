@@ -16,7 +16,7 @@
             </div>
             <div class="my_info">
               <p style="font-size: 19px;color: #35495e">康嘉禾</p>
-              <p style="font-size: 12px;margin-top: 8px">天津工业大学学生，京东科技Iot事业部前端实习生，b-library组件库创始人，GRIS金融系统核心研发工程师</p>
+              <p style="font-size: 12px;margin-top: 8px">天津工业大学学生，Tesla China 前端工程师，曾任京东科技Iot事业部前端工程师，b-library组件库创始人，GRIS金融系统核心研发工程师</p>
             </div>
           </div>
 
